@@ -88,12 +88,14 @@ main h1 {
 
 .selectores {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 1.5rem 3rem;
 }
-.selectores img {
-    width: 70%;    
+.selectores input {
+    width: 7rem;
+    border: .3rem groove white;
 }
+
 .selectores span {
     font-size: 3rem;
     color: #ffffff;
@@ -104,9 +106,10 @@ main h1 {
 
 .inputs-usuario {
     text-align: center;
-
 }
 .inputs-usuario input {
+    border-radius: 1rem;
+    border-style: none;
     align-content: center;
     padding: 1.5rem
 }
