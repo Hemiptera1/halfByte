@@ -83,7 +83,7 @@ main h1 {
     background-image: url(/image/autumn-83761.jpg);
     /* background-color: #5B5980; */
     border-radius: 2rem;
-    height: 60rem;
+    height: 70rem;
 }
 
 .selectores {
@@ -92,7 +92,7 @@ main h1 {
     padding: 1.5rem 3rem;
 }
 .selectores input {
-    width: 7rem;
+    width: 30%;
     border: .3rem groove white;
 }
 
@@ -104,14 +104,18 @@ main h1 {
     padding: .5rem;
 }
 
-.inputs-usuario {
+.barra-search {
     text-align: center;
+    margin: 1.5rem 0;
 }
-.inputs-usuario input {
+.barra-search input {
+    font-size: 2rem;
+    font-family: 'Sriracha', cursive;
+    width: 90%;
     border-radius: 1rem;
     border-style: none;
     align-content: center;
-    padding: 1.5rem
+    padding: 2rem 1.5rem;
 }
 
 .entrada-usuarios {
@@ -136,4 +140,18 @@ div.entrada-usuarios select {
     div.entrada-usuarios select {
         width: 90%;
     }
+    .barra-search {
+        margin-right: 1rem;
+    }
+}
+
+.contenedor-buscar {
+    margin-top: 2rem;
+    text-align: center;
+}
+.boton-buscar {
+    background: none;
+    border: none;
+    width: 90%;
+    margin: auto;
 }
