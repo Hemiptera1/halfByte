@@ -73,10 +73,49 @@ h4 {
 
 /* MAIN */
 
+.log-menu {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+.login {
+    width: 50%;
+    display: flex;
+}
+
+.menu {
+    display: flex;
+    width: 50%;
+}
+
+.menu-p {
+    width: 50%;
+    font-size: 2rem;
+    font-family: 'Sriracha', cursive;
+    padding-left: 0rem;
+}
+
+.parrafo-login {
+    width: 50%;
+    font-family: 'Sriracha', cursive;
+    font-size: 2rem;
+}
+
+.iconos {
+    width: 50%;
+    color: #6d8bdd;
+    font-size: 4rem;
+    text-align: center;
+    padding-top: 1rem;
+}
+
 main h1 {
-    color: hsl(0, 0%, 27%);
+    color: hsl(0, 33%, 10%);
     font-size: 3rem;
     text-align: center;
+    margin: 1rem 0rem 2rem;
 }
 
 .contenedor-buscadores {
@@ -93,7 +132,7 @@ main h1 {
 }
 .selectores input {
     width: 30%;
-    border: .3rem groove white;
+    border: .3rem groove rgb(255, 255, 255);
 }
 
 .selectores span {
@@ -146,12 +185,13 @@ div.entrada-usuarios select {
 }
 
 .contenedor-buscar {
+    margin-right: 1rem;
     margin-top: 2rem;
     text-align: center;
 }
 .boton-buscar {
     background: none;
     border: none;
-    width: 90%;
+    width: 80%;
     margin: auto;
 }
