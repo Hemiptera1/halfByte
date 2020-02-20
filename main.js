@@ -1,11 +1,14 @@
-let toggleMenuEmergente = false;
 
-let toggleMenEme = function() {
+/* MENU EXPANDIBLE */
+
+function visible() {
     let getMenuEmergente = document.querySelector(".menuEmergente");
-
-    if (toogleMenuEmergente === false) {
-        getMenuEmergente.style.visibility = "visible";
-
-        toggleMenuEmergente = true;
-    }
+    getMenuEmergente.style.visibility = "visible";
 }
+
+function invisible() {
+    let getMenuEmergente = document.querySelector(".menuEmergente");
+    getMenuEmergente.style.visibility = "hidden";
+}
+
+/* FIN MENU EXPANDIBLE */
