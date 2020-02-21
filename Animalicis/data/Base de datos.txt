@@ -1,1 +1,14 @@
 Base de datos
+
+Create database "Animalicis"
+
+create table RegistrosUsers(
+	user_id serial primary key not null,
+	user_email varchar (50) not null,
+	user_name varchar (45) not null,
+	user_password varchar (45) not null
+	)
+
+alter table registrosusers
+add constraint UQ_email
+Unique (user_email)
