@@ -365,3 +365,93 @@ div.entrada-usuarios select {
     font-family: "Sriracha";
     margin: 1rem 0 1rem 1.3rem;
 }
+
+/* SIGN UP */
+  .botonesSignUp {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: auto;
+  }
+
+  .SignUpmini {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+}
+.SignUpmini div {
+    font-family: "Sriracha";
+    font-size: 1.6rem;
+    width: 50%;
+    margin: 1.5rem auto;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+.SignUpmini div:last-of-type {
+    margin-top: 0rem;
+}
+.SignUpmini div input {
+    padding: .8rem;
+}
+
+.BotonRegistro {
+    width: 30%;
+    margin: 1.5rem auto 3rem auto;
+    padding: 1rem;
+    font-size: 2rem;
+    background-color: rgb(115, 145, 201);
+    
+}
+
+.links {
+    font-size: medium;
+    margin-right: 2.5em;
+    text-align: center;
+}
+
+/* FOOTER */
+footer {
+ font-size: small;
+ font-family: Arial, Helvetica, sans-serif;
+ text-align: center;
+ margin-top: 3em;
+
+}
+
+/* BARRA DE TAREAS */
+.navbar-dark .navbar-nav .nav-link{
+    color: black;
+    font-size: medium;
+    text-align: center;
+    text-decoration: none;
+    margin-right: 1em;
+  }
+  
+  .navbar-nav{
+    width:100%;
+    text-align: center;
+    
+  }
+
+  .navbar-nav .nav-item{
+    width: 20%;
+    text-align: center;
+    
+  }
+  ul{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: crimson;
+      padding-bottom: 1.5em;
+  }
+
+  li{
+      display: inline;
+  }
+
