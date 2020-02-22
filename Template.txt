@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Sriracha&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="header-site">
+        <div class="logo">
+            <h2>Animalis Amicis</h2>
+        </div>
+        <div class="redes-sociales">
+            <div>
+                <a href="http://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                <a href="http://twitter.com"><i class="fab fa-twitter"></i></a>
+                <a href="http://instagram.com"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div>
+                <a href="http://pinterest.com"><i class="fab fa-pinterest-p"></i></a>
+                <a href="http://youtube.com"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </header>
+
+<main>
+<div class="log-menu">
+            <div class="login">
+                <div class="parrafo-login">
+                    <p>LOGUEATE</p>
+                </div>
+                <div class="iconos"><i class="fas fa-user"></i></div>
+            </div>
+
+            <div class="menu">
+                <div class="menu-p">
+                    <p>OPCIONES</p>
+                </div>
+                <div class="iconos"><i class="fas fa-bars"></i></div>
+            </div>
+        </div>
+
+        <aside class="menuEmergente">
+            <i class="far fa-times-circle"></i>
+            <ul>
+                <li><span>Animalicis</span></li>
+                <li><a href="#">Como funciona</a></li>
+                <li><a href="#">Adoptando un perro</a></li>
+                <li><a href="#">Adoptando un gato</a></li>
+                <li><a href="#">Adoptando otros animales</a></li>
+                <li><a href="#">Nuestro Blog</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </aside>
+</main>
+<!-- Podria quedar bueno poner un footer y ahí los links -->
+</body>
+<script src="main.js"></script>
+</html>
