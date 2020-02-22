@@ -11,70 +11,116 @@
     <link rel="stylesheet" href="C:\Users\Juana\Desktop\bit\CSS\style.css.css">
 
 </head>
-<body>  <!--  Si queres podes poner esto para que cree unos enlases a el Log in y el inicio o recargar el Sign up (=ↀ ω ↀ=)
-  <div id="container">
-          <a href="/">
-              Animalicis
-          </a>
-          |
-          <a href="login">
-              Inicio de sesion
-          </a>
-          |
-          <a href="signup">
-              Registro
-          </a>-->
-    <div class="login">
+<body>
+  <nav class="navbar navbar-dark navbar-expand-lg site-header sticky-top py-1 bg-dark">
+    <div class="barraTareas"> 
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div>
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Animalicis</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=".html">Adopción</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=".html">Animales encontrados</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=".html">Refugios</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=".html">Eventos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href=".html">Registrate</a>
+          </li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+  <main>
+    <div>
+        <section class="signupcontainer">
+        <div >
+          <h3 class="centrarTexto">Completa tus datos para registrarte</h3>
 
-        <div class="tab-content">
-          <div id="signup">
-            <h3 class="centrarTexto">Completa tus datos para registrarte</h3>
+          <div class="centrarTexto">
+            <a href="/" class="links"> Animalicis</a>
+            
+            <a href="login " class="links">Inicia sesion</a>
+          </div>
 
-            <h4 class="centrarTexto">Tambien podes ingresar con:</h4>>
-            <!-- <div class="botonesLogin">
-                <button><img src="/image/iconos/googleLog2-1.png" alt="Icono Google"></button>
-                <button><img src="/image/iconos/facebookLog2-1.png" alt=""></button>
-            </div> -->
-
+          <div id="signup">   
             <div >
-            <form action="/" method="post" class="boxIntermedia">
-
-            <div class="boxLogin">
-              <div class="field-wrap">
+            <form action="/" method="post" class="SignUpmini">
+            
+              <div>
                 <label>
                   Nombre
                 </label>
                 <input type="text" placeholder="Nombre" name="name" required/>
               </div>
-
-              <div class="field-wrap">
+          
+              <div>
                 <label>
                   Apellido
                 </label>
                 <input type="text" placeholder="Apellido" name="surname" required/>
               </div>
-            </div>
 
+            <div>
+              <label>
+                Tipo de usuario
+              </label>
+              <select name="menu">
+                <option value="0">Elege una opción</option>
+                <option value="1">Personal</option>
+                <option value="2">Refugio</option>
+              </select>
+            </div>
+  
             <div class="boxLogin">
               <label>
-                Email
+                Email 
               </label>
               <input type="email" placeholder="Email" name="email" required>
             </div>
-
+            
             <div class="boxLogin">
               <label>
                 Contraseña
               </label>
-              <input type="password" placeholder="Nombre" name="name" required/>
+              <input type="password" placeholder="Contraseña" name="contr" required/>
             </div>
+            
+            <button type="submit" class="BotonRegistro">Registrarse</button>
+            </div>
+          </form>
 
-            <button type="submit" class="button button-block">Registrarse</button>
-            </div>>
-            </form>
-
+          <div>
+          <h4 class="centrarTexto">También podes ingresar con:</h4>
+          <div class="botonesSignUp">
+             <button><img src="/image/iconos/googleLog2-1.png" alt="Icono Google"></button>
+             <button><img src="/image/iconos/facebookLog2-1.png" alt="Icono Facebook"></button>
+         </div> 
           </div>
-
+          </section>
   </div>
+  </main>
+
+  <footer>
+     <div>
+      <a href="http://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+      <a href="http://twitter.com"><i class="fab fa-twitter"></i></a>
+      <a href="http://instagram.com"><i class="fab fa-instagram"></i></a>
+      <a href="http://pinterest.com"><i class="fab fa-pinterest-p"></i></a>
+      <a href="http://youtube.com"><i class="fab fa-youtube"></i></a>
+     </div> 
+     <p> Pagina realizada en el marco del Proyecto B_it de la Camara Uruguaya de Tecnologia e Informacion</p>
+     <p>2020</p>
+    </footer>
 </body>
 </html>
