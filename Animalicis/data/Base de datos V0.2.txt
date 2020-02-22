@@ -5,3 +5,6 @@ create table USERS(
 	name_user varchar (30) not null,
 	password_user varchar (30) not null
 )
+
+Create index email_user to Animalicis (email_user)
+
