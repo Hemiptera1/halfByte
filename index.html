@@ -32,22 +32,22 @@
         <div class="log-menu">
             <div class="login">
                 <div class="parrafo-login">
-                    <p>LOGUEATE</p>
+                    <p onclick="visibleLogin()">LOGUEATE</p>
                 </div>
-                <div class="iconos"><i class="fas fa-user"></i></div>
+                <div class="iconos" onclick="visibleLogin()"><i class="fas fa-user"></i></div>
             </div>
 
             <div class="menu">
                 <div class="menu-p">
-                    <p>OPCIONES</p>
+                    <p onclick="visible()">OPCIONES</p>
                 </div>
                 <div class="iconos" onclick="visible()"><i class="fas fa-bars"></i></div>
             </div>
         </div>
 
-        <div class="login">
-            <i class="far fa-times-circle" onclick="invisible()"></i>
-            <h3 class="centrarTexto">Login</h3>
+        <div class="loginExpandido">
+            <i class="far fa-times-circle contraer" onclick="invisibleLogin()"></i>
+            <h3 class="centrarTexto" style="margin: 2rem 0 3.5rem 0">Login</h3>
             <div class="botonesLogin">
                 <button><img src="/image/iconos/googleLog2-1.png" alt="Icono Google"></button>
                 <button><img src="/image/iconos/facebookLog2-1.png" alt=""></button>
@@ -59,23 +59,27 @@
                         <label for="email">Email</label>
                         <input type="text" id="email">
                     </div>
-                    <div>
+                    <div style="margin-top: 0;">
                         <label for="contraseña">Contraseña</label>
                         <input type="text" id="contraseña">
                     </div>
                     <input type="submit" value="Enviar" class="botonSubmit">
+                    <div class="enlacesLogin">
+                        <a href="/signup.html">Quiero hacerme un usuario!</a>
+                        <a href="">No recuerdo mi contraseña!</a>
+                    </div>
                 </form>
             </div>
         </div>
 
         <aside class="menuEmergente">
-            <i class="far fa-times-circle" onclick="invisible()"></i>
+            <i class="far fa-times-circle contraer" onclick="invisible()"></i>
             <ul>
                 <li><span>Animalicis</span></li>
                 <li><a href="#">Como funciona</a></li>
                 <li><a href="#">Adoptando un perro</a></li>
                 <li><a href="#">Adoptando un gato</a></li>
-                <li><a href="#">Adoptando otros animales</a></li>
+                <li><a href="#">Otros animales</a></li>
                 <li><a href="#">Nuestro Blog</a></li>
                 <li><a href="#">Contacto</a></li>
             </ul>

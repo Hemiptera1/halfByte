@@ -103,10 +103,17 @@ h4 {
     padding-left: 0rem;
 }
 
+.menu-p p:hover {
+    cursor: pointer;
+}
+
 .parrafo-login {
     width: 60%;
     font-family: 'Sriracha', cursive;
     font-size: 2rem;
+}
+.parrafo-login p:hover {
+    cursor: pointer;
 }
 
 .iconos {
@@ -115,25 +122,27 @@ h4 {
     font-size: 3.5rem;
     text-align: center;
     padding-top: 1rem;
+    cursor: pointer;
 }
 
 /* MENU EMERGENTE */
 
 .menuEmergente {
-    visibility: hidden;
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
+    right: 0;
+    width: 0%;
     height: 100%;
-    background-color: rgb(22, 201, 224);
+    background-color: #e7e5e5;
+    transition-duration: 800ms;
+    transition-property: all;
 }
-.menuEmergente i {
+.contraer {
     position: absolute;
     color: rgba(0, 0, 0, 0.829);
-    top: 4.5rem;
-    left: 75%;
-    font-size: 4.5rem;
+    top: 2rem;
+    left: 85%;
+    font-size: 4rem;
 }
 .menuEmergente ul {
     padding: 0 3rem ;
@@ -146,7 +155,6 @@ h4 {
     font-size: 3rem;
 }
 .menuEmergente ul li a {
-    text-shadow: .4rem .4rem 1rem rgba(0, 0, 0, 0.555);
     position: relative;
     font-size: 2.2rem;
     color: rgb(0, 0, 0);
@@ -167,22 +175,18 @@ h4 {
 
 /* LOGIN */
 
-.login {
+.loginExpandido {
     display: block;
     position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
-    left: 0;
+    right: 0;
     background-color: #e7e5e5;
+    transition-duration: 800ms;
+    transition-property: all;
 }
-.login i {
-    position: absolute;
-    color: rgba(0, 0, 0, 0.829);
-    top: 2rem;
-    left: 85%;
-    font-size: 4rem;
-}
+
 .botonesLogin {
     display: flex;
     flex-direction: column;
@@ -218,9 +222,6 @@ h4 {
     flex-direction: column;
     padding: 1rem;
 }
-.boxIntermedia div:last-of-type {
-    margin-top: 0rem;
-}
 .boxIntermedia div input {
     padding: .8rem;
     border-radius: .5rem;
@@ -229,11 +230,15 @@ h4 {
 
 .botonSubmit {
     width: 80%;
-    margin: 1.5rem auto 3rem auto;
+    margin: 1rem auto 1.5rem auto;
     padding: 1rem;
     font-size: 1.6rem;
     background-color: rgb(115, 145, 201);
     border-radius: 1rem;
+}
+
+.enlacesLogin a:first-of-type {
+    margin-bottom: 1rem;
 }
 
 /* FIN LOGIN */
