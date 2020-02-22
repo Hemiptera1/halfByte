@@ -1,3 +1,3 @@
 # halfByte
 
-https://animalisamicis.netlify.com/
+https://animalicis.netlify.com
