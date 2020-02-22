@@ -41,12 +41,35 @@
                 <div class="menu-p">
                     <p>OPCIONES</p>
                 </div>
-                <div class="iconos"><i class="fas fa-bars"></i></div>
+                <div class="iconos" onclick="visible()"><i class="fas fa-bars"></i></div>
+            </div>
+        </div>
+
+        <div class="login">
+            <i class="far fa-times-circle" onclick="invisible()"></i>
+            <h3 class="centrarTexto">Login</h3>
+            <div class="botonesLogin">
+                <button><img src="/image/iconos/googleLog2-1.png" alt="Icono Google"></button>
+                <button><img src="/image/iconos/facebookLog2-1.png" alt=""></button>
+        
+            </div>
+            <div class="boxLogin">
+                <form action="" class="boxIntermedia">
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="text" id="email">
+                    </div>
+                    <div>
+                        <label for="contraseña">Contraseña</label>
+                        <input type="text" id="contraseña">
+                    </div>
+                    <input type="submit" value="Enviar" class="botonSubmit">
+                </form>
             </div>
         </div>
 
         <aside class="menuEmergente">
-            <i class="far fa-times-circle"></i>
+            <i class="far fa-times-circle" onclick="invisible()"></i>
             <ul>
                 <li><span>Animalicis</span></li>
                 <li><a href="#">Como funciona</a></li>
