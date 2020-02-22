@@ -178,7 +178,7 @@ h4 {
 .loginExpandido {
     display: block;
     position: fixed;
-    width: 100%;
+    width: 0%;
     height: 100%;
     top: 0;
     right: 0;
