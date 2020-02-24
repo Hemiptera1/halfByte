@@ -161,10 +161,13 @@ h4 {
 }
 .menuEmergente ul li span {
     font-size: 3rem;
+    font-family: "Inconsolata";
+    font-weight: 700;
 }
 .menuEmergente ul li a {
     position: relative;
-    font-size: 2.2rem;
+    font-size: 2.3rem;
+    font-weight: 500;
     color: rgb(0, 0, 0);
     font-family: 'Sriracha', cursive;
     text-decoration: none;
@@ -173,9 +176,9 @@ h4 {
     position: absolute;
     content: "";
     width: 25rem;
-    height: .2rem;
+    height: .23rem;
     background-color: #000;
-    top: 5.3rem;
+    top: 5.8rem;
     left: 0rem;
 }
 
@@ -276,6 +279,7 @@ main h1 {
 .selectores input {
     width: 30%;
     border: .3rem groove rgb(255, 255, 255);
+    border-radius: 1rem;
 }
 
 .selectores span {
@@ -519,4 +523,10 @@ Fin de selectores */
     border: none;
     background-color: rgba(34, 93, 202, 0.815);
     cursor: pointer;
+}
+
+/* FOOTER */
+
+footer {
+    
 }
