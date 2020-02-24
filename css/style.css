@@ -1,6 +1,6 @@
 html {
     font-size: 62.5%;
-    background-color: #fffafa;
+    background-color: #f7f4f4;
 }
 
 h1 {
@@ -50,6 +50,9 @@ h4 {
 
 .logo {
     flex-basis: 50%;
+}
+.logo a {
+    text-decoration: none;
 }
 
 .redes-sociales {
@@ -133,10 +136,15 @@ h4 {
     right: 0;
     width: 0%;
     height: 100%;
-    background-color: #e7e5e5;
+    background-image: url(/image/fondoMadera.jpg);
+    background-position: -18rem;
     transition-duration: 800ms;
     transition-property: all;
 }
+.menuEmergente i {
+    cursor: pointer;
+}
+
 .contraer {
     position: absolute;
     color: rgba(0, 0, 0, 0.829);
@@ -185,6 +193,9 @@ h4 {
     background-color: #e7e5e5;
     transition-duration: 800ms;
     transition-property: all;
+}
+.loginExpandido i {
+    cursor:pointer;
 }
 
 .botonesLogin {
@@ -440,6 +451,7 @@ footer {
     text-align: center;
     
   }
+  /* Selectores genéricos
   ul{
       list-style-type: none;
       margin: 0;
@@ -454,25 +466,33 @@ footer {
   li{
       display: inline;
   }
+Fin de selectores */
+
 
 /* TIPOS DE CUENTA */
 
 .boxCuenta {
     width: 90%;
-    margin: auto;
-    margin-top: 5rem;
-    background-color: #e4dcdc;
+    margin: 1rem auto 4rem auto;
     border-radius: 1rem;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    border: .6rem solid;
-    border-color: rgba(255, 255, 255, 0);
-    border-top-color: rgb(21, 191, 197);
+    background-color: rgb(228, 118, 118);
+    box-shadow: .6rem .6rem 1rem
+}
+.portadaCuenta img {
+    width: 100%;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
 }
 .boxCuenta h4 {
     font-family: "Inconsolata";
-    margin: 1rem 2rem;
-    text-align: start;
+    margin: 1.5rem 
+}
+.boxCuenta p {
+    padding: 0 2rem;
+    font-family: "Inconsolata";
+    font-weight: 600;
+    font-size: 1.6rem;
+    text-align: center;
 }
 
 .grillaCuenta {
@@ -487,26 +507,16 @@ footer {
     margin-top: 1rem;
 }
 
-
-border-top-color: rgb(45, 172, 177);
-color: rgb(10, 127, 131);
-
-
-.grillaCuenta img {
-    width: 90%;
-}
-.grillaCuenta i {
-    font-size: 4rem;
-    color: rgb(21, 183, 189);
-}
-
 .boxCuenta button {
-    margin: 1.5rem 0;
-    padding: 1.5rem;
+    margin: 1.5rem 0 0 0;
+    padding: 1.8rem;
     width: 100%;
     font-size: 2rem;
     font-family: "Inconsolata";
     font-weight: 700;
-    border-radius: 1rem;
-    background-color: rgb(51, 233, 27);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    border: none;
+    background-color: rgba(34, 93, 202, 0.815);
+    cursor: pointer;
 }
