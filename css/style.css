@@ -278,8 +278,8 @@ main h1 {
 }
 .selectores input {
     width: 30%;
-    border: .3rem groove rgb(255, 255, 255);
     border-radius: 1rem;
+    box-shadow: 0rem .6rem .5rem rgba(0, 0, 0, .50);
 }
 
 .selectores span {
@@ -348,10 +348,10 @@ div.entrada-usuarios select {
 .grillaIntermedia {
     display: grid;
     grid-template-columns: 30% 70%;
-    border: .3rem solid rgb(111, 112, 111);
+    border: .4rem solid #ffffff;
     border-radius: 1.5rem;
-    box-shadow: .5rem .5rem 1.5rem;
-    margin-bottom: 2rem;
+    box-shadow: .5rem .5rem 1rem rgba(0, 0, 0, .50);
+    margin-bottom: 3rem;
 }
 
 .imagen img {
@@ -373,12 +373,15 @@ div.entrada-usuarios select {
     background-color: #fff;
 }
 .grillaInterna > div:nth-child(3n+1) {
-    background-color: #ccc;
+    background-color: #6dbd7e;
 }
 .grillaInterna p {
     font-size: 1.9rem;
     font-family: "Sriracha";
-    margin: 1rem 0 1rem 1.3rem;
+    margin: 1rem;
+}
+.textoGrillaInterna:last-of-type {
+    border-bottom-right-radius: 1rem;
 }
 
 /* SIGN UP */
