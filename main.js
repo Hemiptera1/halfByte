@@ -7,6 +7,12 @@ function visible() {
     getMenuEmergente.style.opacity = "1";
 }
 
+function visibleDesktop() {
+    let getMenuEmergente = document.querySelector(".menuEmergente");
+    getMenuEmergente.style.width = "20%";
+    getMenuEmergente.style.opacity = "1";
+}
+
 function invisible() {
     let getMenuEmergente = document.querySelector(".menuEmergente");
     getMenuEmergente.style.width = "0%";
@@ -21,6 +27,15 @@ function visibleLogin() {
     let getLoginButton = document.querySelector(".loginExpandido");
     getLoginButton.style.width = "100%";
     getLoginButton.style.opacity = "1";
+}
+
+function visibleLoginDesktop() {
+    let getLoginButton = document.querySelector(".loginExpandido");
+    getLoginButton.style.width = "100%";
+    getLoginButton.style.opacity = "1";
+
+    let getLoginFondo = document.querySelector(".loginFondoExterior");
+    getLoginButton.style.display = "contents";
 }
 
 function invisibleLogin() {
