@@ -35,28 +35,28 @@ def processLogin():
                   missing.append(field)
        if missing:
               return "Warning: Some fields are missing"
-"""
+
 @app.route('/processSignup', methods=['GET', 'POST'])
 def processSignup():
        _full_name= request.form['name'] + request.form['surname']
        _email= request.form['email']
        _password= request.form['password']
 
-       conexion = psycopg2.connect("dbname= user= password=")
+       conexion = psycopg2.connect("host=animalicis.crl39vc3ngno.us-east-2.rds.amazonaws.com, database=Animalicis, user=postgres, password=Perros2012")
        cur = conexion.cursor()
-       cur.execute( "SELECT email FROM user WHERE email= _email" )
+       cur.execute( "SELECT email FROM users WHERE email_user= _email" )
        if cur.fetchall() is None:
-          cur.execute( "INSERT INTO user (nickname, email, password) VALUES('_full_name', '_email', '_password')" )
-          return "El usuario fue creado satisfactoria mente"
-      else:
+          cur.execute( "INSERT INTO user (name_user, email_user, password_user) VALUES('_full_name', '_email', '_password')" )
+          return "El usuario fue creado satisfactoriamente"
+       else:
           return "El usuario ya esta registrado"
-      conexion.close()
+       conexion.close()
 
 #def insert_user():
 #    conexion = psycopg2.connect("dbname= user= password=")
 #    cur = conexion.cursor()
 #    cur.execute( "INSERT INTO user ('nickname','email','password') VALUES('')" )
 #    cur.fetchall()
-"""
+
 if __name__ == '__main__':
     app.run(debug=True)
