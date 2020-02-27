@@ -11,6 +11,8 @@ import psycopg2
 from flask import Flask, request
 app = Flask(__name__)
 
+
+
 @app.route('/', methods=['GET'])
 def index():
     return app.send_static_file('index.html')
@@ -42,14 +44,23 @@ def processSignup():
        _email= request.form['email']
        _password= request.form['password']
 
-       conexion = psycopg2.connect("host=animalicis.crl39vc3ngno.us-east-2.rds.amazonaws.com, database=Animalicis, user=postgres, password=Perros2012")
+       sql_search= "SELECT email_user FROM users WHERE email_user ="+ "'" + _email + "'"
+       sql_insert= "INSERT INTO users (name_user, email_user, password_user) VALUES(%s,%s,%s)"
+
+       datos= (str(_full_name), str(_email), str(_password))
+
+       conexion = psycopg2.connect(host="animalicis.crl39vc3ngno.us-east-2.rds.amazonaws.com", database="animalicis", user="postgres", password="Perros2012")
        cur = conexion.cursor()
-       cur.execute( "SELECT email FROM users WHERE email_user= _email" )
-       if cur.fetchall() is None:
-          cur.execute( "INSERT INTO user (name_user, email_user, password_user) VALUES('_full_name', '_email', '_password')" )
-          return "El usuario fue creado satisfactoriamente"
+       cur.execute(sql_search)
+       row = cur.fetchone()
+       if row is None:
+          cur.execute(sql_insert, datos)
+          cur.execute( "SELECT * FROM users")
+          row = cur.fetchone()
+          return "El usuario fue creado satisfactoriamente" + str(row)
        else:
-          return "El usuario ya esta registrado"
+
+          return row
        conexion.close()
 
 #def insert_user():
