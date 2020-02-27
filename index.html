@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/all.css">
     <link href="https://fonts.googleapis.com/css?family=Sriracha&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -96,58 +97,67 @@
 
         <h1>Adopta un compañero</h1>
         
-        <div class="contenedor-buscadores">
-            <div>
-                <form action="" class="selectores">
-                    <input type="image" name="" id="" src="/image/botonPerro.png">
-                    <input type="image" name="" id="" src="/image/botonGato.png">
-                </form>
-            </div>
-            <form action="">
-                <div class="barra-search">
-                    <input type="search" id="localizacion" placeholder="Busque por ciudad o barrio">
-                </div>
-                <div class="entrada-usuarios">
-                    <select name="" id="edad">
-                        <option selected>Franja Etaria</option>
-                        <option value="Cachorro">Cachorro</option>
-                        <option value="Joven">Joven</option>
-                        <option value="Adulto">Adulto</option>
-                        <option value="Mayor">Mayor</option>
-                    </select>
-                    <select name="" id="raza">
-                        <option value="" id="raza" selected>Raza / Credo</option>
-                        <option value="Labrador-Re">Labrador Retriever</option>
-                        <option value="Pastor-Alemán">Pastor Alemán</option>
-                        <option value="Golden-Re">Golden Retriever</option>
-                        <option value="Bulldog-Francés">Bulldog Francés</option>
-                        <option value="Bulldog">Bulldog</option>
-                        <option value="Beagle">Beagle</option>
-                        <option value="Poodle">Poodle</option>
-                        <option value="Rooweiler">Rooweiler</option>
-                        <option value="Yorkshire-Terrier">Yorkshire Terrier</option>
-                        <option value="Braco-Alemán">Braco Alemán</option>
-                        <option value="Cruza">Cruza</option>
-                        <option value="Otros">Otros</option>
-                    </select>
-                </div>
-                <div class="entrada-usuarios">
-                    <select name="" id="sexo">
-                        <option value="" id="sexo" selected>Optá por un género</option>
-                        <option value="Macho">Macho</option>
-                        <option value="Hembra">Hembra</option>
-                    </select>
-                    <select name="" id="salud">
-                        <option value="" id="salud" selected>Vacunas y salud</option>
-                        <option value="Al-Día">Vacunado y desparasitado</option>
-                        <option value="Incompleto">Incompleto</option>
-                    </select>
-                </div>
-                <div class="contenedor-buscar">
-                    <input type="image" src="/image/botonBuscar.png" class="boton-buscar">
-                </div>
-            </form>
-        </div> <!-- Fin Contenedor Buscadores -->
+        <div class="contenedorSuperior">
+                <div class="contenedor-buscadores">
+                    <div class="contenedorInterno">
+                        <div>
+                            <div class="selectores">
+                                <button class="botones">Perros</button>
+                                <button class="botones">Gatos</button>
+                                <button class="botones">Otros</button>
+                                <button class="botones">Refugios</button>
+                            </div>
+                        </div>
+                        <form action="">
+                            <div class="barra-search">
+                                <input type="search" id="localizacion" placeholder="Busque por ciudad o barrio">
+                            </div>
+                            <div class="entrada-usuarios">
+                                <select name="" id="edad">
+                                    <option selected>Franja Etaria</option>
+                                    <option value="Cachorro">Cachorro</option>
+                                    <option value="Joven">Joven</option>
+                                    <option value="Adulto">Adulto</option>
+                                    <option value="Mayor">Mayor</option>
+                                </select>
+                                <select name="" id="raza">
+                                    <option value="" id="raza" selected>Raza / Credo</option>
+                                    <option value="Labrador-Re">Labrador Retriever</option>
+                                    <option value="Pastor-Alemán">Pastor Alemán</option>
+                                    <option value="Golden-Re">Golden Retriever</option>
+                                    <option value="Bulldog-Francés">Bulldog Francés</option>
+                                    <option value="Bulldog">Bulldog</option>
+                                    <option value="Beagle">Beagle</option>
+                                    <option value="Poodle">Poodle</option>
+                                    <option value="Rooweiler">Rooweiler</option>
+                                    <option value="Yorkshire-Terrier">Yorkshire Terrier</option>
+                                    <option value="Braco-Alemán">Braco Alemán</option>
+                                    <option value="Cruza">Cruza</option>
+                                    <option value="Otros">Otros</option>
+                                </select>
+                            </div>
+                            <div class="entrada-usuarios">
+                                <select name="" id="sexo">
+                                    <option value="" id="sexo" selected>Optá por un género</option>
+                                    <option value="Macho">Macho</option>
+                                    <option value="Hembra">Hembra</option>
+                                </select>
+                                <select name="" id="salud">
+                                    <option value="" id="salud" selected>Vacunas y salud</option>
+                                    <option value="Al-Día">Vacunado y desparasitado</option>
+                                    <option value="Incompleto">Incompleto</option>
+                                </select>
+                            </div>
+                            <div class="contenedor-buscar">
+                                <button class="botonBuscar">Encontrar!</button>
+                            </div>
+                        </form>
+                    </div> <!-- FIN CONTENEDOR INTERNO -->
+                    <div class="imagenBuscador">
+                        <img src="/image/perroDesktop.png" alt="">
+                    </div>
+                </div> <!-- Fin Contenedor Buscadores -->
+        </div>
 
         <h4 class="centrarTexto" style="margin-bottom: 1.5rem">Mascotas en adopción</h4>
 
