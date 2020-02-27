@@ -27,14 +27,17 @@ h4 {
     margin: auto;
 }
 
+textarea {
+    resize: none;
+}
+
 /* SIGN UP */
   
   .signupcontainer {
     background-color: white;
-    background-image: url("C:\Users\Juana\Desktop\bit\autumn-83761.jpg");
     background-size: cover;
-    margin-right:8em;
-    margin-left: 8em;
+    margin-right:9em;
+    margin-left: 9em;
   }
   
   .botonesSignUp button {
@@ -98,6 +101,11 @@ h4 {
     padding-top: 1rem;
 }
 
+.multiplechoice {
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+
 /* FOOTER */
 footer {
  font-size: small;
@@ -108,15 +116,20 @@ footer {
 }
 
 /* BARRA DE TAREAS */
-.navbar-dark .navbar-nav .nav-link{
+ .nav-link{
     color: black;
+    font-weight: bold;
     font-size: medium;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
     text-decoration: none;
-    margin-right: 1em;
+    margin-right: 4em;
   }
-  
+
+  .nav-link:hover{
+    color: wheat;
+  }
+
   .navbar-nav{
     width:100%;
     text-align: center;
@@ -126,20 +139,22 @@ footer {
   .navbar-nav .nav-item{
     width: 20%;
     text-align: center;
-    
-  }
-  ul{
+    }
+
+  .navul{
       list-style-type: none;
       margin: 0;
       padding: 0;
       position: fixed;
       top: 0;
       width: 100%;
-      background-color: crimson;
-      padding-bottom: 1.5em;
+      background-color: rgba(220, 20, 60, 0.877);
+      padding-bottom: 1em;
+      padding-top: 1em;
   }
 
   li{
       display: inline;
   }
+
 
