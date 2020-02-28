@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="headerRight">
-            <div class="iconos" onclick="visibleLoginDesktop()">
+            <div class="iconos" onclick="visibleLogin()">
                 <i class="fas fa-user"></i>
             </div>
             <div class="iconos" onclick="visibleDesktop()">
@@ -37,13 +37,40 @@
         </div>
     </header> <!-- FIN DEL HEADER -->
 
+    <div class="loginExpandido">
+            <i class="far fa-times-circle contraer" onclick="invisibleLogin()"></i>
+            <h3 class="centrarTexto" style="margin: 2rem 0 3.5rem 0">Login</h3>
+            <div class="botonesLogin">
+                <button><img src="/image/iconos/googleLog2-1.png" alt="Icono Google"></button>
+                <button><img src="/image/iconos/facebookLog2-1.png" alt=""></button>       
+            </div>
+            <div class="boxLogin">
+                <form action="" class="boxIntermedia">
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="text" id="email">
+                    </div>
+                    <div style="margin-top: 0;">
+                        <label for="contraseña">Contraseña</label>
+                        <input type="text" id="contraseña">
+                    </div>
+                    <input type="submit" value="Enviar" class="botonSubmit">
+                    <div class="enlacesLogin">
+                        <a href="/cuentas.html">Quiero hacerme un usuario!</a>
+                        <a href="">No recuerdo mi contraseña!</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> <!-- FIN LOGIN EXPANDIDO -->
+
     <main>
         <div class="log-menu">
             <div class="login">
                 <div class="parrafo-login">
-                    <p onclick="visibleLogin()">LOGUEATE</p>
+                    <p onclick="visibleLogin2()">LOGUEATE</p>
                 </div>
-                <div class="iconos" onclick="visibleLogin()"><i class="fas fa-user"></i></div>
+                <div class="iconos" onclick="visibleLogin2()"><i class="fas fa-user"></i></div>
             </div>
 
             <div class="menu">
@@ -53,34 +80,6 @@
                 <div class="iconos" onclick="visible()"><i class="fas fa-bars"></i></div>
             </div>
         </div>
-
-        
-            <div class="loginExpandido">
-                <i class="far fa-times-circle contraer" onclick="invisibleLogin()"></i>
-                <h3 class="centrarTexto" style="margin: 2rem 0 3.5rem 0">Login</h3>
-                <div class="botonesLogin">
-                    <button><img src="/image/iconos/googleLog2-1.png" alt="Icono Google"></button>
-                    <button><img src="/image/iconos/facebookLog2-1.png" alt=""></button>       
-                </div>
-                <div class="boxLogin">
-                    <form action="" class="boxIntermedia">
-                        <div>
-                            <label for="email">Email</label>
-                            <input type="text" id="email">
-                        </div>
-                        <div style="margin-top: 0;">
-                            <label for="contraseña">Contraseña</label>
-                            <input type="text" id="contraseña">
-                        </div>
-                        <input type="submit" value="Enviar" class="botonSubmit">
-                        <div class="enlacesLogin">
-                            <a href="/cuentas.html">Quiero hacerme un usuario!</a>
-                            <a href="">No recuerdo mi contraseña!</a>
-                        </div>
-                    </form>
-                </div>
-            </div> <!-- FIN LOGIN EXPANDIDO -->
-        
 
         <aside class="menuEmergente">
             <i class="far fa-times-circle contraer" onclick="invisible()"></i>
