@@ -1,0 +1,11 @@
+create table Animals(
+	Id_Animal serial primary key,
+	Department_Animal varchar(50) not null,
+	City_Animal varchar(50),
+	Neighborhood_Animal varchar(50),
+	Name_Animal varchar(50),
+	Age_Animal int2,
+	Breed_Animal varchar(60) not null,
+	Gender_Animal varchar (50)  not null,
+	Health_Animal varchar (50)  not null
+	)
