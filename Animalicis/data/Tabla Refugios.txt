@@ -1,0 +1,11 @@
+Create table Refuges(
+	id_refuge serial primary key,
+	email_refuge varchar(60) not null,
+	name_refuge varchar(60) not null,
+	password_refuge varchar(50) not null,
+	department_refuge varchar(50),
+	city_refuge varchar(50),
+	neighborhood_refuge varchar(50),
+	phone_refuge int,
+	cellphone_refuge int
+	)
