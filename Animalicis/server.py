@@ -50,17 +50,17 @@ def processSignup():
        datos= (str(_full_name), str(_email), str(_password))
 
        conexion = psycopg2.connect(host="animalicis.crl39vc3ngno.us-east-2.rds.amazonaws.com", database="animalicis", user="postgres", password="Perros2012")
-       cur = conexion.cursor()
+       cur= conexion.cursor()
        cur.execute(sql_search)
-       row = cur.fetchone()
+       row= cur.fetchone()
        if row is None:
           cur.execute(sql_insert, datos)
           cur.execute( "SELECT * FROM users")
           row = cur.fetchone()
-          return "El usuario fue creado satisfactoriamente" + str(row)
+          return "El usuario fue creado satisfactoriamente" + row
        else:
 
-          return row
+          return app.send_static_file('index.html')
        conexion.close()
 
 #def insert_user():

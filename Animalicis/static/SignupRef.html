@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Adoptantes</title>
+    <title>Sign Up Refugios</title>
     <link rel="stylesheet" href="C:\Users\Juana\Desktop\bit\CSS\normalize.css.css">
     <link rel="stylesheet" href="C:\Users\Juana\Desktop\bit\CSS\all.css">
     <link href="https://fonts.googleapis.com/css?family=Sriracha&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="C:\Users\Juana\Desktop\bit\CSS\styleJuana.css">
+    <script src="C:\Users\Juana\Desktop\bit\jsJuana.js"></script>
 </head>
 <body>
   <nav class="navbar navbar-dark navbar-expand-lg site-header sticky-top py-1 bg-dark">
@@ -44,51 +45,84 @@
     <div>
         <section class="signupcontainer">
         <div >
-          <h3 class="centrarTexto">Completa tus datos para registrarte</h3>
-          
+          <h3 class="centrarTexto">Completa tus datos para registrar tu refugio</h3>
+
           <div id="signup">   
             <div >
             <form action="/" method="post" class="SignUpmini">
             
               <div>
                 <label>
-                  Nombre
+                  Nombre del refugio
                 </label>
-                <input type="text" placeholder="Nombre" name="name" autofocus required/>
+                <input type="text" placeholder="Nombre del refugio" name="nameRef" autofocus required/>
               </div>
           
               <div>
                 <label>
-                  Apellido
+                  Dirección 
                 </label>
-                <input type="text" placeholder="Apellido" name="surname" required/>
+                <input type="text" placeholder="Dirección" name="direccion" required/>
               </div>
 
             <div>
               <label>
+                Elegi los animales aceptados en el refugio
+              </label>
+              <ul>
+              <p>
+              <input type="radio" name="perros" value="perros" class="multiplechoice">Perros <br>
+              <input type="radio" name="gatos" value="gatos" class="multiplechoice">Gatos <br>
+
+              <input type="radio" name="caballos" value="caballos" class="multiplechoice">Caballos <br>
+              <input type="radio" name="otros" value="otros" class="multiplechoice" id="mostrar">Otros <br>
+              </p>
+            </ul>
+            </div>
+             
+            <div id="otrosA">
+              <label>
+                Otros animales aceptados en el refugio:
+              </label>
+              <input type="text" placeholder="Especifica que otros animales son aceptados" name="otrosAceptados" />
+            </div>
+
+            <div>
+                <label>
+                  Realiza una pequeña descripción del refugio
+                </label>
+                <textarea name="descripcion" rows="3" cols="30" maxlength="3000" placeholder="Contanos que te llevó a crear el refugio y como funciona" required></textarea>
+            </div>
+                
+              <div>
+              <label>Subi fotos de tu refugio:</label>
+              <input type="file" id="img" name="img" accept="image/*" class="inputfile" data-multiple-caption="{count} files selected" multiple />
+              </div>
+
+             <div>
+                <label>
+                  Sitio Web
+                </label>
+                <input type="url" name="url" placeholder="Comparti tu sitio web" size="40"/>
+              </div>
+  
+            <div>
+              <label>
                 Email 
               </label>
-              <input type="email" placeholder="Email" name="email" required>
+              <input type="email" placeholder="Email" name="emailRef" required>
             </div>
             
             <div>
               <label>
                 Contraseña
               </label>
-              <input type="password" placeholder="Contraseña" name="contr" minlength="8" required/>
+              <input type="password" placeholder="Contraseña" name="contrRef" minlength="8" required/>
             </div>
             
             <button type="submit" class="BotonRegistro">Registrarse</button>
             </div>
           </form>
-
-          <div>
-          <h4 class="centrarTexto">También podes ingresar con:</h4>
-          <div class="botonesSignUp">
-             <button><img src="C:\Users\Juana\Desktop\bit\image\iconos\googleLog" alt="Icono Google">Ingresa con Google</button>
-             <button><img src="C:\Users\Juana\Desktop\bit\image\iconos\facebookIcon" alt="Icono Facebook">Ingresa con Facebook</button>
-         </div> 
-          </div>
           </section>
   </div>
   </main>

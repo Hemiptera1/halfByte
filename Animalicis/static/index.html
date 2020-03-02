@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/all.css">
     <link href="https://fonts.googleapis.com/css?family=Sriracha&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <header class="header-site">
         <div class="logo">
-            <h2>Animalis Amicis</h2>
+            <a href="/index.html"><h2>Animalis Amicis</h2></a>
         </div>
         <div class="redes-sociales">
             <div>
@@ -26,32 +27,22 @@
                 <a href="http://youtube.com"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
-    </header>
-
-    <main>
-        <div class="log-menu">
-            <div class="login">
-                <div class="parrafo-login">
-                    <p>LOGUEATE</p>
-                </div>
-                <div class="iconos"><i class="fas fa-user"></i></div>
+        <div class="headerRight">
+            <div class="iconos" onclick="visibleLogin()">
+                <i class="fas fa-user"></i>
             </div>
-
-            <div class="menu">
-                <div class="menu-p">
-                    <p>OPCIONES</p>
-                </div>
-                <div class="iconos" onclick="visible()"><i class="fas fa-bars"></i></div>
+            <div class="iconos" onclick="visibleDesktop()">
+                <i class="fas fa-bars"></i>
             </div>
         </div>
+    </header> <!-- FIN DEL HEADER -->
 
-        <div class="login">
-            <i class="far fa-times-circle" onclick="invisible()"></i>
-            <h3 class="centrarTexto">Login</h3>
+    <div class="loginExpandido">
+            <i class="far fa-times-circle contraer" onclick="invisibleLogin()"></i>
+            <h3 class="centrarTexto" style="margin: 2rem 0 3.5rem 0">Login</h3>
             <div class="botonesLogin">
                 <button><img src="/image/iconos/googleLog2-1.png" alt="Icono Google"></button>
-                <button><img src="/image/iconos/facebookLog2-1.png" alt=""></button>
-        
+                <button><img src="/image/iconos/facebookLog2-1.png" alt=""></button>       
             </div>
             <div class="boxLogin">
                 <form action="" class="boxIntermedia">
@@ -59,23 +50,45 @@
                         <label for="email">Email</label>
                         <input type="text" id="email">
                     </div>
-                    <div>
+                    <div style="margin-top: 0;">
                         <label for="contraseña">Contraseña</label>
                         <input type="text" id="contraseña">
                     </div>
                     <input type="submit" value="Enviar" class="botonSubmit">
+                    <div class="enlacesLogin">
+                        <a href="/cuentas.html">Quiero hacerme un usuario!</a>
+                        <a href="">No recuerdo mi contraseña!</a>
+                    </div>
                 </form>
+            </div>
+        </div>
+    </div> <!-- FIN LOGIN EXPANDIDO -->
+
+    <main>
+        <div class="log-menu">
+            <div class="login">
+                <div class="parrafo-login">
+                    <p onclick="visibleLogin2()">LOGUEATE</p>
+                </div>
+                <div class="iconos" onclick="visibleLogin2()"><i class="fas fa-user"></i></div>
+            </div>
+
+            <div class="menu">
+                <div class="menu-p">
+                    <p onclick="visible()">OPCIONES</p>
+                </div>
+                <div class="iconos" onclick="visible()"><i class="fas fa-bars"></i></div>
             </div>
         </div>
 
         <aside class="menuEmergente">
-            <i class="far fa-times-circle" onclick="invisible()"></i>
+            <i class="far fa-times-circle contraer" onclick="invisible()"></i>
             <ul>
                 <li><span>Animalicis</span></li>
                 <li><a href="#">Como funciona</a></li>
                 <li><a href="#">Adoptando un perro</a></li>
                 <li><a href="#">Adoptando un gato</a></li>
-                <li><a href="#">Adoptando otros animales</a></li>
+                <li><a href="#">Otros animales</a></li>
                 <li><a href="#">Nuestro Blog</a></li>
                 <li><a href="#">Contacto</a></li>
             </ul>
@@ -83,58 +96,67 @@
 
         <h1>Adopta un compañero</h1>
         
-        <div class="contenedor-buscadores">
-            <div>
-                <form action="" class="selectores">
-                    <input type="image" name="" id="" src="/image/iconoPerro.png">
-                    <input type="image" name="" id="" src="/image/iconoGato.png">
-                </form>
-            </div>
-            <form action="">
-                <div class="barra-search">
-                    <input type="search" id="localizacion" placeholder="Busque por ciudad o barrio">
-                </div>
-                <div class="entrada-usuarios">
-                    <select name="" id="edad">
-                        <option selected>Franja Etaria</option>
-                        <option value="Cachorro">Cachorro</option>
-                        <option value="Joven">Joven</option>
-                        <option value="Adulto">Adulto</option>
-                        <option value="Mayor">Mayor</option>
-                    </select>
-                    <select name="" id="raza">
-                        <option value="" id="raza" selected>Raza / Credo</option>
-                        <option value="Labrador-Re">Labrador Retriever</option>
-                        <option value="Pastor-Alemán">Pastor Alemán</option>
-                        <option value="Golden-Re">Golden Retriever</option>
-                        <option value="Bulldog-Francés">Bulldog Francés</option>
-                        <option value="Bulldog">Bulldog</option>
-                        <option value="Beagle">Beagle</option>
-                        <option value="Poodle">Poodle</option>
-                        <option value="Rooweiler">Rooweiler</option>
-                        <option value="Yorkshire-Terrier">Yorkshire Terrier</option>
-                        <option value="Braco-Alemán">Braco Alemán</option>
-                        <option value="Cruza">Cruza</option>
-                        <option value="Otros">Otros</option>
-                    </select>
-                </div>
-                <div class="entrada-usuarios">
-                    <select name="" id="sexo">
-                        <option value="" id="sexo" selected>Optá por un género</option>
-                        <option value="Macho">Macho</option>
-                        <option value="Hembra">Hembra</option>
-                    </select>
-                    <select name="" id="salud">
-                        <option value="" id="salud" selected>Vacunas y salud</option>
-                        <option value="Al-Día">Vacunado y desparasitado</option>
-                        <option value="Incompleto">Incompleto</option>
-                    </select>
-                </div>
-                <div class="contenedor-buscar">
-                    <input type="image" src="/image/botonBuscar.png" class="boton-buscar">
-                </div>
-            </form>
-        </div> <!-- Fin Contenedor Buscadores -->
+        <div class="contenedorSuperior">
+                <div class="contenedor-buscadores">
+                    <div class="contenedorInterno">
+                        <div>
+                            <div class="selectores">
+                                <button class="botones">Perros</button>
+                                <button class="botones">Gatos</button>
+                                <button class="botones">Otros</button>
+                                <button class="botones">Refugios</button>
+                            </div>
+                        </div>
+                        <form action="">
+                            <div class="barra-search">
+                                <input type="search" id="localizacion" placeholder="Busque por ciudad o barrio">
+                            </div>
+                            <div class="entrada-usuarios">
+                                <select name="" id="edad">
+                                    <option selected>Franja Etaria</option>
+                                    <option value="Cachorro">Cachorro</option>
+                                    <option value="Joven">Joven</option>
+                                    <option value="Adulto">Adulto</option>
+                                    <option value="Mayor">Mayor</option>
+                                </select>
+                                <select name="" id="raza">
+                                    <option value="" id="raza" selected>Raza / Credo</option>
+                                    <option value="Labrador-Re">Labrador Retriever</option>
+                                    <option value="Pastor-Alemán">Pastor Alemán</option>
+                                    <option value="Golden-Re">Golden Retriever</option>
+                                    <option value="Bulldog-Francés">Bulldog Francés</option>
+                                    <option value="Bulldog">Bulldog</option>
+                                    <option value="Beagle">Beagle</option>
+                                    <option value="Poodle">Poodle</option>
+                                    <option value="Rooweiler">Rooweiler</option>
+                                    <option value="Yorkshire-Terrier">Yorkshire Terrier</option>
+                                    <option value="Braco-Alemán">Braco Alemán</option>
+                                    <option value="Cruza">Cruza</option>
+                                    <option value="Otros">Otros</option>
+                                </select>
+                            </div>
+                            <div class="entrada-usuarios">
+                                <select name="" id="sexo">
+                                    <option value="" id="sexo" selected>Optá por un género</option>
+                                    <option value="Macho">Macho</option>
+                                    <option value="Hembra">Hembra</option>
+                                </select>
+                                <select name="" id="salud">
+                                    <option value="" id="salud" selected>Vacunas y salud</option>
+                                    <option value="Al-Día">Vacunado y desparasitado</option>
+                                    <option value="Incompleto">Incompleto</option>
+                                </select>
+                            </div>
+                            <div class="contenedor-buscar">
+                                <button class="botonBuscar">Encontrar!</button>
+                            </div>
+                        </form>
+                    </div> <!-- FIN CONTENEDOR INTERNO -->
+                    <div class="imagenBuscador">
+                        <img src="/image/perroDesktop.png" alt="">
+                    </div>
+                </div> <!-- Fin Contenedor Buscadores -->
+        </div>
 
         <h4 class="centrarTexto" style="margin-bottom: 1.5rem">Mascotas en adopción</h4>
 
@@ -157,7 +179,7 @@
                             <p><span>Género: </span>Macho</p>
                         </div>
                         <div class="textoGrillaInterna">
-                            <p><span>Vacunas: </span>No Gracias</p>
+                            <p><span>Vacunas: </span>Al día</p>
                         </div>
                     </div>
                 </div>
@@ -231,8 +253,57 @@
                 </div>
             </div> <!-- Fin grillaIntermedia -->
 
+            <div class="grillaIntermedia">
+                <div class="imagen">
+                    <img src="/image/placeholderGrilla/perro1.jpg" alt="Imagen Mascota">
+                </div>
+                <div class="descripcionMascota">
+                    <h4 class="centrarTexto">Fatiga</h4>
+                    <div class="grillaInterna">
+                        <div class="textoGrillaInterna">
+                            <p><span>Edad: </span>Cansado</p>
+                        </div>
+                        <div class="textoGrillaInterna">
+                            <p><span>Raza: </span>Perezoso</p>
+                        </div>
+                        <div class="textoGrillaInterna">
+                            <p><span>Género: </span>Macho</p>
+                        </div>
+                        <div class="textoGrillaInterna">
+                            <p><span>Vacunas: </span>Al día</p>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- Fin grillaIntermedia -->
+
+            <div class="grillaIntermedia">
+                <div class="imagen">
+                    <img src="/image/placeholderGrilla/perro1.jpg" alt="Imagen Mascota">
+                </div>
+                <div class="descripcionMascota">
+                    <h4 class="centrarTexto">Fatiga</h4>
+                    <div class="grillaInterna">
+                        <div class="textoGrillaInterna">
+                            <p><span>Edad: </span>Cansado</p>
+                        </div>
+                        <div class="textoGrillaInterna">
+                            <p><span>Raza: </span>Perezoso</p>
+                        </div>
+                        <div class="textoGrillaInterna">
+                            <p><span>Género: </span>Macho</p>
+                        </div>
+                        <div class="textoGrillaInterna">
+                            <p><span>Vacunas: </span>Al día</p>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- Fin grillaIntermedia -->
+
         </div> <!-- Fin grillaExterior -->
     </main>
+
+    <footer>
+    </footer>
 </body>
 <script src="main.js"></script>
 </html>
