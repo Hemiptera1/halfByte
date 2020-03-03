@@ -66,22 +66,80 @@ h4 {
     color: #ffffff;
     padding-right: 2rem;
 }
-@media(min-width: 600px) {
+@media(min-width: 768px) {
     .header-site {
-        background-image: url(/image/barraGatos.png);
+        background-color: rgb(151, 107, 72);
+        background-image: none;
         background-position: 0rem 12.5rem;
         border-radius: 0;
+        height: 5rem;
     }
     .logo {
-        flex-basis: 20%;
+        flex-basis: 17%;
+    }
+    .logo h2 {
+        font-size: 3rem;
     }
     .redes-sociales {
-        flex-direction: row;
-        justify-content: flex-end;
-        flex-basis: 40%
+        display: none;
     }
     .redes-sociales a {
         padding-right: 3rem;
+    }
+}
+
+.botonesHeader {
+    display: none;
+}
+@media(min-width: 768px) {
+    .botonesHeader {
+        display: flex;
+        width: 100rem;
+    }
+    .navMenu {
+        display: flex;
+        width: 100%;
+        margin: 0;
+        justify-content: space-around;
+    }
+    .navMenu li {
+        list-style: none;
+        padding: 1.3rem 1.5rem;
+        cursor: pointer;
+    }
+    .navMenu li a {
+        font-size: 2rem;
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+    }
+    .navMenu li:hover {
+        background-color: rgb(133, 69, 10);
+    }
+    .loginHeaderDesktop {
+        display: flex;
+        font-size: 1.8rem;
+        margin: 1.4rem 0 0 5rem;
+        color: #fff;
+        cursor: pointer;
+    }
+    .loginHeaderDesktop p {
+        margin: 0 1rem;
+    }
+    .subMenu {
+        display: none;
+        position: absolute;
+        padding: 0;
+        z-index: 40;
+    }
+    .subMenu li {
+        background-color: rgb(151, 107, 72);
+        position: relative;
+        top: 1rem;
+        left: -1.5rem;
+        padding: 1.5rem 1.5rem;
+    }
+    .navMenu li:hover .subMenu {
+        display: block;
     }
 }
 
@@ -99,16 +157,6 @@ h4 {
     }
 }
 
-.headerRight {
-    display:none;
-}
-@media(min-width: 900px) {
-    .headerRight {
-        display: flex;
-        justify-content: flex-end;
-        flex-basis: 40%;
-    }
-}
 .login {
     width: 50%;
     display: flex;
