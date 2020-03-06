@@ -157,9 +157,9 @@ h4 {
 @media(min-width: 768px) {
     .grillaTitulos {
         display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 2rem;
-        width: 90%;
+        grid-template-columns: 2.5fr .9fr;
+        gap: 2.5rem;
+        width: 85%;
         margin: 3rem auto;
     }
     .grillaTitulos h2 {
@@ -382,8 +382,9 @@ h4 {
 @media(min-width: 768px) {
     .contenedorSuperior {
         display: grid;
-        grid-template-columns: 2fr 1fr;
-        width: 90%;
+        grid-template-columns: 2.5fr .9fr;
+        column-gap: 2.5rem;
+        width: 85%;
         margin: auto;
     }
     .contenedor-buscadores {
@@ -516,6 +517,91 @@ div.entrada-usuarios select {
         display: none;
     }
 }
+
+/* Fin De Buscadores */
+
+/* Comienzo Entradas de Blog */
+
+.blogEntrada {
+    display: none;
+}
+
+@media(min-width: 768px) {
+    .blogEntrada {
+        display: grid;
+        grid-template-rows: .9fr 2.4fr .6fr;
+        border-radius: 2rem;
+        box-shadow: 1.3rem 1.3rem .5rem 0rem rgba(0, 0, 0, 0.507);
+    }
+}
+
+
+.blogSuperior {
+    background-color: #6dbd7e;
+    border-radius: 2rem 2rem 0 0;
+    text-align: center;
+}
+.blogSuperior h4 {
+    font-family: "Signika";
+    margin: 2.1rem 0;
+}
+.blogSuperior p {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    font-family: "Montserrat";
+}
+
+.blogIntermedio {
+    text-align: center;
+    border-left: .3rem solid #6dbd7e;
+    border-right: .3rem solid #6dbd7e;
+    background-color: rgb(255, 255, 255);
+}
+.blogIntermedio h5 {
+    font-family: "Signika";
+    font-size: 2.5rem;
+    margin: 3rem 0 2.5rem 0;
+}
+.blogIntermedio p {
+    font-size: 1.6rem;
+    font-family: "Montserrat";
+    margin: 1rem 3.5rem;
+}
+
+.blogInferior {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: #6dbd7e;
+    border-radius: 0 0 2rem 2rem;
+}
+
+.blogDatos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    color: #fff;
+}
+
+.blogValor {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.blogEtiqueta {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-top: .5rem;
+    text-transform: uppercase;
+}
+
+.blogSeparador {
+    border-left: .1rem solid rgb(255, 255, 255);
+    border-right: .1rem solid rgb(255, 255, 255);
+}
+
+
 /* Grilla Mascotas */
 
 @media(min-width: 700px) {
