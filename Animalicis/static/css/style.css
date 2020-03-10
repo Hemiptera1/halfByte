@@ -607,7 +607,7 @@ div.entrada-usuarios select {
 @media(min-width: 768px) {
     .blogAside {
         display: grid;
-        grid-template-rows: 46rem;
+        grid-template-rows: 1fr 1fr;
         row-gap: 3rem;
     }
 }
@@ -618,31 +618,26 @@ div.entrada-usuarios select {
     .grillaExterior {
         display: grid;
         grid-template-columns: 2.8fr 1fr;
-        column-gap: 2rem;
+        column-gap: 2.5rem;
         width: 85%;
         margin: 4rem auto;
     }
     .grillaSuperior {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        column-gap: 3rem;
+        column-gap: 2rem;
     }
 }
 
 .grillaIntermedia {
     display: grid;
-    width: 90%;
+    width: 97%;
     margin: auto;
     grid-template-columns: 30% 70%;
     border: .4rem solid #ffffff;
     border-radius: 1.5rem;
     box-shadow: .5rem .5rem 1rem rgba(0, 0, 0, .50);
     margin-bottom: 3rem;
-}
-@media(min-width: 500px) {
-    .grillaIntermedia {
-        width: 39rem;
-    }
 }
 
 .imagen img {
