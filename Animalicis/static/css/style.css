@@ -378,11 +378,13 @@ h4 {
 .contenedor-buscadores {
     background-color: rgb(125, 181, 245);
     border-radius: 2rem;
+    box-shadow: .2rem .3rem .5rem .3rem rgba(0, 0, 0, 0.507);
 }
 @media(min-width: 768px) {
     .contenedorSuperior {
         display: grid;
-        grid-template-columns: 2.5fr .9fr;
+        grid-template-columns: 2.8fr 1fr;
+        grid-template-rows: 45rem;
         column-gap: 2.5rem;
         width: 85%;
         margin: auto;
@@ -529,16 +531,17 @@ div.entrada-usuarios select {
 @media(min-width: 768px) {
     .blogEntrada {
         display: grid;
-        grid-template-rows: .9fr 2.4fr .6fr;
-        border-radius: 2rem;
-        box-shadow: 1.3rem 1.3rem .5rem 0rem rgba(0, 0, 0, 0.507);
+        grid-template-rows: 40% 45% 15%;
+        border-radius: 1rem;
+        box-shadow: .2rem .3rem .5rem .3rem rgba(0, 0, 0, 0.507);
     }
 }
 
 
 .blogSuperior {
-    background-color: #6dbd7e;
-    border-radius: 2rem 2rem 0 0;
+    background-image: url(/Animalicis/static/image/gatoDuda1.png);
+    background-size: cover;
+    border-radius: 1rem 1rem 0 0;
     text-align: center;
 }
 .blogSuperior h4 {
@@ -553,26 +556,25 @@ div.entrada-usuarios select {
 
 .blogIntermedio {
     text-align: center;
-    border-left: .3rem solid #6dbd7e;
-    border-right: .3rem solid #6dbd7e;
     background-color: rgb(255, 255, 255);
+    padding-top: 1rem;
 }
 .blogIntermedio h5 {
     font-family: "Signika";
     font-size: 2.5rem;
-    margin: 3rem 0 2.5rem 0;
+    margin: 1.8rem 0 2.5rem 0;
 }
 .blogIntermedio p {
     font-size: 1.6rem;
     font-family: "Montserrat";
-    margin: 1rem 3.5rem;
+    margin: 1rem 2rem;
 }
 
 .blogInferior {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    background-color: #6dbd7e;
-    border-radius: 0 0 2rem 2rem;
+    background-color: #0842be;
+    border-radius: 0 0 .8rem .8rem;
 }
 
 .blogDatos {
@@ -601,20 +603,22 @@ div.entrada-usuarios select {
     border-right: .1rem solid rgb(255, 255, 255);
 }
 
-
+.blogAside {
+}
 /* Grilla Mascotas */
 
-@media(min-width: 700px) {
+@media(min-width: 768px) {
     .grillaExterior {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 2.8fr 1fr;
         column-gap: 2rem;
+        width: 85%;
+        margin: 4rem auto;
     }
-}
-@media(min-width: 1100px) {
-    .grillaExterior {
-        display:grid;
-        grid-template-columns: 1fr 1fr 1fr;
+    .grillaSuperior {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 3rem;
     }
 }
 
@@ -630,7 +634,7 @@ div.entrada-usuarios select {
 }
 @media(min-width: 500px) {
     .grillaIntermedia {
-        width: 40rem;
+        width: 39rem;
     }
 }
 
