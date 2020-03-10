@@ -598,13 +598,20 @@ div.entrada-usuarios select {
     text-transform: uppercase;
 }
 
+
 .blogSeparador {
     border-left: .1rem solid rgb(255, 255, 255);
     border-right: .1rem solid rgb(255, 255, 255);
 }
 
-.blogAside {
+@media(min-width: 768px) {
+    .blogAside {
+        display: grid;
+        grid-template-rows: 46rem;
+        row-gap: 3rem;
+    }
 }
+
 /* Grilla Mascotas */
 
 @media(min-width: 768px) {
