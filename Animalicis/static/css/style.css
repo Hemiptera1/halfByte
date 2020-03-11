@@ -156,29 +156,17 @@ h4 {
 }
 @media(min-width: 768px) {
     .grillaTitulos {
-        display: grid;
-        grid-template-columns: 2.5fr .9fr;
-        gap: 2.5rem;
-        width: 85%;
-        margin: 3rem auto;
+        display: block;
+        width: 100%;
+        margin: 0rem auto 2rem auto;
     }
     .grillaTitulos h2 {
         font-size: 3rem;
     }
 }
-.intro2 {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    border-radius: 2rem;
-    box-shadow: 1.3rem 1.3rem .5rem 0rem rgba(0, 0, 0, 0.507);
-    background: linear-gradient( #6dbd7e 95%, rgba(19, 143, 19, 0.836));
-}
+
 .intro1 {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    border-radius: 2rem;
-    box-shadow: 1.3rem 1.3rem .5rem 0rem rgba(0, 0, 0, 0.507);
-    background: linear-gradient( rgb(125, 181, 245) 95%, rgb(115, 145, 201));
 }
 
 /* FIN DE INTROS */
