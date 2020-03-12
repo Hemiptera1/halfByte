@@ -9,3 +9,20 @@ $(document).ready(function(){
         $("#otrosA").show();
  }
     )})
+
+//MODAL: EDITAR PERFIL
+    function perfilVisible() {
+        let getLoginButton = document.querySelector(".perfilExpandido");
+        getLoginButton.style.width = "50%";
+        getLoginButton.style.right = "25%";
+        getLoginButton.style.borderRadius = "5rem";
+        getLoginButton.style.opacity = "1";
+}
+
+function perfilInvisible() {
+    let getLoginButton = document.querySelector(".perfilExpandido");
+    getLoginButton.style.width = "0%";
+    getLoginButton.style.right = "0%";
+    getLoginButton.style.borderRadius = "0";
+    getLoginButton.style.opacity = "0.5";
+}
