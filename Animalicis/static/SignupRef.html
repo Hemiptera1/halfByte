@@ -12,35 +12,65 @@
     <script src="C:\Users\Juana\Desktop\bit\jsJuana.js"></script>
 </head>
 <body>
-  <nav class="navbar navbar-dark navbar-expand-lg site-header sticky-top py-1 bg-dark">
-    <div class="barraTareas"> 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarSupportedContent">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+  
+    <header class="header-site">
+    <div class="logo">
+        <a href="/index.html"><h2>Animalis Amicis</h2></a>
+    </div>
+    <div class="redes-sociales">
         <div>
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0 navul">
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">Animalicis</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href=".html">Adopción</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href=".html">Animales encontrados</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href=".html">Refugios</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href=".html">Eventos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href=".html">Registrate</a>
-          </li>
-            </ul>
+            <a href="http://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+            <a href="http://twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="http://instagram.com"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div>
+            <a href="http://pinterest.com"><i class="fab fa-pinterest-p"></i></a>
+            <a href="http://youtube.com"><i class="fab fa-youtube"></i></a>
         </div>
     </div>
-  </nav>
+    <div class="botonesHeader">
+        <ul class="navMenu">
+            <li>
+                <a href="">Refugios</a>
+                <ul class="subMenu">
+                    <li><a href="">Refugios de Canes</a></li>
+                    <li><a href="">Refugios de Felinos</a></li>
+                    <li><a href="">Refugios Mixtos</a></li>
+                    <li><a href="">Mapa de Refugios</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">Funcionamiento</a>
+            </li>
+            <li>
+                <a href="">Consejos</a>
+                <ul class="subMenu">
+                    <li><a href="">Adoptar un perro</a></li>
+                    <li><a href="">Adoptar un gato</a></li>
+                    <li><a href="">Adoptar otros</a></li>
+                    <li><a href="">Refugios</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">Social</a>
+                <ul class="subMenu">
+                    <li><a href="">Facebook</a></li>
+                    <li><a href="">Twitter</a></li>
+                    <li><a href="">Instagram</a></li>
+                    <li><a href="">Youtube</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">Contacto</a>
+            </li>
+        </ul>
+        <div class="loginHeaderDesktop">
+            <p onclick="visibleLogin()">Login/Singup</p>
+            <i onclick="visibleLogin()" class="fas fa-user"></i>
+        </div>
+    </div>
+</header>
+    
   <main>
     <div>
         <section class="signupcontainer">
@@ -101,6 +131,20 @@
                 <input type="tel" placeholder="..." name="telcontacto"required/>
               </div>
             <div>
+                
+              <div>
+                <label>
+                  Nombre del repsonsable a contactar
+                </label>
+                <input type="text" placeholder="..." name="responsableContacto" required/>
+              </div>
+
+              <div>
+                <label>
+                  Horiarios de atención
+                </label>
+                <p> Desde <input type="time" name="horaInicio" required/> hasta <input type="time" name="horaFinal" required/> </p>
+              </div>
 
             <div>
               <label>
@@ -165,13 +209,6 @@
   </main>
 
   <footer>
-     <div>
-      <a href="http://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
-      <a href="http://twitter.com"><i class="fab fa-twitter"></i></a>
-      <a href="http://instagram.com"><i class="fab fa-instagram"></i></a>
-      <a href="http://pinterest.com"><i class="fab fa-pinterest-p"></i></a>
-      <a href="http://youtube.com"><i class="fab fa-youtube"></i></a>
-     </div> 
      <p> Pagina realizada en el marco del Proyecto B_it de la Camara Uruguaya de Tecnologia e Informacion</p>
      <p>2020</p>
     </footer>
