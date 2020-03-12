@@ -151,22 +151,43 @@ h4 {
 
 /* INTROS */
 
-.grillaTitulos {
+.presentacionGrilla {
     display: none;
 }
 @media(min-width: 768px) {
-    .grillaTitulos {
-        display: block;
-        width: 100%;
-        margin: 0rem auto 2rem auto;
+    .presentacionGrilla {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        text-align: center;
+        width: 90%;
+        margin: 2.3rem auto 2.5rem auto;
+        border-radius: 2rem;
+        box-shadow: .2rem .3rem .5rem .3rem rgba(0, 0, 0, 0.507);
     }
-    .grillaTitulos h2 {
-        font-size: 3rem;
+    .presentacionTerceto {
+        position: relative;
     }
-}
-
-.intro1 {
-    display: grid;
+    .presentacionTerceto:nth-of-type(1) {
+        background-color: #FFA8AE;
+        border-top-left-radius: 2rem;
+        border-bottom-left-radius: 2rem;
+    }
+    .presentacionTerceto:nth-of-type(2) {
+        background-color: #8FD7FF;
+    }
+    .presentacionTerceto:nth-of-type(3) {
+        background-color: #FFFB75;
+        border-top-right-radius: 2rem;
+        border-bottom-right-radius: 2rem;
+    }
+    .presentacionTerceto h4 {
+        font-family: "Signika";
+        margin: 2rem;
+    }
+    .presentacionTerceto p {
+        font-size: 2rem;
+        padding: 0 3rem;
+    }
 }
 
 /* FIN DE INTROS */
@@ -381,7 +402,7 @@ h4 {
         display: grid;
         grid-template-columns: 2fr 1fr;
         background-image: none;
-        background-color: rgb(125, 181, 245);
+        background-color: #8FD7FF;
     }
 }
 
@@ -412,13 +433,13 @@ h4 {
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    color: rgb(0, 55, 158);
-    background-color: rgb(125, 181, 245);
+    color: #000;
+    background-color: #8FD7FF;
 }
 
 .botones:hover {
-    color: #fff;
-    background: rgb(0, 55, 158);
+    color: #000;
+    background: #FFA8AE;
     border-radius: 50% 50% 0 0;
     transition: 800ms;
 }
@@ -481,13 +502,13 @@ div.entrada-usuarios select {
     font-family: "Sriracha";
     border: .1rem groove #fff;
     border-radius: 1rem;
-    background-color: rgb(62, 184, 62);
+    background-color: #FFFB75;
 
     transition-property: all;
     transition-duration: 500ms;
 }
 .botonBuscar:hover {
-    background-color: rgb(3, 173, 3);
+    background-color: rgb(255, 248, 38);
     box-shadow: inset 0 -.4rem rgba(0, 0, 0, 0.5);
 }
 
@@ -524,7 +545,6 @@ div.entrada-usuarios select {
         box-shadow: .2rem .3rem .5rem .3rem rgba(0, 0, 0, 0.507);
     }
 }
-
 
 .blogSuperior {
     background-size: cover;
@@ -570,17 +590,23 @@ div.entrada-usuarios select {
 .blogInferior {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    background-color: #0842be;
     border-radius: 0 0 .8rem .8rem;
 }
-
+.blogDatos:nth-of-type(1){
+    background-color: #FFA8AE;
+}
+.blogDatos:nth-of-type(2){
+    background-color: #8FD7FF;
+}
+.blogDatos:nth-of-type(3){
+    background-color: #FFFB75;
+}
 .blogDatos {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 1rem;
-    color: #fff;
 }
 
 .blogValor {
@@ -590,7 +616,7 @@ div.entrada-usuarios select {
 
 .blogEtiqueta {
     font-size: 1.2rem;
-    font-weight: 300;
+    font-weight: 600;
     margin-top: .5rem;
     text-transform: uppercase;
 }
