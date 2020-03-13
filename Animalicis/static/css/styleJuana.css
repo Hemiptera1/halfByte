@@ -31,6 +31,124 @@ textarea {
     resize: none;
 }
 
+/* HEADER */
+
+.header-site {
+  display: flex;
+  background-image: url(/Animalicis/static/image/manAndDog.jpg);
+  height: 10rem;
+  background-position: 0 -2rem;
+  background-size: cover;
+  align-items: center;
+  border-radius: 4rem;
+}
+
+.header-site h2 {
+  font-size: 3.5rem;
+  margin: 0;
+  color: #ffffff;
+  padding-left: 1rem;
+}
+
+.logo {
+  flex-basis: 50%;
+}
+.logo a {
+  text-decoration: none;
+}
+
+.redes-sociales {
+  display:flex;
+  flex-direction: column;
+  flex-basis: 50%;
+  text-align: center;
+  font-size: 2.5rem;
+}
+.redes-sociales a {
+  color: #ffffff;
+  padding-right: 2rem;
+}
+@media(min-width: 768px) {
+  .header-site {
+      background-image: none;
+      background-color: rgb(62, 184, 62);
+      background-position: 0rem 12.5rem;
+      border-radius: 0;
+      height: 5rem;
+  }
+  .logo {
+      flex-basis: 18%;
+  }
+  .logo h2 {
+      font-size: 3rem;
+  }
+  .redes-sociales {
+      display: none;
+  }
+  .redes-sociales a {
+      padding-right: 3rem;
+  }
+}
+
+.botonesHeader {
+  display: none;
+}
+@media(min-width: 768px) {
+  .botonesHeader {
+      display: flex;
+      width: 100rem;
+  }
+  .navMenu {
+      display: flex;
+      width: 100%;
+      font-family: "Inconsolata";
+      margin: 0;
+      justify-content: space-around;
+  }
+  .navMenu li {
+      list-style: none;
+      width: 100%;
+      text-align: center;
+      padding: 1.3rem 1.5rem;
+      cursor: pointer;
+      transition-duration: 700ms;
+  }
+  .navMenu li a {
+      font-size: 2.2rem;
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+  }
+  .navMenu li:hover {
+      background-color: rgb(3, 173, 3);
+  }
+  .loginHeaderDesktop {
+      display: flex;
+      font-size: 1.8rem;
+      margin: 1.4rem 0 0 5rem;
+      color: #fff;
+      cursor: pointer;
+  }
+  .loginHeaderDesktop p {
+      margin: 0 1rem;
+  }
+  .subMenu {
+      display: none;
+      position: absolute;
+      padding: 0;
+      z-index: 40;
+  }
+  .subMenu li {
+      background-color: rgb(62, 184, 62);
+      position: relative;
+      top: 1.2rem;
+      left: -1.5rem;
+      padding: 1.5rem 1.5rem;
+  }
+  .navMenu li:hover .subMenu {
+      display: block;
+  }
+}
+
 /* SIGN UP */
   
   .signupcontainer {
@@ -106,6 +224,130 @@ textarea {
     margin-bottom: 1em;
 }
 
+ /*IMAGENES SUBIDAS POR LOS USUARIOS*/
+
+  .fotosSubidas{
+    border: 1.5px solid #ccc;
+  }
+
+  .fotosSubidas:hover{
+    border: 3px solid #777;
+    opacity: 0.2;
+  }
+
+
+/* PERFILES DE USUARIOS   */
+
+.botonPerfil {
+  background-color: rgba(13, 230, 78, 0.733);
+  color: white;
+  border: none;
+  padding: 9px 9px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12pt;
+  cursor: pointer;
+  font-family: tahoma;
+  margin-top: 1px;
+  margin-right: 2px;
+  position:absolute;
+  top: 95px;
+  right: 6em;
+}
+
+.botonPerfil:hover {
+  background-color: rgba(21, 202, 36, 0.842);
+  color: black;
+}
+
+.alinear {
+  margin-left: 1.5em;
+}
+
+.linksP{
+  text-decoration: none;
+  font-weight: bolder;
+  color: black;
+}
+
+.linksP:hover {
+  text-decoration: underline;
+  color: blue;
+}
+
+.linksP:active {
+  text-decoration: underline;
+  color: blue
+}
+
+/*MODAL DE FORMULARIO*/
+
+.perfilExpandido {
+  display: block;
+  position: fixed;
+  width: 0%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: #e7e5e5;
+  transition-duration: 800ms;
+  transition-property: all;
+  z-index: 20;
+  overflow: auto;
+  border-radius: 100%;
+}
+
+.perfilExpandido i {
+  cursor:pointer;
+}
+
+.botonCerrar{
+  position: absolute;
+  color: black;
+  font-size: 25px;
+  font-family: sans-serif;
+  font-weight: bolder;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  left: 90%;
+  cursor: pointer;
+}
+
+.formularioMini {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+  
+  padding-top: 1em;
+}
+.formularioMini div {
+  font-family: "Sriracha";
+  font-size: 1.6rem;
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+.formularioMini div:last-of-type {
+  margin-top: 0rem;
+}
+.formularioMini div input {
+  padding: .8rem;
+}
+
+.BotonRegistro {
+  width: 30%;
+  margin: 1.5rem auto 3rem auto;
+  padding: 1rem;
+  font-size: 2rem;
+  background-color: rgb(115, 145, 201);  
+}
+
+
 /* FOOTER */
 footer {
  font-size: small;
@@ -114,47 +356,3 @@ footer {
  margin-top: 3em;
 
 }
-
-/* BARRA DE TAREAS */
- .nav-link{
-    color: black;
-    font-weight: bold;
-    font-size: medium;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    text-align: center;
-    text-decoration: none;
-    margin-right: 4em;
-  }
-
-  .nav-link:hover{
-    color: wheat;
-  }
-
-  .navbar-nav{
-    width:100%;
-    text-align: center;
-    
-  }
-
-  .navbar-nav .nav-item{
-    width: 20%;
-    text-align: center;
-    }
-
-  .navul{
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: rgba(220, 20, 60, 0.877);
-      padding-bottom: 1em;
-      padding-top: 1em;
-  }
-
-  li{
-      display: inline;
-  }
-
-
