@@ -9,7 +9,7 @@
 import json
 import psycopg2
 
-from PIL import Image, ImageOps
+#from PIL import Image, ImageOps
 from flask import Flask, request, url_for, redirect
 app = Flask(__name__)
 
@@ -82,7 +82,6 @@ def processSignup():#terminar Nombre de cookie
 
        sql_search= "SELECT email_user FROM users WHERE email_user ={}".format(email)
        sql_insert= "INSERT INTO users (name_user, email_user, password_user, lastname_user) VALUES(%s,%s,%s,%s)"
-       sql= "SELECT * FROM users"
 
        datos= (str(_name), email, str(_password), str(_lastname))
 
@@ -106,7 +105,7 @@ def processSignUpdate():#terminar
 
 @app.route('/processSignupRef', methods=['GET', 'POST'])
 def processSignupRef(): #(usar las funciones de search_data y insert_data) _address= request.form['']
-    image = request.files['img']
+    #image = request.files['img']
 
     email= "'" + str(request.form['emailRef']) + "'"
 
@@ -121,7 +120,7 @@ def processSignupRef(): #(usar las funciones de search_data y insert_data) _addr
     _phone= request.form['telcontactoFijo']
     _celphone= request.form['telcontacto']
     _web= request.form['url']
-    _photo= Image.open(image)
+    #_photo= Image.open(image)
     _type= None
 
     if request.form['gatos'] ==True:
@@ -239,7 +238,7 @@ def insert_data(sql_insert, datos):
     conexion.close()
 
 def search_data(sql_search): #fijarse como rescatar datos de una funcion !!!!!
-        sql= sql_search
+    sql= sql_search
 
     conexion = psycopg2.connect(host="animalicis.crl39vc3ngno.us-east-2.rds.amazonaws.com", database="animalicis", user="postgres", password="Perros2012")
     cur= conexion.cursor()
