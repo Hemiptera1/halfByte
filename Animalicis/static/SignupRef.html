@@ -12,7 +12,7 @@
     <script src="C:\Users\Juana\Desktop\bit\jsJuana.js"></script>
 </head>
 <body>
-  
+
     <header class="header-site">
     <div class="logo">
         <a href="/index.html"><h2>Animalis Amicis</h2></a>
@@ -70,37 +70,37 @@
         </div>
     </div>
 </header>
-    
+
   <main>
     <div>
         <section class="signupcontainer">
         <div >
           <h3 class="centrarTexto">Completa tus datos para registrar tu refugio</h3>
 
-          <div id="signup">   
+          <div id="signup">
             <div >
-            <form action="/" method="post" class="SignUpmini">
-            
+            <form action="/processSignupRef" method="post" class="SignUpmini">
+
               <div>
                 <label>
                   Nombre del refugio
                 </label>
                 <input type="text" placeholder="Nombre del refugio" name="nameRef" autofocus required/>
               </div>
-                
+
                <div>
                 <label>
                   Departamento
                 </label>
                 <input type="text" placeholder="Departamento" name="departamento" required/>
               </div>
-              
+
               <div>
                 <label>
                   Ciudad
                 </label>
                 <input type="text" placeholder="Ciudad" name="ciudad" required/>
-              </div>  
+              </div>
 
               <div>
                 <label>
@@ -109,14 +109,14 @@
                 <input type="text" placeholder="Barrio" name="barrio"/>
               </div>
 
-          
+
               <div>
                 <label>
-                  Dirección 
+                  Dirección
                 </label>
                 <input type="text" placeholder="Dirección" name="direccion" required/>
               </div>
-                                      
+
               <div>
                 <label>
                   Telefono fijo de contacto
@@ -131,7 +131,7 @@
                 <input type="tel" placeholder="..." name="telcontacto"required/>
               </div>
             <div>
-                
+
               <div>
                 <label>
                   Nombre del repsonsable a contactar
@@ -160,7 +160,7 @@
               </p>
             </ul>
             </div>
-             
+
             <div id="otrosA">
               <label>
                 Otros animales aceptados en el refugio:
@@ -174,7 +174,7 @@
                 </label>
                 <textarea name="descripcion" rows="3" cols="30" maxlength="3000" placeholder="Contanos que te llevó a crear el refugio y como funciona" required></textarea>
             </div>
-                
+
               <div>
               <label>Subi fotos de tu refugio:</label>
               <input type="file" id="img" name="img" accept="image/*" class="inputfile" data-multiple-caption="{count} files selected" multiple />
@@ -186,21 +186,21 @@
                 </label>
                 <input type="url" name="url" placeholder="Comparti tu sitio web" size="40"/>
               </div>
-  
+
             <div>
               <label>
-                Email 
+                Email
               </label>
               <input type="email" placeholder="Email" name="emailRef" required/>
             </div>
-            
+
             <div>
               <label>
                 Contraseña
               </label>
               <input type="password" placeholder="Contraseña" name="contrRef" minlength="8" required/>
             </div>
-            
+
             <button type="submit" class="BotonRegistro">Registrarse</button>
             </div>
           </form>
