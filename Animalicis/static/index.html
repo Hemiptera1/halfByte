@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Animalicis/static/css/normalize.css">
+    <link rel="stylesheet" href="/Animalicis/static/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Signika|Sriracha&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Animalicis/static/css/style.css">
+</head>
+<body>
+    <header class="header-site">
+        <div class="logo">
+            <a href="/index.html"><h2>Animalis Amicis</h2></a>
+        </div>
+        <div class="redes-sociales">
+            <div>
+                <a href="http://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                <a href="http://twitter.com"><i class="fab fa-twitter"></i></a>
+                <a href="http://instagram.com"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div>
+                <a href="http://pinterest.com"><i class="fab fa-pinterest-p"></i></a>
+                <a href="http://youtube.com"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="botonesHeader">
+            <ul class="navMenu">
+                <li>
+                    <a href="">Refugios</a>
+                    <ul class="subMenu">
+                        <li><a href="">Refugios de Canes</a></li>
+                        <li><a href="">Refugios de Felinos</a></li>
+                        <li><a href="">Refugios Mixtos</a></li>
+                        <li><a href="">Mapa de Refugios</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">Funcionamiento</a>
+                </li>
+                <li>
+                    <a href="">Consejos</a>
+                    <ul class="subMenu">
+                        <li><a href="">Adoptar un perro</a></li>
+                        <li><a href="">Adoptar un gato</a></li>
+                        <li><a href="">Adoptar otros</a></li>
+                        <li><a href="">Refugios</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">Social</a>
+                    <ul class="subMenu">
+                        <li><a href="">Facebook</a></li>
+                        <li><a href="">Twitter</a></li>
+                        <li><a href="">Instagram</a></li>
+                        <li><a href="">Youtube</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">Contacto</a>
+                </li>
+            </ul>
+            <div class="loginHeaderDesktop">
+                <p onclick="visibleLogin()">Login/Singup</p>
+                <i onclick="visibleLogin()" class="fas fa-user"></i>
+            </div>
+        </div>
+
+    </header> <!-- FIN DEL HEADER -->
+
+    <div class="loginExpandido">
+            <i class="far fa-times-circle contraer" onclick="invisibleLogin()"></i>
+            <h3 class="centrarTexto" style="margin: 2rem 0 3.5rem 0">Login</h3>
+            <div class="botonesLogin">
+                <button><img src="/Animalicis/static/image/iconos/googleLog2-1.png" alt="Icono Google"></button>
+                <button><img src="/Animalicis/static/image/iconos/facebookLog2-1.png" alt=""></button>
+            </div>
+            <div class="boxLogin">
+                <form action="/processLogin" class="boxIntermedia">
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="text" id="email" name="email">
+                    </div>
+                    <div style="margin-top: 0;">
+                        <label for="contraseña">Contraseña</label>
+                        <input type="text" id="contraseña" name="contraseña">
+                    </div>
+                    <input type="submit" value="Enviar" class="botonSubmit">
+                    <div class="enlacesLogin">
+                        <a href="/account">Quiero hacerme un usuario!</a>
+                        <a href="">No recuerdo mi contraseña!</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> <!-- FIN LOGIN EXPANDIDO -->
+
+    <main>
+        <div class="log-menu">
+            <div class="login">
+                <div class="parrafo-login">
+                    <p onclick="visibleLogin2()">LOGUEATE</p>
+                </div>
+                <div class="iconos" onclick="visibleLogin2()"><i class="fas fa-user"></i></div>
+            </div>
+
+            <div class="menu">
+                <div class="menu-p">
+                    <p onclick="visible()">OPCIONES</p>
+                </div>
+                <div class="iconos" onclick="visible()"><i class="fas fa-bars"></i></div>
+            </div>
+        </div>
+
+        <aside class="menuEmergente">
+            <i class="far fa-times-circle contraer" onclick="invisible()"></i>
+            <ul>
+                <li><span>Animalicis</span></li>
+                <li><a href="#">Como funciona</a></li>
+                <li><a href="#">Adoptando un perro</a></li>
+                <li><a href="#">Adoptando un gato</a></li>
+                <li><a href="#">Otros animales</a></li>
+                <li><a href="#">Nuestro Blog</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </aside>
+        <div class="presentacionGrilla">
+            <div class="presentacionTerceto">
+                <h4>Búsqueda</h4>
+                <p>Surfeá nuestra base de datos con cientos de mascotas donde podrás encontrar un compañero como ningún otro.</p>
+            </div>
+            <div class="presentacionTerceto">
+                <h4>Artículos</h4>
+                <p>Indagá acerca de la naturaleza de los animales domésticos y aprendé sobre la relación que entablan con nosotros.</p>
+            </div>
+            <div class="presentacionTerceto">
+                <h4>Activismo</h4>
+                <p>Participá de una red de recuperación de animales extraviados y de eventos relativos al eco-activismo.</p>
+            </div>
+        </div>
+
+        <div class="contenedorSuperior">
+                <div class="contenedor-buscadores">
+                    <div class="contenedorInterno">
+                        <div>
+                            <div class="selectores">
+                                    <button class="botones">Perros</button>
+                                    <button class="botones">Gatos</button>
+                                    <button class="botones">Otros</button>
+                                    <button class="botones">Refugios</button>
+                            </div>
+                        </div>
+                        <form action="">
+                            <div class="barra-search">
+                                <input type="search" id="localizacion" placeholder="Busque por ciudad o barrio">
+                            </div>
+                            <div class="entrada-usuarios">
+                                <select name="" id="edad">
+                                    <option selected>Franja Etaria</option>
+                                    <option value="Cachorro">Cachorro</option>
+                                    <option value="Joven">Joven</option>
+                                    <option value="Adulto">Adulto</option>
+                                    <option value="Mayor">Mayor</option>
+                                </select>
+                                <select name="" id="raza">
+                                    <option value="" id="raza" selected>Raza / Credo</option>
+                                    <option value="Labrador-Re">Labrador Retriever</option>
+                                    <option value="Pastor-Alemán">Pastor Alemán</option>
+                                    <option value="Golden-Re">Golden Retriever</option>
+                                    <option value="Bulldog-Francés">Bulldog Francés</option>
+                                    <option value="Bulldog">Bulldog</option>
+                                    <option value="Beagle">Beagle</option>
+                                    <option value="Poodle">Poodle</option>
+                                    <option value="Rooweiler">Rooweiler</option>
+                                    <option value="Yorkshire-Terrier">Yorkshire Terrier</option>
+                                    <option value="Braco-Alemán">Braco Alemán</option>
+                                    <option value="Cruza">Cruza</option>
+                                    <option value="Otros">Otros</option>
+                                </select>
+                            </div>
+                            <div class="entrada-usuarios">
+                                <select name="" id="sexo">
+                                    <option value="" id="sexo" selected>Optá por un género</option>
+                                    <option value="Macho">Macho</option>
+                                    <option value="Hembra">Hembra</option>
+                                </select>
+                                <select name="" id="salud">
+                                    <option value="" id="salud" selected>Vacunas y salud</option>
+                                    <option value="Al-Día">Vacunado y desparasitado</option>
+                                    <option value="Incompleto">Incompleto</option>
+                                </select>
+                            </div>
+                            <div class="contenedor-buscar">
+                                <button class="botonBuscar">Encontrar!</button>
+                            </div>
+                        </form>
+                    </div> <!-- FIN CONTENEDOR INTERNO -->
+                    <div class="imagenBuscador">
+                        <img src="/Animalicis/static/image/perroDesktop.png" alt="">
+                    </div>
+                </div> <!-- Fin Contenedor Buscadores -->
+
+                <aside class="blogEntrada">
+                    <div class="blogSuperior back1"></div>
+                    <div class="blogIntermedio">
+                        <h5>¿Como Funciona?</h5>
+                        <p>
+                            Si estás pensando en adoptar y querés informarte acerca del funcionamiento de la página este artículo es para vos ¡Hacé click y averígualo!
+                        </p>
+                    </div>
+                    <div class="blogInferior">
+                        <div class="blogDatos">
+                            <div class="blogValor">9 <sup>m</sup></div>
+                            <div class="blogEtiqueta">Lectura</div>
+                        </div>
+                        <div class="blogDatos blogSeparador">
+                            <div class="blogValor">456</div>
+                            <div class="blogEtiqueta">Vistas</div>
+                        </div>
+                        <div class="blogDatos">
+                            <div class="blogValor">9</div>
+                            <div class="blogEtiqueta">Respuestas</div>
+                        </div>
+                    </div>
+                </aside> <!-- Fin De Blog -->
+        </div>
+
+        <!-- Parte del medio -->
+
+        <section class="medioGrilla">
+            <div class="medio1">
+                <div class="medioAdopcion">
+                    <h4>Dar en Adopción</h4>
+                    <ul>
+                        <li>Si debes cambiar de domicilio y no aceptan mascotas</li>
+                        <li>Si un integrante de la familia es alergico a tu mascota</li>
+                        <li>Si tu situación financiera a cambiado</li>
+                    </ul>
+                </div>
+                <div class="medioActivismo">
+                    <h4>Activismo</h4>
+                    <ul>
+                        <li>Para reportar un varamiento</li>
+                        <li>Para compartir batidas de castraciones</li>
+                        <li>Para comunicarnos un evento organizado por un refugio</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="medio2"></div>
+        </section>
+
+            <!-- Fin Parte del Medio -->
+
+        <div class="grillaExterior">
+            <div class="grillaSuperior">
+                <div class="grillaIntermedia">
+                    <div class="imagen">
+                        <img src="/Animalicis/static/image/placeholderGrilla/perro1.jpg" alt="Imagen Mascota">
+                    </div>
+                    <div class="descripcionMascota">
+                        <h4 class="centrarTexto">Fatiga</h4>
+                        <div class="grillaInterna">
+                            <div class="textoGrillaInterna">
+                                <p><span>Edad: </span>Cansado</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Raza: </span>Perezoso</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Género: </span>Macho</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Vacunas: </span>Al día</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- Fin grillaIntermedia -->
+                <div class="grillaIntermedia">
+                    <div class="imagen">
+                        <img src="/Animalicis/static/image/placeholderGrilla/perro2.jpg" alt="Imagen Mascota">
+                    </div>
+                    <div class="descripcionMascota">
+                        <h4 class="centrarTexto">Lobezna</h4>
+                        <div class="grillaInterna">
+                            <div class="textoGrillaInterna">
+                                <p><span>Edad: </span>Muerde</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Raza: </span>Hembra</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Género: </span>Hembra</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Vacunas: </span>Actualizadas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- Fin grillaIntermedia -->
+
+                <div class="grillaIntermedia">
+                    <div class="imagen">
+                        <img src="/Animalicis/static/image/placeholderGrilla/gato1.jpg" alt="Imagen Mascota">
+                    </div>
+                    <div class="descripcionMascota">
+                        <h4 class="centrarTexto">Pocas Pulgas</h4>
+                        <div class="grillaInterna">
+                            <div class="textoGrillaInterna">
+                                <p><span>Edad: </span>Experiente</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Raza: </span>Semental</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Género: </span>Chongo</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Vacunas: </span>Nones</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- Fin grillaIntermedia -->
+
+                <div class="grillaIntermedia">
+                    <div class="imagen">
+                        <img src="/Animalicis/static/image/placeholderGrilla/murciegalo.jpg" alt="Imagen Mascota">
+                    </div>
+                    <div class="descripcionMascota">
+                        <h4 class="centrarTexto">Drácula</h4>
+                        <div class="grillaInterna">
+                            <div class="textoGrillaInterna">
+                                <p><span>Edad: </span>Inmortal</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Raza: </span>Vampiro</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Género: </span>Chongo</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Vacunas: </span>Inmune</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- Fin grillaIntermedia -->
+
+                <div class="grillaIntermedia">
+                    <div class="imagen">
+                        <img src="/Animalicis/static/image/placeholderGrilla/perro1.jpg" alt="Imagen Mascota">
+                    </div>
+                    <div class="descripcionMascota">
+                        <h4 class="centrarTexto">Fatiga</h4>
+                        <div class="grillaInterna">
+                            <div class="textoGrillaInterna">
+                                <p><span>Edad: </span>Cansado</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Raza: </span>Perezoso</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Género: </span>Macho</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Vacunas: </span>Al día</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- Fin grillaIntermedia -->
+
+                <div class="grillaIntermedia">
+                    <div class="imagen">
+                        <img src="/Animalicis/static/image/placeholderGrilla/perro1.jpg" alt="Imagen Mascota">
+                    </div>
+                    <div class="descripcionMascota">
+                        <h4 class="centrarTexto">Fatiga</h4>
+                        <div class="grillaInterna">
+                            <div class="textoGrillaInterna">
+                                <p><span>Edad: </span>Cansado</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Raza: </span>Perezoso</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Género: </span>Macho</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Vacunas: </span>Al día</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- Fin grillaIntermedia -->
+                <div class="grillaIntermedia">
+                    <div class="imagen">
+                        <img src="/Animalicis/static/image/placeholderGrilla/perro1.jpg" alt="Imagen Mascota">
+                    </div>
+                    <div class="descripcionMascota">
+                        <h4 class="centrarTexto">Fatiga</h4>
+                        <div class="grillaInterna">
+                            <div class="textoGrillaInterna">
+                                <p><span>Edad: </span>Cansado</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Raza: </span>Perezoso</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Género: </span>Macho</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Vacunas: </span>Al día</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- Fin grillaIntermedia -->
+                <div class="grillaIntermedia">
+                    <div class="imagen">
+                        <img src="/Animalicis/static/image/placeholderGrilla/perro1.jpg" alt="Imagen Mascota">
+                    </div>
+                    <div class="descripcionMascota">
+                        <h4 class="centrarTexto">Fatiga</h4>
+                        <div class="grillaInterna">
+                            <div class="textoGrillaInterna">
+                                <p><span>Edad: </span>Cansado</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Raza: </span>Perezoso</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Género: </span>Macho</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Vacunas: </span>Al día</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- Fin grillaIntermedia -->
+                <div class="grillaIntermedia">
+                    <div class="imagen">
+                        <img src="/Animalicis/static/image/placeholderGrilla/perro1.jpg" alt="Imagen Mascota">
+                    </div>
+                    <div class="descripcionMascota">
+                        <h4 class="centrarTexto">Fatiga</h4>
+                        <div class="grillaInterna">
+                            <div class="textoGrillaInterna">
+                                <p><span>Edad: </span>Cansado</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Raza: </span>Perezoso</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Género: </span>Macho</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Vacunas: </span>Al día</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- Fin grillaIntermedia -->
+                <div class="grillaIntermedia">
+                    <div class="imagen">
+                        <img src="/Animalicis/static/image/placeholderGrilla/perro1.jpg" alt="Imagen Mascota">
+                    </div>
+                    <div class="descripcionMascota">
+                        <h4 class="centrarTexto">Fatiga</h4>
+                        <div class="grillaInterna">
+                            <div class="textoGrillaInterna">
+                                <p><span>Edad: </span>Cansado</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Raza: </span>Perezoso</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Género: </span>Macho</p>
+                            </div>
+                            <div class="textoGrillaInterna">
+                                <p><span>Vacunas: </span>Al día</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- Fin grillaIntermedia -->
+            </div>
+            <div class="blogAside">
+                <aside class="blogEntrada">
+                    <div class="blogSuperior back2"></div>
+                    <div class="blogIntermedio">
+                        <h5>Consejos de Adopción</h5>
+                        <p>
+
+                        </p>
+                    </div>
+                    <div class="blogInferior">
+                        <div class="blogDatos">
+                            <div class="blogValor">9 <sup>m</sup></div>
+                            <div class="blogEtiqueta">Lectura</div>
+                        </div>
+                        <div class="blogDatos blogSeparador">
+                            <div class="blogValor">456</div>
+                            <div class="blogEtiqueta">Vistas</div>
+                        </div>
+                        <div class="blogDatos">
+                            <div class="blogValor">9</div>
+                            <div class="blogEtiqueta">Respuestas</div>
+                        </div>
+                    </div>
+                </aside>
+                <aside class="blogEntrada">
+                    <div class="blogSuperior back3"></div>
+                    <div class="blogIntermedio">
+                        <h5>Consejos de Adopción</h5>
+                        <p>
+                            Si estás pensando en adoptar y querés informarte acerca del funcionamiento de la página este artículo es para vos ¡Hacé click y averígualo!
+                        </p>
+                    </div>
+                    <div class="blogInferior">
+                        <div class="blogDatos">
+                            <div class="blogValor">9 <sup>m</sup></div>
+                            <div class="blogEtiqueta">Lectura</div>
+                        </div>
+                        <div class="blogDatos blogSeparador">
+                            <div class="blogValor">456</div>
+                            <div class="blogEtiqueta">Vistas</div>
+                        </div>
+                        <div class="blogDatos">
+                            <div class="blogValor">9</div>
+                            <div class="blogEtiqueta">Respuestas</div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+        </div> <!-- Fin grillaExterior -->
+    </main>
+
+    <footer>
+    </footer>
+</body>
+<script src="/Animalicis/static/main.js"></script>
+</html>

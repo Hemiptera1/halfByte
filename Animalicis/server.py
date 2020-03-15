@@ -9,7 +9,7 @@
 import json
 import psycopg2
 
-from PIL import Image, ImageOps
+#from PIL import Image, ImageOps
 from flask import Flask, request, url_for, redirect
 app = Flask(__name__)
 
@@ -17,7 +17,11 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET']) #probar con colocar la paguina donde esta subido el index
 def index():#poner variable base para la seleccion de raza MAXIMA URJENCIA TERMINAR!!!!!
-    return {{url_for( filename='index.html')}}
+    return app.send_static_file('index.html')
+
+@app.route('/account', methods=['GET'])                                         #enlace a la eleccion de perfil
+def account():
+    return app.send_static_file('cuentas.html')
 
 @app.route('/profile', methods=['GET'])#pendiente de crear                      #perfil visible solo por el usuario
 def profile():#terminar
@@ -45,56 +49,50 @@ def signupRefUpdate():#escribir nombre del html una ves este
 
 @app.route('/processLogin', methods=['GET', 'POST'])
 def processLogin():# (usar las funciones de search_data y insert_data)
-        _email= str(request.form['email'])
-        _password= str(request.form['password'])
+        _email= "'" + str(request.args.get('email', None)) + "'"
+        _password= "'" +  str(request.args.get('contraseña', None)) + "'"
 
         sql_search_user= "SELECT email_user, password_user FROM users WHERE email_user ={} AND password_user ={}".format(_email, _password)
         sql_search_ref= "SELECT email_refuge, password_refuge FROM refuges WHERE email_refuge ={} AND password_refuge ={}".format(_email, _password)
+        sql="SELECT * FROM users"
 
-
-        conexion = psycopg2.connect(host="animalicis.crl39vc3ngno.us-east-2.rds.amazonaws.com", database="animalicis", user="postgres", password="Perros2012")
-        cur= conexion.cursor()
-        cur.execute(sql_search_ref)
-        row= cur.fetchone()
+        row= search_data(sql_search_ref)
         if row is None:
-            cur.execute(sql_search_user)
-            row= cur.fetchone()
+            row= search_data(sql_search_user)
             if row is None:
-                return "Correo o/y contraceña incorrectos"
+                return  "Correo y/o contraceña incorrecta"
             else:
                 usuario= redirect(url_for('index'))#para crear una cookie y guardar los datos del Usuario
-                usuario.set_cookie(json.dumps(dict(request.form.items())))#en el navegador
+                usuario.set_cookie("User", json.dumps(dict(request.form.items())))#en el navegador
                 return usuario
         else:
             usuario= redirect(url_for('index'))#para crear una cookie y guardar los datos del Usuario
             usuario.set_cookie(json.dumps(dict(request.form.items())))#en el navegador
             return usuario
-        conexion.close()
 
-@app.route('/processSignup', methods=['GET', 'POST'])
+
+@app.route('/processSignup', methods=['GET', 'POST'])#probado funciona (sige en duda el que quede guardado en la db)
 def processSignup():#terminar Nombre de cookie
-       _name= request.form['name']
-       _lastname= request.form['surname']
-       _email= request.form['email']
-       _password= request.form['password']
+       email= "'" + str(request.form['email']) + "'"
 
-       sql_search= "SELECT email_user FROM users WHERE email_user ="+ "'" + _email + "'"
+       _name= request.form['name']
+       _email= request.form['email']
+       _lastname= request.form['surname']
+       _password= request.form['contr']
+
+       sql_search= "SELECT email_user FROM users WHERE email_user ={}".format(email)
        sql_insert= "INSERT INTO users (name_user, email_user, password_user, lastname_user) VALUES(%s,%s,%s,%s)"
 
-       datos= (str(_name), str(_email), str(_password), str(_lastname))
+       datos= (str(_name), email, str(_password), str(_lastname))
 
-       conexion = psycopg2.connect(host="animalicis.crl39vc3ngno.us-east-2.rds.amazonaws.com", database="animalicis", user="postgres", password="Perros2012")
-       cur= conexion.cursor()
-       cur.execute(sql_search)
-       row= cur.fetchone()
+       row= search_data (sql_search)
        if row is None:
-          cur.execute(sql_insert, datos)
+          insert_data(sql_insert, datos)
           usuario= redirect(url_for('index'))#para crear una cookie y guardar los datos del Usuario
-          usuario.set_cookie(json.dumps(dict(request.form.items())))#en el navegador
+          usuario.set_cookie("User", json.dumps(dict(request.form.items())))#en el navegador
           return usuario
        else:
           return redirect(url_for('index'))
-       conexion.close()
 
 @app.route('/processSignUpdate', methods=['GET', 'POST'])                       #(((Up Date del usuario)))
 def processSignUpdate():#terminar
@@ -107,7 +105,9 @@ def processSignUpdate():#terminar
 
 @app.route('/processSignupRef', methods=['GET', 'POST'])
 def processSignupRef(): #(usar las funciones de search_data y insert_data) _address= request.form['']
-    image = request.files['img']
+    #image = request.files['img']
+
+    email= "'" + str(request.form['emailRef']) + "'"
 
     _name= request.form['nameRef']
     _email= request.form['emailRef']
@@ -115,12 +115,12 @@ def processSignupRef(): #(usar las funciones de search_data y insert_data) _addr
     _department= request.form['departamento']
     _city= request.form['ciudad']
     _neighborhood= request.form['barrio']
-    _address= request.form['']
+    _address= request.form['direccion']
     _description= request.form['descripcion']
     _phone= request.form['telcontactoFijo']
     _celphone= request.form['telcontacto']
     _web= request.form['url']
-    _photo= Image.open(image)
+    #_photo= Image.open(image)
     _type= None
 
     if request.form['gatos'] ==True:
@@ -132,22 +132,17 @@ def processSignupRef(): #(usar las funciones de search_data y insert_data) _addr
 
     datos= (str(_name), str(_email), str(_password), str(_department), str(_city), str(_neighborhood), str(_address), str(_description), str(_phone), str(_celphone), str(_web), _photo, str(_type) )
 
-    sql_search= "SELECT email_refuge FROM refuges WHERE email_refuge ="+ "'" + _email + "'"
+    sql_search= "SELECT email_refuge FROM refuges WHERE email_refuge ={}".format(email)
     sql_insert= "INSERT INTO refuges (name_refuge, email_refuge, password_refuge, department_refuge, city_refuge, neighborhood_refuge, Googlemaps_refuge, description_refuge, phone_refuge, cellphone_refuge, website_refuge, image_refuge, animal_refuge) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
 
-    conexion = psycopg2.connect(host="animalicis.crl39vc3ngno.us-east-2.rds.amazonaws.com", database="animalicis", user="postgres", password="Perros2012")
-    cur= conexion.cursor()
-    cur.execute(sql_search)
-    row= cur.fetchone()
+    row= search_data(sql_search)
     if row is None:
-       cur.execute(sql_insert, datos)
+       insert_data(sql_insert, datos)
        usuario= redirect(url_for('index'))#para crear una cookie y guardar los datos del Usuario
-       usuario.set_cookie(json.dumps(dict(request.form.items())))#en el navegador
+       usuario.set_cookie("User", json.dumps(dict(request.form.items())))#en el navegador
        return usuario
     else:
        return redirect(url_for('index'))
-
-    conexion.close()
 
 @app.route('/processSignupRefUpdate', methods=['GET', 'POST'])                  #(((Up Date del refugio)))
 def processSignupRefUpdate():#terminar
@@ -237,17 +232,21 @@ def insert_data(sql_insert, datos):
     data= datos
 
     conexion = psycopg2.connect(host="animalicis.crl39vc3ngno.us-east-2.rds.amazonaws.com", database="animalicis", user="postgres", password="Perros2012")
+    cur= conexion.cursor()
     cur.execute(sql, data)
+    cur.close()
     conexion.close()
 
 def search_data(sql_search): #fijarse como rescatar datos de una funcion !!!!!
     sql= sql_search
 
     conexion = psycopg2.connect(host="animalicis.crl39vc3ngno.us-east-2.rds.amazonaws.com", database="animalicis", user="postgres", password="Perros2012")
+    cur= conexion.cursor()
     cur.execute(sql)
     row= cur.fetchone()
-    return row
+    cur.close()
     conexion.close()
+    return (row)
 
 if __name__ == '__main__':
     app.run(debug=True)
