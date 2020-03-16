@@ -69,7 +69,7 @@ h4 {
 @media(min-width: 768px) {
     .header-site {
         background-image: none;
-        background-color: rgb(62, 184, 62);
+        background-color: rgb(36, 34, 34);
         background-position: 0rem 12.5rem;
         border-radius: 0;
         height: 5rem;
@@ -95,7 +95,7 @@ h4 {
     .botonesHeader {
         display: flex;
         width: 100rem;
-        background-color: rgb(62, 184, 62);
+        background-color: rgb(36, 34, 34);
     }
     .navMenu {
         display: flex;
@@ -117,8 +117,11 @@ h4 {
         color: rgb(255, 255, 255);
         text-decoration: none;
     }
+    .navMenu li a:hover {
+        color: #000;
+    }
     .navMenu li:hover {
-        background-color: rgb(3, 173, 3);
+        background-color: #FFFB75;
     }
     .loginHeaderDesktop {
         display: flex;
@@ -137,7 +140,7 @@ h4 {
         z-index: 40;
     }
     .subMenu li {
-        background-color: rgb(62, 184, 62);
+        background-color: rgb(36, 34, 34);
         position: relative;
         top: 1.2rem;
         left: -1.5rem;
@@ -407,8 +410,15 @@ h4 {
     }
 }
 
+.busquedaGrilla {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+.busquedaContenedor {
+    width: 90%;
+    margin: auto;
+}
 .contenedorInterno2 {
-    width: 20%;
     border-top-right-radius: 2rem;
     border-bottom-right-radius: 2rem;
     background-color: #8FD7FF;
@@ -430,7 +440,6 @@ h4 {
 div.entrada-usuarios2 select {
     font-family: 'Sriracha', cursive;
     font-size: 1.6rem;
-    width: 45%;
     padding: .8rem;
     border-radius: 1rem;
     border: none;
@@ -463,6 +472,12 @@ div.entrada-usuarios2 select {
     overflow: hidden;
     color: #000;
     background-color: #8FD7FF;
+}
+.botones2:hover {
+    color: #000;
+    background: #FFA8AE;
+    border-radius: 50% 50% 0 0;
+    transition: 800ms;
 }
 .contenedor-buscar2 {
     margin-top: 1rem;
@@ -653,6 +668,10 @@ div.entrada-usuarios select {
     background-color: rgb(255, 255, 255);
     padding-top: 1rem;
 }
+.blogIntermedio a {
+    text-decoration: none;
+    color: #000;
+}
 .blogIntermedio h5 {
     font-family: "Signika";
     font-size: 2.5rem;
@@ -725,7 +744,7 @@ div.entrada-usuarios select {
 
 .medio1 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 3.5fr;
     background-color: #8FD7FF;
     border-radius: 2rem;
     box-shadow: .2rem .3rem .5rem .3rem rgba(0, 0, 0, 0.507);
@@ -736,17 +755,32 @@ div.entrada-usuarios select {
     text-align: center;
     margin: 1.2rem 0 1.8rem 0;
 }
+.adopcionGrilla {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 .medio1 li {
+    position: relative;
     font-size: 1.8rem;
-    margin-bottom: 1rem;
+    line-height: 1.2;
+    margin: 0 1rem 1rem 0rem;
+    list-style: none;
+}
+.medio1 li:before {
+    position: absolute;
+    content: "\2b50";
+    left: -3rem;
 }
 
 .medioAdopcion {
-    padding: 0 4rem;
     border-top-left-radius: 2rem;
     border-bottom-left-radius: 2rem;
 }
-
+.medioAdopcion p {
+    text-align: center;
+    font-size: 1.9rem;
+    margin: 0 3rem 1rem 0;
+}
 .medioActivismo {
     padding: 0 4rem;
     border-top-right-radius: 2rem;
@@ -758,7 +792,8 @@ div.entrada-usuarios select {
 }
 .medioImagen img {
     position: absolute;
-    left: -1rem;
+    left: -3rem;
+    top: 1rem;
     width: 24rem;
 }
 
@@ -928,3 +963,54 @@ div.entrada-usuarios select {
 }
 
 /* FOOTER */
+
+
+/* MOLDE ARTÍCULOS */
+
+.stickyBar {
+    position: sticky;
+    top: 0;
+}
+
+.mainArticulos {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+}
+
+.articulosLaterales {
+    overflow: hidden;
+}
+
+.articulosPadding {
+    padding: 1rem;
+}
+
+.articulosTitulo {
+    background-color: rgb(182, 144, 95);
+    padding: 3rem;
+    letter-spacing: .2rem;
+    color: #fff;
+    text-shadow: .1rem .1rem #000;
+}
+.articulosTitulo h1,
+.articulosTitulo h4 {
+    font-family: 'Goudy Bookletter 1911', serif;
+}
+.articulosTitulo h1 {
+    font-size: 4rem;
+    margin: 0;
+}
+.articulosTitulo h4 {
+    font-size: 2.4rem;
+    margin-bottom: 0rem;
+}
+.articulosMensaje p {
+    font-size: 1.8rem;
+    line-height: 2.7rem;
+    font-family: 'Roboto', sans-serif;
+    color: rgb(48, 47, 47);
+}
+.articulosMensaje {
+    padding: 1.5rem 8rem;
+}
+/* FIN MOLDE ARTÍCULOS */
