@@ -106,7 +106,6 @@
   <input type="submit" class="botonPerfil" value="Editar Perfil" onclick="perfilVisible()"/>
   <i onclick="perfilVisible()"></i>
 </div>
-
 <div class="perfilExpandido">
   <i onclick="perfilInvisible()"></i>
   <label for="cerrar" class="botonCerrar" onclick="perfilInvisible()">X</label>
@@ -118,49 +117,49 @@
         <label>
           Nombre del refugio
         </label>
-        <input type="text" placeholder="Nombre del refugio" name="nameRef" autofocus/>
+        <input type="text" placeholder={{nameRef}} name="nameRef" autofocus/>
       </div>
 
       <div>
         <label>
           Departamento
         </label>
-        <input type="text" placeholder="Departamento" name="departamento"/>
+        <input type="text" placeholder={{departamento}} name="departamento"/>
       </div>
       
       <div>
         <label>
           Ciudad
         </label>
-        <input type="text" placeholder="Ciudad" name="ciudad"/>
+        <input type="text" placeholder={{ciudad}} name="ciudad"/>
       </div>  
 
       <div>
         <label>
           Barrio
         </label>
-        <input type="text" placeholder="Barrio" name="barrio"/>
+        <input type="text" placeholder={{barrio}} name="barrio"/>
       </div>
 
       <div>
         <label>
           Dirección 
         </label>
-        <input type="text" placeholder="Dirección" name="direccion"/>
+        <input type="text" placeholder={{direccion}} name="direccion"/>
       </div>
               
       <div>
         <label>
           Telefono fijo de contacto
         </label>
-        <input type="tel" placeholder="..." name="telcontactoFijo"/>
+        <input type="tel" placeholder={{telcontactoFijo}} name="telcontactoFijo"/>
       </div>
 
       <div>
         <label>
           Telefono celular de contacto
         </label>
-        <input type="tel" placeholder="..." name="telcontacto"/>
+        <input type="tel" placeholder={{telcontacto}} name="telcontacto"/>
       </div>
     <div>
       <label>
@@ -188,39 +187,41 @@
         <label>
           Realiza una pequeña descripción del refugio
         </label>
-        <textarea name="descripcion" rows="3" cols="30" maxlength="3000" placeholder="Contanos que te llevó a crear el refugio y como funciona"></textarea>
+        <textarea name="descripcion" rows="3" cols="30" maxlength="3000" placeholder={{descripcion}}></textarea>
     </div>
 
     <div>
       <label>Subi fotos de tu refugio:</label>
-      <input type="file" id="img" name="img" accept="image/*" class="inputfile" data-multiple-caption="{count} files selected" multiple />
+      <input type="file" id="img" name="img" accept="image/*" class="inputfile" data-multiple-caption="{ count } files selected" multiple />
       </div>
     
      <div>
         <label>
           Sitio Web
         </label>
-        <input type="url" name="url" placeholder="Comparti tu sitio web" size="40"/>
+        <input type="url" name="url" placeholder={{url}} size="40"/>
       </div>
 
     <div>
       <label>
         Email 
       </label>
-      <input type="email" placeholder="Email" name="emailRef"/>
+      <input type="email" placeholder={{emailRef}} name="emailRef"/>
     </div>
     
     <div>
       <label>
         Contraseña
       </label>
-      <input type="password" placeholder="Contraseña" name="contrRef" minlength="8"/>
+      <input type="password" placeholder={{contrRef}} name="contrRef" minlength="8"/>
     </div>
     
     <button type="submit" class="BotonRegistro" onclick="perfilInvisible()">Guardar cambios</button>
     </div>
   </form>
 </div>
+<!--FIN MODAL DEL FORMULARIO-->
+
 <!--FIN MODAL DEL FORMULARIO-->
   </main>
 
