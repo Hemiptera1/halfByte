@@ -80,39 +80,39 @@
             <div >
             <form action="/processSignup" method="post" class="SignUpmini">
 
-              <div>
-                <label>
-                  Nombre
-                </label>
-                <input type="text" placeholder="Nombre" name="name" autofocus required/>
-              </div>
-
-              <div>
-                <label>
-                  Apellido
-                </label>
-                <input type="text" placeholder="Apellido" name="surname" required/>
-              </div>
-
+                         <div>
+              <label>
+                Nombre
+              </label>
+              <input type="text" placeholder={{name}} name="name" autofocus required/>
+            </div>
+        
             <div>
               <label>
-                Email
+                Apellido
               </label>
-              <input type="email" placeholder="Email" name="email" required>
+              <input type="text" placeholder={{surname}} name="surname" required/>
             </div>
-
-            <div>
-              <label>
-                Contraseña
-              </label>
-              <input type="password" placeholder="Contraseña" name="contr" minlength="8" required/>
-            </div>
-
-            <button type="submit" class="BotonRegistro">Registrarse</button>
-            </div>
-          </form>
 
           <div>
+            <label>
+              Email 
+            </label>
+            <input type="email" placeholder={{email}} name="email" required>
+          </div>
+          
+          <div>
+            <label>
+              Contraseña
+            </label>
+            <input type="password" placeholder={{contr}} name="contr" minlength="8" required/>
+          </div>
+          
+    <button type="submit" class="BotonRegistro" onclick="perfilInvisible()">Guardar cambios</button>
+    </div>
+  </form>
+</div>
+ <div>
           <h4 class="centrarTexto">También podes ingresar con:</h4>
           <div class="botonesSignUp">
              <button><img src="C:\Users\Juana\Desktop\bit\image\iconos\googleLog" alt="Icono Google">Registrate con Google</button>
