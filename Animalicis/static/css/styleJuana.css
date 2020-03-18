@@ -18,8 +18,14 @@ h2 {
 h3 {
     font-size: 4.0rem;
 }
+
 h4 {
     font-size: 3rem;
+}
+
+p {
+  font-size: 1.5rem;
+  font: bolder;
 }
 
 .contenedor {
@@ -149,9 +155,21 @@ textarea {
   }
 }
 
+/* FOOTER */
+
+footer {
+  font-size: small;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-top: 3em;
+  background-color: gray;
+  padding-top: 2em;
+  padding-bottom: 2em;
+ }
+
 /* SIGN UP */
   
-  .signupcontainer {
+  .mainContainer {
     background-color: white;
     background-size: cover;
     margin-right:9em;
@@ -201,8 +219,7 @@ textarea {
     margin: 1.5rem auto 3rem auto;
     padding: 1rem;
     font-size: 2rem;
-    background-color: rgb(115, 145, 201);
-    
+    background-color: rgb(115, 145, 201);  
 }
 
 .links {
@@ -224,7 +241,7 @@ textarea {
     margin-bottom: 1em;
 }
 
- /*IMAGENES SUBIDAS POR LOS USUARIOS*/
+  /*IMAGENES SUBIDAS POR LOS USUARIOS*/
 
   .fotosSubidas{
     border: 1.5px solid #ccc;
@@ -347,12 +364,8 @@ textarea {
   background-color: rgb(115, 145, 201);  
 }
 
-
-/* FOOTER */
-footer {
- font-size: small;
- font-family: Arial, Helvetica, sans-serif;
- text-align: center;
- margin-top: 3em;
-
+.fontUnificada{
+  font-family: "Montserrat";
+  font-size: 1.6rem;
+  padding: 1rem;
 }
