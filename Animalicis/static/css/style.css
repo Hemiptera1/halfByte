@@ -410,17 +410,71 @@ h4 {
     }
 }
 
+/* GRILLA DE BUSQUEDA */
+
+.busquedaAnimales {
+    overflow: auto;
+    max-height: 100vh;
+}
+
 .busquedaGrilla {
     display: grid;
     grid-template-columns: 1fr 4fr;
 }
+
 .busquedaContenedor {
-    width: 90%;
+    width: 95%;
     margin: auto;
+    padding: 3rem;
 }
+
+.busquedaInterna {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 5rem;
+    column-gap: 3rem;
+}
+
+.animalesGrilla {
+    display: grid;
+    grid-template-rows: 25rem 10rem;
+    padding: .7rem;
+    border: .1rem solid rgb(93, 93, 94);
+    box-shadow: 0rem 0rem 1rem .1rem;
+    border-radius: 1rem;
+}
+
+.animalesImagen {
+}
+.animalesImagen img {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+}
+
+.animalesInferior {
+    display: grid;
+    margin-top: .5rem;
+    grid-template-rows: .8fr 1fr;
+}
+.animalesInferior span {
+    font-family: "Signika";
+    font-size: 2rem;
+    font-weight: 700;
+}
+.animalesInferior p {
+    font-family: "Roboto";
+    vertical-align: baseline;
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+/* PANEL DE BUSQUEDA */
+
 .contenedorInterno2 {
     border-bottom-right-radius: 2rem;
     background-color: #8FD7FF;
+    height: 61rem;
 }
 .selectores2 {
     display: grid;
@@ -438,8 +492,8 @@ h4 {
 }
 div.entrada-usuarios2 select {
     font-family: 'Sriracha', cursive;
-    font-size: 1.6rem;
-    padding: .8rem;
+    font-size: 1.8rem;
+    padding: 1rem;
     border-radius: 1rem;
     border: none;
     margin: 1.2rem auto;
@@ -836,7 +890,7 @@ div.entrada-usuarios select {
 
 .grillaIntermedia {
     display: grid;
-    width: 97%;
+    width: 100%;
     margin: auto;
     grid-template-columns: 30% 70%;
     border: .4rem solid #ffffff;

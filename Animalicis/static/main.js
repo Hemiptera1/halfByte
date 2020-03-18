@@ -1,4 +1,3 @@
-
 /* MENU EXPANDIBLE */
 
 function visible() {
