@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Perfil Publico</title>
-    <link rel="stylesheet" href="C:\Users\Juana\Desktop\bit\CSS\normalize.css.css">
-    <link rel="stylesheet" href="C:\Users\Juana\Desktop\bit\CSS\all.css">
+
+    <link rel="stylesheet" href="CSS\normalize.css.css">
+    <link rel="stylesheet" href="CSS\all.css">
+    <link rel="stylesheet" href="CSS\styleJuana.css">
+
     <link href="https://fonts.googleapis.com/css?family=Sriracha&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Signika|Sriracha&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="C:\Users\Juana\Desktop\bit\CSS\styleJuana.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="C:\Users\Juana\Desktop\bit\jsJuana.js"></script>
+
+    <script src="jsJuana.js"></script>
 </head>
 <body>
 
@@ -75,18 +79,18 @@
     </header>
 
     <main>
-        <div class="signupcontainer ">
+        <div class="mainContainer">
             <div class="alinear">
-                <h3> {{nameRef}}</h3>
-                <p class="fontUnificada"> {{descripcion}}</p>
+                <h3> {{ nameRef }}</h3>
+                <p class="fontUnificada"> {{ descripcion }}</p>
                 
                 <h4> Datos del refugio</h4>
-                <p class="fontUnificada"> <span style="font-weight: bolder;">Direccion:</span> {{direccion, barrio, ciudad, departamento}}</p>
+                <p class="fontUnificada"> <span style="font-weight: bolder;">Direccion:</span> {{ direccion, barrio, ciudad, departamento }}</p>
                 <p class="fontUnificada"> <span style="font-weight: bolder;">Nombre del responsable a contactar:</span> Traer nombre</p>
-                <p class="fontUnificada"> <span style="font-weight: bolder;">Telefono de contacto:</span> {{telcontacto}}</p>
+                <p class="fontUnificada"> <span style="font-weight: bolder;">Telefono de contacto:</span> {{ telcontacto }}</p>
                 <p class="fontUnificada"> <span style="font-weight: bolder;">Animales aceptados:</span> Como traemos todos los animales en una oracion?</p>
                 <p class="fontUnificada"> <span style="font-weight: bolder;">Horario de atencion:</span> Desde X(traer horario inicio) hasta Y(traer horario de cierre)</p>
-                <p class="fontUnificada"> <span style="font-weight: bolder;">Sitio web:</span> {{url}}</p>
+                <p class="fontUnificada"> <span style="font-weight: bolder;">Sitio web:</span> {{ url }}</p>
                 <p class="fontUnificada"> <span style="font-weight: bolder;">Fotos:</span> Traer fotos. Hay que hacer una cateogoria para que se vea bien. </p>
 
                 <h4> Animales en adopcion</h4>
@@ -97,7 +101,7 @@
     </main>
 
     <footer>
-        <p> Pagina realizada en el marco del Proyecto B_it de la Camara Uruguaya de Tecnologia e Informacion</p>
+        <p> Página realizada en el marco del Proyecto B_it de la Cámara Uruguaya de Tecnología e Información</p>
         <p>2020</p>
     </footer>
 </body>

@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mi perfil</title>
-    <link rel="stylesheet" href="C:\Users\Juana\Desktop\bit\CSS\normalize.css.css">
-    <link rel="stylesheet" href="C:\Users\Juana\Desktop\bit\CSS\all.css">
+    <link rel="stylesheet" href="CSS\normalize.css.css">
+    <link rel="stylesheet" href="CSS\all.css">
+    <link rel="stylesheet" href="CSS\styleJuana.css">
+    
     <link href="https://fonts.googleapis.com/css?family=Sriracha&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="C:\Users\Juana\Desktop\bit\CSS\styleJuana.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="C:\Users\Juana\Desktop\bit\jsJuana.js"></script>
+    
+    <script src="jsJuana.js"></script>
 </head>
 
 <body>
@@ -74,13 +76,13 @@
 </header>
 
   <main>
-    <div class="signupcontainer "> 
+    <div class="mainContainer "> 
           <div class="alinear">
           <h3 > Mis animales encontrados</h3>
 
-          <img src="C:\Users\Juana\Desktop\bit\image\perro1.jpg" style="width:150px;height:200px" class="fotosSubidas responsive"> 
-          <img src="C:\Users\Juana\Desktop\bit\image\perro2.jpg" style="width:150px;height:200px" class="fotosSubidas responsive"> 
-          <img src="C:\Users\Juana\Desktop\bit\image\perro3.jpg" style="width:150px;height:200px" class="fotosSubidas responsive">
+          <img src="image\perro1.jpg" style="width:150px;height:200px" class="fotosSubidas responsive"> 
+          <img src="image\perro2.jpg" style="width:150px;height:200px" class="fotosSubidas responsive"> 
+          <img src="image\perro3.jpg" style="width:150px;height:200px" class="fotosSubidas responsive">
 
           <p> Si encontraste otro animal y queres darlo en adopción, hace click <a href="" class="linksP"> aqui</a></p>   
         </div>
@@ -88,8 +90,8 @@
       <div class="alinear">
           <h3 >Mis animales adoptados</h3>
 
-          <img src="C:\Users\Juana\Desktop\bit\image\perro4.jpg" style="width: 150px;height:200px" class="fotosSubidas responsive"> 
-          <img src="C:\Users\Juana\Desktop\bit\image\perro5.jpg" style="width: 150px;height:200px" class="fotosSubidas responsive"> 
+          <img src="image\perro4.jpg" style="width: 150px;height:200px" class="fotosSubidas responsive"> 
+          <img src="image\perro5.jpg" style="width: 150px;height:200px" class="fotosSubidas responsive"> 
     
           <p> Si queres adoptar a tu nuevo mejor amigo, hace click <a href="" class="linksP"> aqui</a></p>
       </div>
@@ -106,6 +108,7 @@
   <input type="submit" class="botonPerfil" value="Editar Perfil" onclick="perfilVisible()"/>
   <i onclick="perfilVisible()"></i>
 </div>
+
 <div class="perfilExpandido">
   <i onclick="perfilInvisible()"></i>
   <label for="cerrar" class="botonCerrar" onclick="perfilInvisible()">X</label>
@@ -221,12 +224,10 @@
   </form>
 </div>
 <!--FIN MODAL DEL FORMULARIO-->
-
-<!--FIN MODAL DEL FORMULARIO-->
   </main>
 
   <footer>
-    <p> Pagina realizada en el marco del Proyecto B_it de la Camara Uruguaya de Tecnologia e Informacion</p>
+    <p>Página realizada en el marco del Proyecto B_it de la Cámara Uruguaya de Tecnología e Información</p>
     <p>2020</p>
    </footer>
 </body>

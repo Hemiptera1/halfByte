@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Sign Up Refugios</title>
-    <link rel="stylesheet" href="C:\Users\Juana\Desktop\bit\CSS\normalize.css.css">
-    <link rel="stylesheet" href="C:\Users\Juana\Desktop\bit\CSS\all.css">
+
+    <link rel="stylesheet" href="CSS\normalize.css.css">
+    <link rel="stylesheet" href="CSS\all.css">
+    <link rel="stylesheet" href="CSS\styleJuana.css">
+
     <link href="https://fonts.googleapis.com/css?family=Sriracha&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="C:\Users\Juana\Desktop\bit\CSS\styleJuana.css">
-    <script src="C:\Users\Juana\Desktop\bit\jsJuana.js"></script>
+   
+
+    <script src="jsJuana.js"></script>
 </head>
 <body>
 
-    <header class="header-site">
+  <header class="header-site">
     <div class="logo">
         <a href="/index.html"><h2>Animalis Amicis</h2></a>
     </div>
@@ -69,18 +74,19 @@
             <i onclick="visibleLogin()" class="fas fa-user"></i>
         </div>
     </div>
+    
 </header>
-
+        
   <main>
     <div>
-        <section class="signupcontainer">
+        <section class="mainContainer">
         <div >
           <h3 class="centrarTexto">Completa tus datos para registrar tu refugio</h3>
 
-          <div id="signup">
+          <div id="signup">   
             <div >
-            <form action="/processSignupRef" method="post" class="SignUpmini">
-
+            <form action="/" method="post" class="SignUpmini">
+            
               <div>
                 <label>
                   Nombre del refugio
@@ -88,35 +94,35 @@
                 <input type="text" placeholder="Nombre del refugio" name="nameRef" autofocus required/>
               </div>
 
-               <div>
+
+              <div>
                 <label>
                   Departamento
                 </label>
                 <input type="text" placeholder="Departamento" name="departamento" required/>
               </div>
-
+              
               <div>
                 <label>
                   Ciudad
                 </label>
                 <input type="text" placeholder="Ciudad" name="ciudad" required/>
-              </div>
+              </div>  
 
               <div>
                 <label>
                   Barrio
                 </label>
-                <input type="text" placeholder="Barrio" name="barrio"/>
+                <input type="text" placeholder="Barrio" name="barrio" required/>
               </div>
-
 
               <div>
                 <label>
-                  Dirección
+                  Dirección 
                 </label>
                 <input type="text" placeholder="Dirección" name="direccion" required/>
               </div>
-
+                      
               <div>
                 <label>
                   Telefono fijo de contacto
@@ -128,9 +134,8 @@
                 <label>
                   Telefono celular de contacto
                 </label>
-                <input type="tel" placeholder="..." name="telcontacto"required/>
+                <input type="tel" placeholder="..." name="telcontacto" required/>
               </div>
-            <div>
 
               <div>
                 <label>
@@ -160,7 +165,7 @@
               </p>
             </ul>
             </div>
-
+             
             <div id="otrosA">
               <label>
                 Otros animales aceptados en el refugio:
@@ -175,32 +180,32 @@
                 <textarea name="descripcion" rows="3" cols="30" maxlength="3000" placeholder="Contanos que te llevó a crear el refugio y como funciona" required></textarea>
             </div>
 
-              <div>
+            <div>
               <label>Subi fotos de tu refugio:</label>
               <input type="file" id="img" name="img" accept="image/*" class="inputfile" data-multiple-caption="{count} files selected" multiple />
               </div>
-
+            
              <div>
                 <label>
                   Sitio Web
                 </label>
                 <input type="url" name="url" placeholder="Comparti tu sitio web" size="40"/>
               </div>
-
+  
             <div>
               <label>
-                Email
+                Email 
               </label>
-              <input type="email" placeholder="Email" name="emailRef" required/>
+              <input type="email" placeholder="Email" name="emailRef" required>
             </div>
-
+            
             <div>
               <label>
                 Contraseña
               </label>
               <input type="password" placeholder="Contraseña" name="contrRef" minlength="8" required/>
             </div>
-
+            
             <button type="submit" class="BotonRegistro">Registrarse</button>
             </div>
           </form>
@@ -209,7 +214,7 @@
   </main>
 
   <footer>
-     <p> Pagina realizada en el marco del Proyecto B_it de la Camara Uruguaya de Tecnologia e Informacion</p>
+     <p> Página realizada en el marco del Proyecto B_it de la Cámara Uruguaya de Tecnología e Información</p>
      <p>2020</p>
     </footer>
 </body>
