@@ -40,120 +40,125 @@ textarea {
 /* HEADER */
 
 .header-site {
-  display: flex;
-  background-image: url(/Animalicis/static/image/manAndDog.jpg);
-  height: 10rem;
-  background-position: 0 -2rem;
-  background-size: cover;
-  align-items: center;
-  border-radius: 4rem;
+    display: flex;
+    background-image: url(/Animalicis/static/image/manAndDog.jpg);
+    height: 10rem;
+    background-position: 0 -2rem;
+    background-size: cover;
+    align-items: center;
+    border-radius: 4rem;
 }
 
 .header-site h2 {
-  font-size: 3.5rem;
-  margin: 0;
-  color: #ffffff;
-  padding-left: 1rem;
+    font-size: 3.5rem;
+    margin: 0;
+    color: #ffffff;
+    padding-left: 1rem;
 }
 
 .logo {
-  flex-basis: 50%;
+    flex-basis: 50%;
 }
 .logo a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .redes-sociales {
-  display:flex;
-  flex-direction: column;
-  flex-basis: 50%;
-  text-align: center;
-  font-size: 2.5rem;
+    display:flex;
+    flex-direction: column;
+    flex-basis: 50%;
+    text-align: center;
+    font-size: 2.5rem;
 }
 .redes-sociales a {
-  color: #ffffff;
-  padding-right: 2rem;
+    color: #ffffff;
+    padding-right: 2rem;
 }
 @media(min-width: 768px) {
-  .header-site {
-      background-image: none;
-      background-color: rgb(62, 184, 62);
-      background-position: 0rem 12.5rem;
-      border-radius: 0;
-      height: 5rem;
-  }
-  .logo {
-      flex-basis: 18%;
-  }
-  .logo h2 {
-      font-size: 3rem;
-  }
-  .redes-sociales {
-      display: none;
-  }
-  .redes-sociales a {
-      padding-right: 3rem;
-  }
+    .header-site {
+        background-image: none;
+        background-color: rgb(36, 34, 34);
+        background-position: 0rem 12.5rem;
+        border-radius: 0;
+        height: 5rem;
+    }
+    .logo {
+        flex-basis: 18%;
+    }
+    .logo h2 {
+        font-size: 3rem;
+    }
+    .redes-sociales {
+        display: none;
+    }
+    .redes-sociales a {
+        padding-right: 3rem;
+    }
 }
 
 .botonesHeader {
-  display: none;
+    display: none;
 }
 @media(min-width: 768px) {
-  .botonesHeader {
-      display: flex;
-      width: 100rem;
-  }
-  .navMenu {
-      display: flex;
-      width: 100%;
-      font-family: "Inconsolata";
-      margin: 0;
-      justify-content: space-around;
-  }
-  .navMenu li {
-      list-style: none;
-      width: 100%;
-      text-align: center;
-      padding: 1.3rem 1.5rem;
-      cursor: pointer;
-      transition-duration: 700ms;
-  }
-  .navMenu li a {
-      font-size: 2.2rem;
-      color: rgb(255, 255, 255);
-      text-decoration: none;
-  }
-  .navMenu li:hover {
-      background-color: rgb(3, 173, 3);
-  }
-  .loginHeaderDesktop {
-      display: flex;
-      font-size: 1.8rem;
-      margin: 1.4rem 0 0 5rem;
-      color: #fff;
-      cursor: pointer;
-  }
-  .loginHeaderDesktop p {
-      margin: 0 1rem;
-  }
-  .subMenu {
-      display: none;
-      position: absolute;
-      padding: 0;
-      z-index: 40;
-  }
-  .subMenu li {
-      background-color: rgb(62, 184, 62);
-      position: relative;
-      top: 1.2rem;
-      left: -1.5rem;
-      padding: 1.5rem 1.5rem;
-  }
-  .navMenu li:hover .subMenu {
-      display: block;
-  }
+    .botonesHeader {
+        display: flex;
+        width: 100rem;
+        background-color: rgb(36, 34, 34);
+    }
+    .navMenu {
+        display: flex;
+        width: 100%;
+        font-family: "Inconsolata";
+        margin: 0;
+        justify-content: space-around;
+    }
+    .navMenu li {
+        list-style: none;
+        width: 100%;
+        text-align: center;
+        padding: 1.3rem 1.5rem;
+        cursor: pointer;
+        transition-duration: 700ms;
+    }
+    .navMenu li a {
+        font-size: 2.2rem;
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+    }
+    .navMenu li a:hover {
+        color: #000;
+    }
+    .navMenu li:hover {
+        background-color: #FFFB75;
+    }
+    .loginHeaderDesktop {
+        display: flex;
+        font-size: 1.8rem;
+        margin: 1.4rem 0 0 5rem;
+        color: #fff;
+        cursor: pointer;
+    }
+    .loginHeaderDesktop p {
+        margin: 0 1rem;
+    }
+    .subMenu {
+        display: none;
+        position: absolute;
+        padding: 0;
+        z-index: 40;
+    }
+    .subMenu li {
+        background-color: rgb(36, 34, 34);
+        position: relative;
+        top: 1.2rem;
+        left: -1.5rem;
+        padding: 1.5rem 1.5rem;
+    }
+    .navMenu li:hover .subMenu {
+        display: block;
+    }
 }
+
 
 /* FOOTER */
 
