@@ -1078,3 +1078,16 @@ div.entrada-usuarios select {
     padding: 1.5rem 8rem;
 }
 /* FIN MOLDE ARTÍCULOS */
+
+
+/* REGISTRO ANIMALES */
+
+.raPortada {
+    width: 100%;
+    height: 95vh;
+    background-image: url(/Animalicis/static/image/familiaMascota3.png);
+    background-size: 100%;
+    background-position-y: -16rem;
+}
+
+/* FIN REGISTRO ANIMALES */
