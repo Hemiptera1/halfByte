@@ -1083,11 +1083,81 @@ div.entrada-usuarios select {
 /* REGISTRO ANIMALES */
 
 .raPortada {
+    position: relative;
     width: 100%;
     height: 95vh;
-    background-image: url(/Animalicis/static/image/familiaMascota3.png);
-    background-size: 100%;
-    background-position-y: -16rem;
+    text-align: center;
+    background-image: url(/Animalicis/static/image/familiaOpción2.jpg);
+    background-size: cover;
+}
+.raPortada h1 {
+    position: absolute;
+    color: #fff;
+    font-family: "Open Sans";
+    font-weight: 700;
+    letter-spacing: .3rem;
+    text-shadow: .3rem .3rem 0 #000;
+    margin: 0;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.registroScroll {
+    position: relative;
+}
+.raPortada img {
+    position: absolute;
+    width: 5rem;
+    top: 75%;
+    transform: translateX(-2.5rem);
+}
+
+.registrosFormularios {
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario {
+    width: 85%;
+    margin: auto;
+    font-family: "Open Sans";
+}
+
+.registrosCampos {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-bottom: 5rem;
+}
+.registrosCampos label {
+    line-height: 2;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: rgb(58, 56, 56);
+}
+.registrosCampos select {
+    font-size: 1.6rem;
+    padding: 1.3rem;
+}
+
+.botonEnviar {
+    text-align: right;
+}
+
+.registrosBoton {
+    font-size: 2rem;
+    width: 20rem;
+    padding: 1rem;
+    background-color: #FFA8AE;
 }
 
 /* FIN REGISTRO ANIMALES */
+
+footer {
+    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 6rem;
+    background-color: gray;
+    padding: 2rem 0;
+   }

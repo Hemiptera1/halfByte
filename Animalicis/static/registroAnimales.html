@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/Animalicis/static/css/normalize.css">
     <link rel="stylesheet" href="/Animalicis/static/css/all.css">
     <link rel="stylesheet" href="/Animalicis/static/css/style.css">
@@ -69,7 +70,76 @@
         </div>
     </header> <!-- FIN DEL HEADER -->
     <div class="raPortada">
-        
+        <h1>Encuentrale a tu mascota un cariñoso hogar</h1>
+        <img src="/Animalicis/static/image/scrollDownWhite.png" alt="">
     </div>
 
+    <section class="formulario">
+        <h4 style="text-align: center;">Complete el formulario</h4>
+        <form  class="registrosFormularios" action="">
+            <div class="registrosCampos">
+                <label for="nombre">¿De que especie es su mascota?</label>
+                <select name="nombre" id="Especie" onchange="poblar(this.id, 'Raza')">
+                    <option value="Elija" selected>Elija uno</option>
+                    <option value="Perros">Perros</option>
+                    <option value="Gatos">Gatos</option>
+                    <option value="Otros">Otros</option>
+                </select>
+            </div>
+            <div class="registrosCampos">
+                <label id="textoRaza" for="raza">Escoja una especie primero</label>
+                <select name="raza" id="Raza"></select>
+            </div>
+            <div class="registrosCampos">
+                <label for="edad">¿Cual es la edad de tu mascota?</label>
+                <select name="edad" id="">
+                    <option value="Elija" selected>Elija uno</option>
+                    <option value="Cachorro">Cachorro</option>
+                    <option value="Joven">Joven</option>
+                    <option value="Adulto">Adulto</option>
+                    <option value="Mayor">Mayor</option>
+                </select>
+            </div>
+            <div class="registrosCampos">
+                <label for="castracion">¿Está su mascota castrada?</label>
+                <select name="castracion" id="">
+                    <option value="Elija" selected>Elija uno</option>
+                    <option value="Castrado">Si</option>
+                    <option value="NoCastrado">No</option>
+                </select>
+            </div>
+            <div class="registrosCampos">
+                <label for="enfermedades">¿Está su mascota enferma o lisiada?</label>
+                <select name="enfermedades" id="">
+                    <option value="Elija" selected>Elija uno</option>
+                    <option value="No">No</option>
+                    <option value="Ciego">Mi mascota es ciega</option>
+                    <option value="Sordo">Mi mascota es sorda</option>
+                    <option value="Lisiado">Mi mascota sufre una discapacidad</option>
+                    <option value="Enfermedad">Mi mascota está actualmente enferma</option>
+                </select>
+            </div>
+            <div class="registrosCampos">
+                <label for="urgencia">¿Por cuanto tiempo puedes hacerte cargo?</label>
+                <select name="urgencia" id="">
+                    <option value="Elija" selected>Elija uno</option>
+                    <option value="NoUrgencia">No tengo ninguna urgencia</option>
+                    <option value="UnosDias">Tan solo unos días</option>
+                    <option value="UnaSemana">Solo dispongo de una semana</option>
+                    <option value="UnMes">Dispongo de este mes</option>
+                </select>
+            </div>
+            <div class="botonEnviar">
+                <input class="registrosBoton" type="button" value="¡Enviar!">
+            </div>
+        </form>
+    </section>
+
+    <footer>
+        <p>Página realizada en el marco del Proyecto B_it de la Cámara Uruguaya de Tecnología e Información</p>
+        <p>2020</p>
+    </footer>
+
 </body>
+<script src="/Animalicis/static/main.js"></script>
+</html>
