@@ -48,6 +48,15 @@ function invisibleLogin() {
 
 /* FIN LOGIN */
 
+/* FORMULARIO REGISTRO DE ANIMALES */
+
+window.addEventListener("scroll", function() {
+    if(window.scrollY === 0) {
+        window.scrollTo(0, 300);
+    }
+})
+
+
 function poblar(s1, s2) {
     var s1 = document.getElementById(s1);
     var s1Value = s1.value;
@@ -71,3 +80,19 @@ function poblar(s1, s2) {
         s2.options.add(nuevaOpcion);
     }
 }
+
+const botonOriginal = document.getElementById("botonOriginal");
+const botonFalso = document.getElementById("botonFalso");
+const infoBoton = document.getElementById("infoBoton");
+
+botonFalso.addEventListener("click", function() {
+    botonOriginal.click();
+})
+
+botonOriginal.addEventListener("change", function() {
+    if(botonOriginal.value) {
+        infoBoton.innerHTML = "Subido :)";
+    }
+})
+
+/*  FIN DEL FORMULARIO DE REGISTRO DE ANIMALES */

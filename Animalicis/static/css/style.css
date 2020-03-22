@@ -1140,6 +1140,36 @@ div.entrada-usuarios select {
     padding: 1.3rem;
 }
 
+.botonImagen {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-bottom: 5rem;
+}
+.botonImagen p {
+    line-height: 2;
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin: 0;
+    color: rgb(58, 56, 56);
+    cursor: default;
+}
+
+.botonImagen2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.botonImagen2 button {
+    font-size: 1.6rem;
+    padding: 1.3rem;
+    background-color: #fff;
+}
+
+.registrosCampos textarea {
+    font-size: 1.6rem;
+    padding: 1.6rem 1.3rem 1rem 1.3rem;
+    font-family: "Open Sans";
+}
+
 .botonEnviar {
     text-align: right;
 }

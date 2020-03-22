@@ -129,8 +129,20 @@
                     <option value="UnMes">Dispongo de este mes</option>
                 </select>
             </div>
+            <div class="botonImagen">
+                <p>Sube una imagen de tu mascota</p>
+                <div class="botonImagen2">
+                    <input type="file" id="botonOriginal" accept="image/jpeg, image/png" hidden />
+                    <button type="button" id="botonFalso">Escoja un archivo</button>
+                    <p style="text-align: center" id="infoBoton">Aun sin subir</p>
+                </div>
+            </div>
+            <div class="registrosCampos">
+                <label for="comentarios">Describe brevemente a tu mascota</label>
+                <textarea name="comentarios" id="" cols="99" rows="1" placeholder="Escribe aquí"></textarea>
+            </div>
             <div class="botonEnviar">
-                <input class="registrosBoton" type="button" value="¡Enviar!">
+                <input class="registrosBoton" type="submit" value="¡Enviar!">
             </div>
         </form>
     </section>
