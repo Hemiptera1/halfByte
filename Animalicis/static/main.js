@@ -50,13 +50,6 @@ function invisibleLogin() {
 
 /* FORMULARIO REGISTRO DE ANIMALES */
 
-window.addEventListener("scroll", function() {
-    if(window.scrollY === 0) {
-        window.scrollTo(0, 300);
-    }
-})
-
-
 function poblar(s1, s2) {
     var s1 = document.getElementById(s1);
     var s1Value = s1.value;
