@@ -8,106 +8,202 @@
 
 import json
 import psycopg2
-
-#from PIL import Image, ImageOps
+import config
+import os
 from flask import Flask, request, url_for, redirect
 app = Flask(__name__)
+from flask_sqlalchemy import SQLAlchemy #por algun otibo no reconose el proseso create_engine
+
+DB_URL = 'postgresql+psycopg2://{user}:{pw}@{url}/{db}'.format(user="postgres",pw="Perros2012",url="animalicis.crl39vc3ngno.us-east-2.rds.amazonaws.com",db="animalicis")
+IMA_F = './data/Photo/Ref'
+IMG_ANIMALS = './data/Photo/Animals'
+
+app.config['UPLOAD_FOLDER'] = IMA_F
+app.config['UPLOAD_FOLDER1'] = IMG_ANIMALS
+app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+
+from tablas import db
+db.drop_all()              #¡¡¡¡¡borrar cuando deje de modificar las tablas!!!!
+db.create_all()
+
+from sqlalchemy import create_engine, select
+from tablas import User_, Refuge_, Animals_
 
 
+@app.route('/', methods=['GET'])
+def index():#poner el **context y el 'Nomgre' en el html
+    _name=""
+    try:
+        data= json.load(request.cookies.get('User'))
+    except AttributeError:
+        data= {}
+    else:
+        _name= data.get('name')
+    context={'Nombre': _name}
+    return app.send_static_file('index.html') #falta conectar la bariable
 
-@app.route('/', methods=['GET']) #probar con colocar la paguina donde esta subido el index
-def index():#poner variable base para la seleccion de raza MAXIMA URJENCIA TERMINAR!!!!!
-    return app.send_static_file('index.html')
-
-@app.route('/account', methods=['GET'])                                         #enlace a la eleccion de perfil
+@app.route('/account', methods=['GET'])
 def account():
     return app.send_static_file('cuentas.html')
 
-@app.route('/profile', methods=['GET'])#pendiente de crear                      #perfil visible solo por el usuario
-def profile():#terminar
-    return app.send_static_file('perfil.html')
+@app.route('/profile', methods=['GET'])    #poner el **context
+def profile():#Probar
+    data= json.load(request.cookis.get('User'))
+    _email= data.get('email')
+    _password= data.get('password')
 
-@app.route('/profileV', methods=['GET'])#pendiente de crear                     #perfil visible por el resto de usuario
-def profileV():#terminar
-    return app.send_static_file('perfil.html')
+    row= User_.query.filter_by(email=_email, pw_hash=_password).first()
+    if row != None:
+        email= "'" + _email + "'"
+        sql_search="SELECT id, name, photo FROM Animals_ WHERE email ={}".format(email)
+        engine = create_engine(DB_URL)
+        ram = engine.execute(sql_search).fetchall ()
+        animals= myanimal(ram)
+        context={"Nombre":row.name, "Apellido":row.lastname, "Email":row.email, "miAnimal":animals}
+    else:
+        return app.send_static_file('index.html')
+
+    return app.send_static_file('perfilUsuario.html')
+
+@app.route('/profileV', methods=['GET', ]) #poner el **context
+def profileV(_email=""):#Probar
+
+    row= User.query.filter_by(email=_email).first()
+    if row != None:
+        email= "'" + _email + "'"
+        sql_search="SELECT id, name, photo FROM Animals_ WHERE email ={}".format(email)
+        engine = create_engine(DB_URL)
+        ram = engine.execute(sql_search).fetchall ()
+        animals= myanimal(ram)
+        context={"Nombre":row.name, "Apellido":row.lastname, "Email":row.email, "miAnimal":animals}
+    else:
+        return app.send_static_file('index.html')
+
+    return app.send_static_file('perfilUsuarioV.html')
+
+@app.route('/profileRef', methods=['GET']) #poner el **context
+def profile():#Probar
+    data= json.load(request.cookis.get('User'))
+    _email= data.get('email')
+    _password= data.get('password')
+
+    row= Refuge_.query.filter_by(email=_email, pw_hash=_password).first()
+    if row != None:
+        email= "'" + _email + "'"
+        sql_search="SELECT id, name, photo FROM Animals_ WHERE email ={}".format(email)
+        engine = create_engine(DB_URL)
+        ram = engine.execute(sql_search).fetchall ()
+        animals= myanimal(ram)
+        context={"Nombre":row.name,"miAnimal":animals,
+                "Email":row.email, "Departamento":row.department,
+                "Ciudad":row.city, "Barrio":row.neighborhood,
+                "Diereccion":row.Googlemaps, "Descripcion":row.description,
+                "Representante":row.rep, "Telefono":row.phone,
+                "Celular":row.celphone, "Web":row.web,
+                "Animales":row.animal, "Abierto":row.time_o,
+                "Cerrado":row.time_c, "Foto":row.photo}
+    else:
+        return app.send_static_file('index.html')
+
+    return app.send_static_file('perfilRef.html')
+
+@app.route('/profileRefV', methods=['GET']) #poner el **context
+def profile(_email=""):#Probar
+
+    row= Refuge_.query.filter_by(email=_email).first()
+    if row != None:
+        email= "'" + _email + "'"
+        sql_search="SELECT id, name, photo FROM Animals_ WHERE email ={}".format(email)
+        engine = create_engine(DB_URL)
+        ram = engine.execute(sql_search).fetchall ()
+        animals= myanimal(ram)
+        context={"Nombre":row.name,"miAnimal":animals,
+                "Email":row.email, "Departamento":row.department,
+                "Ciudad":row.city, "Barrio":row.neighborhood,
+                "Diereccion":row.Googlemaps, "Descripcion":row.description,
+                "Representante":row.rep, "Telefono":row.phone,
+                "Celular":row.celphone, "Web":row.web,
+                "Animales":row.animal, "Abierto":row.time_o,
+                "Cerrado":row.time_c, "Foto":row.photo}
+    else:
+        return app.send_static_file('index.html')
+
+    return app.send_static_file('perfilRef.html')
 
 @app.route('/signup', methods=['GET'])
 def signup():
     return app.send_static_file('signup.html')
 
-@app.route('/signUpdate', methods=['GET'])                                      #(((Enlace al formulario de Up Date del usuario)))
-def signUpdate():#escribir nombre del html una ves este
-    return app.send_static_file('formulsrio de up date.html')
-
 @app.route('/signupRef', methods=['GET'])
 def signupRef():
     return app.send_static_file('SignupRef.html')
 
-@app.route('/signupRefUpdate', methods=['GET'])                                 #(((Enlace al formulario de Up Date del refugio)))
-def signupRefUpdate():#escribir nombre del html una ves este
-    return app.send_static_file('formulsrio de up date.html')
 
 @app.route('/processLogin', methods=['GET', 'POST'])
-def processLogin():# (usar las funciones de search_data y insert_data)
-        _email= "'" + str(request.args.get('email', None)) + "'"
-        _password= "'" +  str(request.args.get('contraseña', None)) + "'"
+def processLogin():
+        _email= str(request.args.get('email', None))
+        _password= str(request.args.get('contraseña', None))
 
-        sql_search_user= "SELECT email_user, password_user FROM users WHERE email_user ={} AND password_user ={}".format(_email, _password)
-        sql_search_ref= "SELECT email_refuge, password_refuge FROM refuges WHERE email_refuge ={} AND password_refuge ={}".format(_email, _password)
-        sql="SELECT * FROM users"
 
-        row= search_data(sql_search_ref)
+        row= Refuge_.query.filter_by(email=_email, pw_hash=_password).first()
         if row is None:
-            row= search_data(sql_search_user)
+            row= User_.query.filter_by(email=_email, pw_hash=_password).first()
             if row is None:
                 return  "Correo y/o contraceña incorrecta"
-            else:
-                usuario= redirect(url_for('index'))#para crear una cookie y guardar los datos del Usuario
-                usuario.set_cookie("User", json.dumps(dict(request.form.items())))#en el navegador
-                return usuario
-        else:
-            usuario= redirect(url_for('index'))#para crear una cookie y guardar los datos del Usuario
-            usuario.set_cookie(json.dumps(dict(request.form.items())))#en el navegador
-            return usuario
 
+        usuario= redirect(url_for('index'))#para crear una cookie y guardar los datos del Usuario
+        usuario.set_cookie("User", json.dumps({'email':row.email, 'password':row.pw_hash, 'name':row.name}))#en el navegador
+        return usuario
 
-@app.route('/processSignup', methods=['GET', 'POST'])#probado funciona (sige en duda el que quede guardado en la db)
-def processSignup():#terminar Nombre de cookie
-       email= "'" + str(request.form['email']) + "'"
+@app.route('/processSignup', methods=['GET', 'POST'])
+def processSignup():
 
-       _name= request.form['name']
-       _email= request.form['email']
-       _lastname= request.form['surname']
-       _password= request.form['contr']
+       _name= str(request.form['name'])
+       _email= str(request.form['email'])
+       _lastname= str(request.form['surname'])
+       _password= str(request.form['contr'])
 
-       sql_search= "SELECT email_user FROM users WHERE email_user ={}".format(email)
-       sql_insert= "INSERT INTO users (name_user, email_user, password_user, lastname_user) VALUES(%s,%s,%s,%s)"
-
-       datos= (str(_name), email, str(_password), str(_lastname))
-
-       row= search_data (sql_search)
+       row= User_.query.filter_by(email=_email).first()
        if row is None:
-          insert_data(sql_insert, datos)
-          usuario= redirect(url_for('index'))#para crear una cookie y guardar los datos del Usuario
-          usuario.set_cookie("User", json.dumps(dict(request.form.items())))#en el navegador
-          return usuario
+           intro= User_(name= _name, lastname=_lastname, email=_email, pw_hash=_password)
+           db.session.add(intro)
+           db.session.commit()
+
+           usuario= redirect(url_for('index'))#para crear una cookie y guardar los datos del Usuario
+           usuario.set_cookie("User", json.dumps({'email':row.email, 'password':row.pw_hash, 'name':row.name}))#en el navegador
+           return usuario
        else:
-          return redirect(url_for('index'))
+           return redirect(url_for('index'))
 
-@app.route('/processSignUpdate', methods=['GET', 'POST'])                       #(((Up Date del usuario)))
-def processSignUpdate():#terminar
-    #datos de la cookie
+@app.route('/processSignUpdate', methods=['GET', 'POST'])
+def processSignUpdate():#Probar
+    data= json.load(request.cookis.get('User'))
+    ty= data.get('email')
 
-    _passwordN= request.form['password']
+    #_passwordN= "'" + str(request.form['contr']) + "'"
 
-    sql_search= "SELECT email_user, password_user FROM users WHERE email_user ={} AND password_user ={}".format(_email, _password)
-    sql_update= "UPDATE users SET columna1 = 'valor nuevo' WHERE columna2 = 'valor nuevo'"
+    #sql_update= "UPDATE users SET columna1 = 'valor nuevo' WHERE columna2 = 'valor nuevo'"
+
+
+    sess.query(User_).filter(User_.pw_hasha ==request.form['contr']).\
+    update({User_.pw_hasha: request.form['contr']}, synchronize_session=False)
+    sess.query(User_).filter(User_.email ==request.form['email']).\
+    update({User_.email: request.form['email']}, synchronize_session=False)
+    sess.query(User_).filter(User_.name ==request.form['name']).\
+    update({User_.name: request.form['name']}, synchronize_session=False)
+    sess.query(User_).filter(User_.lastname ==request.form['surname']).\
+    update({User_.lastname: request.form['surname']}, synchronize_session=False)
+
+    usuario= redirect(url_for('index'))#para crear una cookie y guardar los datos del Usuario
+    usuario.set_cookie("User", json.dumps({'email': request.form['email'], 'password': request.form['contr'], 'name':request.form['name']}))#en el navegador
+    return usuario
 
 @app.route('/processSignupRef', methods=['GET', 'POST'])
-def processSignupRef(): #(usar las funciones de search_data y insert_data) _address= request.form['']
-    #image = request.files['img']
-
-    email= "'" + str(request.form['emailRef']) + "'"
+def processSignupRef(): #Probar el funcionamiento de la imagen
+    photo= request.files['img']
 
     _name= request.form['nameRef']
     _email= request.form['emailRef']
@@ -120,32 +216,48 @@ def processSignupRef(): #(usar las funciones de search_data y insert_data) _addr
     _phone= request.form['telcontactoFijo']
     _celphone= request.form['telcontacto']
     _web= request.form['url']
-    #_photo= Image.open(image)
-    _type= None
+    _rep=  request.form['responsableContacto']
+    _time_o= request.form['horaInicio']
+    _time_c= request.form['horaFinal']
+    _type= ""
 
-    if request.form['gatos'] ==True:
-        _type= ("Gatos ")
-    if request.form['perros'] ==True:
-        _type= _type + ("Perro ")
+    email= " " + _email
+
+    photo.save(os.path.join(app.config['UPLOAD_FOLDER'], email))
+    _photo= os.getcwd() + "\ " +  _email
+
+
+    if request.form['gatos'] == 'gatos': #reparar
+        _type= "Gatos "
+    if request.args.get('perros') == 'perros':
+        _type= _type + "Perro "
     if request.form['otrosAceptados'] != None:
-        _type= _type + (str (request.form['otrosAceptados']))
+        _type= _type + str (request.form['otrosAceptados'])
 
-    datos= (str(_name), str(_email), str(_password), str(_department), str(_city), str(_neighborhood), str(_address), str(_description), str(_phone), str(_celphone), str(_web), _photo, str(_type) )
 
-    sql_search= "SELECT email_refuge FROM refuges WHERE email_refuge ={}".format(email)
-    sql_insert= "INSERT INTO refuges (name_refuge, email_refuge, password_refuge, department_refuge, city_refuge, neighborhood_refuge, Googlemaps_refuge, description_refuge, phone_refuge, cellphone_refuge, website_refuge, image_refuge, animal_refuge) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-
-    row= search_data(sql_search)
+    row= Refuge_.query.filter_by(email=_email).first()
     if row is None:
-       insert_data(sql_insert, datos)
+       intro= Refuge_(name= _name, email= _email,
+                      pw_hash= _password, department= _department,
+                      city=_city, neighborhood=_neighborhood,
+                      Googlemaps=_address, description=_description,
+                      phone=_phone, celphone=_celphone,
+                      website=_web, animal=_type,
+                      time_o=_time_o, time_c=_time_c,
+                      rep=_rep, photo=_photo)
+       db.session.add(intro)
+       db.session.commit()
+
        usuario= redirect(url_for('index'))#para crear una cookie y guardar los datos del Usuario
-       usuario.set_cookie("User", json.dumps(dict(request.form.items())))#en el navegador
+       usuario.set_cookie("User", json.dumps({'email': _email, 'password': _password, 'name':_name}))#en el navegador
        return usuario
     else:
-       return redirect(url_for('index'))
+       usuario= redirect(url_for('index'))#para crear una cookie y guardar los datos del Usuario
+       usuario.set_cookie("User", json.dumps({'email':row.email, 'password':row.pw_hash, 'name':row.name}))#en el navegador
+       return usuario
 
-@app.route('/processSignupRefUpdate', methods=['GET', 'POST'])                  #(((Up Date del refugio)))
-def processSignupRefUpdate():#terminar
+@app.route('/processSignupRefUpdate', methods=['GET', 'POST'])
+def processSignupRefUpdate():#terminar Copiar el up data de user
     #datos de la cookie
 
     _passwordN= request.form['password']
@@ -155,6 +267,9 @@ def processSignupRefUpdate():#terminar
 
 @app.route('/insertPet', methods=['GET', 'POST'])
 def insert_Pet():#Terminar (enlases al formulario) probar
+    data= json.load(request.cookis.get('User'))
+    ty= data.get('email')
+
     image = request.files['img']
 
     _name= request.form['']
@@ -163,90 +278,211 @@ def insert_Pet():#Terminar (enlases al formulario) probar
     _gender= request.form['']
     _health= request.form['']
     _coment= request.form['']
-    _photo= Image.open(image)
-    _type= None
+    _type= ""
 
     if request.form[''] == True:
         _type= ("Gato ")
     if request.form[''] == True:
-        _type= _type + ("Perro")
+        _type= _type + ("Perro ")
     if request.form[''] != None:
         _type= _type + (str (request.form['']))
 
-    datos= (str(_name), str(_age), str(_race), str(_gender), str(_health), str(_coment), str(_type), _photo)
+    image_a= os.listdir(IMG_ANIMALS)
+    if image_a == None:
+        _id = 0
+    else:
+        _id = 1 + int(image_a[-1])
 
-    sql_insert= "INSERT INTO animals (name_animal, age_animal, breed_animal, gender_animal, health_animal, coments_animal, type_animal, photo_animal) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)"
+    id_= " " + str(_id)
 
-    insert_data(sql_insert,datos)
+    image.save(os.path.join(app.config['UPLOAD_FOLDER1'], id_))
+    _photo= os.getcwd() + "\ " +  str(_id)
+
+    intro=Animals_(email=ty, name=_name, age=_age,
+                   breed=_race, gender=_gender,
+                   health=_health, coments=_coment,
+                   type=_type, id=_id, photo=_photo)
+
+    db.session.add(intro)
+    db.session.commit()
 
     return redirect(url_for('index'))
 
-@app.route('/searchCat', methods=['GET', 'POST'])                               #(((Boton de busqueda para "Gatos")))
+@app.route('/searchCat', methods=['GET', 'POST'])              #eliminar
 def search_Cat():#Terminar pasar dato a el index ()
-    sql_search= "SELECT type_animal, breed_animal FROM animals WHERE type_animal= Gato" #revisar si Gato tiene que ser str
+    animal= "'" + "Gato" + "'"
+    sql_search= "SELECT DISTINCT * FROM Animals_ WHERE type= {}".format(animal) #revisar si Gato tiene que ser str
 
-    conexion = psycopg2.connect(host="animalicis.crl39vc3ngno.us-east-2.rds.amazonaws.com", database="animalicis", user="postgres", password="Perros2012")
-    cur= conexion.cursor()
-    cur.execute(sql_search)
-    row= cur.fetchone()
-    conexion.close()
-    return redirect(url_for('index'))#agregar el row con los nombres de las razas existentes
+    intro= Animals_(name= 'Sonriente', eag='j', email='_email', breed='Pelo corto', gender='Macho' , health='si', coments='sonrie', type='Gato')
+    intro1= Animals_(name= 'Felix', eag='j', email='_email', breed='Persa', gender='Macho' , health='si', coments='sonrie', type='Gato')
+    intro2= Animals_(name= 'Blair', eag='j', email='_email', breed='Bombai', gender='Hembra' , health='si', coments='sonrie', type='Gato')
+    intro3= Animals_(name= 'Makise', eag='j', email='_email', breed='Bombai', gender='Hembra' , health='si', coments='sonrie', type='Gato')
+    db.session.add(intro)
+    db.session.add(intro1)
+    db.session.add(intro2)
+    db.session.add(intro3)
+    db.session.commit()
 
-@app.route('/searchDog', methods=['GET', 'POST'])                               #(((Boton de busqueda para "Perro")))
+    engine = create_engine(DB_URL)
+    message = engine.execute(sql_search).fetchall ()
+    row= str(message)
+
+    #usuario= redirect(url_for('index'))
+    #usuario.set_cookie("Animal", json.dumps(row))
+    #usuario.set_cookie("type", json.dumps({'type': 'Cat'}))
+    return row
+
+@app.route('/searchDog', methods=['GET', 'POST'])              #eliminar
 def search_Dog():#Terminar pasar dato a el index()
-    sql_search= "SELECT type_animal, breed_animal FROM animals WHERE type_animal= Perro"
+    intro= Animals_(name= 'Sonriente', eag='j', email='_email', breed='Pelo corto', gender='Macho' , health='si', coments='sonrie', type='Gato')
+    intro1= Animals_(name= 'Felix', eag='j', email='_email', breed='Persa', gender='Macho' , health='si', coments='sonrie', type='Gato')
+    intro2= Animals_(name= 'Blair', eag='j', email='_email', breed='Bombai', gender='Hembra' , health='si', coments='sonrie', type='Gato')
+    intro3= Animals_(name= 'Makise', eag='j', email='_email', breed='Bombai', gender='Hembra' , health='si', coments='sonrie', type='Gato')
+    db.session.add(intro)
+    db.session.add(intro1)
+    db.session.add(intro2)
+    db.session.add(intro3)
+    db.session.commit()
 
-    conexion = psycopg2.connect(host="animalicis.crl39vc3ngno.us-east-2.rds.amazonaws.com", database="animalicis", user="postgres", password="Perros2012")
-    cur= conexion.cursor()
-    cur.execute(sql_search)
-    row= cur.fetchone()
-    conexion.close()
-    return redirect(url_for('index'))#agregar el row con los nombres de las razas existentes
 
-@app.route('/searchOther', methods=['GET', 'POST'])                             #(((Boton de busqueda para "Otros")))
+    animal= "'" + "Perro" + "'"
+    sql_search= "SELECT DISTINCT breed_animal FROM animals WHERE type_animal= {}".format(animal)
+
+    row= search_data(sql_search)
+    usuario= redirect(url_for('index'))
+    usuario.set_cookie("Animal", json.dumps(row))
+    usuario.set_cookie("type", json.dumps({'type': 'Dog'}))
+    return usuario
+
+@app.route('/searchOther', methods=['GET', 'POST'])            #eliminar
 def search_Other():#Terminar pasar dato a el index()
-    sql_search= "SELECT type_animal, breed_animal FROM animals WHERE type_animal= Otro"
+    cat= "'" + "Gato" + "'"
+    dog= "'" + "Perro" + "'"
 
-    conexion = psycopg2.connect(host="animalicis.crl39vc3ngno.us-east-2.rds.amazonaws.com", database="animalicis", user="postgres", password="Perros2012")
-    cur= conexion.cursor()
-    cur.execute(sql_search)
-    row= cur.fetchone()
-    conexion.close()
-    return redirect(url_for('index'))#agregar el row con los nombres de las razas existentes
+    sql_search= "SELECT DISTINCT breed_animal FROM animals WHERE type_animal <> {} AND type_animal <> {}".format(cat, dog)
 
-@app.route('/searchPet', methods=['GET', 'POST'])                               #(((Boton de busqueda general)))
-def search_Pet(): #terminar y testear prinsipalmente la foto
-    #buscar como sacar el tipo de animal (dado por el index) _type
-    _age= request.form['edad']
-    _gender= request.form['sexo']
-    _race= request.form['raza']
+    row= search_data(sql_search)
+    usuario= redirect(url_for('index'))
+    usuario.set_cookie("Animal", json.dumps(row))
+    usuario.set_cookie("type", json.dumps({'type': 'Other'}))
+    return usuario
 
-    sql_search= "SELECT * FROM animals WHERE type_animal ={} AND breed_animal ={} AND gender_animal ={} AND age_animal ={}".format(_type, _race, _gender, _age)
+@app.route('/searchPet', methods=['GET', 'POST'])    #(((Boton de busqueda general)))
+def search_Pet(): #terminar y testear prinsipalmente la foto #puedo usar el metodo Animals_.query.slice(self, start, stop)
+    intro= Animals_(name= 'Sonriente', age='Joven', email='_email', breed='Pelo corto', gender='Macho' , health='si', coments='sonrie', type='Gato')
+    intro1= Animals_(name= 'Felix', age='Joven', email='_email', breed='Persa', gender='Macho' , health='si', coments='sonrie', type='Gato')
+    intro2= Animals_(name= 'Blair', age='Joven', email='_email', breed='Bombai', gender='Hembra' , health='si', coments='sonrie', type='Gato')
+    intro3= Animals_(name= 'Makise', age='Adulto', email='_email', breed='Bombai', gender='Hembra' , health='si', coments='sonrie', type='Gato')
+    intro4= Animals_(name= 'Makise', age='Adulto', email='_email', breed='Bombai', gender='Hembra' , health='si', coments='sonrie', type='Gato')
+    db.session.add(intro4)
+    db.session.add(intro)
+    db.session.add(intro1)
+    db.session.add(intro2)
+    db.session.add(intro3)
+    db.session.commit()
 
-    search_data(sql_search)
+    if request.args.get('edad') != "F":
+        _age= "= " + "'" + str (request.args.get('edad')) + "'"
+    else:
+        _age= "<> " + "'" + str (request.args.get('edad')) + "'"
 
-    return redirect(url_for('index'))#pasar el raw con los datos de los animales a la funcion que muestra los datos
+    if request.args.get('sexo') == "R":
+        _gender=  "= " + "'" + str (request.args.get('sexo')) + "'"
+    else:
+        _gender= "<> " + "'" + str (request.args.get('sexo')) + "'"
 
-def insert_data(sql_insert, datos):
-    sql= sql_insert
-    data= datos
+    if request.args.get('raza') == "O":
+        _race= "= " + "'" + str (request.args.get('raza')) + "'"
+    else:
+        _race= "<> " + "'" + str (request.args.get('raza')) + "'"
 
-    conexion = psycopg2.connect(host="animalicis.crl39vc3ngno.us-east-2.rds.amazonaws.com", database="animalicis", user="postgres", password="Perros2012")
-    cur= conexion.cursor()
-    cur.execute(sql, data)
-    cur.close()
-    conexion.close()
 
-def search_data(sql_search): #fijarse como rescatar datos de una funcion !!!!!
-    sql= sql_search
+    #if request.form['Ref'] == "Ref":
+    #    _address= "'" + str (request.form['direccion']) + "'"
+    #    sql_search=
 
-    conexion = psycopg2.connect(host="animalicis.crl39vc3ngno.us-east-2.rds.amazonaws.com", database="animalicis", user="postgres", password="Perros2012")
-    cur= conexion.cursor()
-    cur.execute(sql)
-    row= cur.fetchone()
-    cur.close()
-    conexion.close()
-    return (row)
+
+    if request.args.get('Gato') == "Gato":
+        _type= "'" + "Gato" + "'"
+    elif request.args.get('Perro') == "Perro":
+        _type= "'" + "Perro" + "'"
+
+    sql_search= "SELECT email, name, age, breed, gender, health, coments, type FROM Animals_ WHERE type ={} AND breed {} AND gender {} AND age {}".format(_type, _race, _gender, _age)
+
+    if request.args.get('Otro') == "Otro":
+        _type1= "'" + "Gato" + "'"
+        _type2= "'" + "Perro" + "'"
+        sql_search= "SELECT email, name, eag, breed, gender, health, coments, type, photo FROM Animals_ WHERE type <>{} AND type <>{} AND breed {} AND gender {} AND age {}".format(_type1, _type2, _race, _gender, _age)
+
+    engine = create_engine(DB_URL)
+    row = engine.execute(sql_search).fetchall ()
+
+    ficha=file_animal(row)
+
+    context={'Ficha': ficha}
+
+    return ficha
+
+
+def file_animal(row):#agregar el codigo HTML que forma la ficha
+    row=row
+    cantidad=[0,1,2,3,4,5]
+    ficha=""
+    try:
+        data= json.load(request.cookies.get('Fichero'))
+    except AttributeError:
+        data= {}
+    else:
+        cantidad= data.get('cant')
+
+
+    for cont  in cantidad:
+        try:
+            _email= row[cont][0]
+        except IndexError:
+            break
+        else:
+            _name= row[cont][1]
+            _eag= row[cont][2]
+            _breed= row[cont][3]
+            _gender= row[cont][4]
+            _health= row[cont][5]
+            _coments= row[cont][6]
+            _type= row[cont][7]
+            _photo= row[cont][8]
+
+            ficha +="""email = {}, name= {}, eag= {}, breed= {}, gender= {}, health= {}, coments= {}, _type={}, _photo={}
+                    """.format(_email,_name,_eag,_breed,_gender,_health,_coments,_type,_photo)
+            cont +=1
+
+    return ficha
+
+def myanimal(row):#agregar el codigo HTML que forma la ficha
+    row=row
+    cantidad=[0,1,2,3,4,5]
+    ficha=""
+    try:
+        data= json.load(request.cookies.get('MyAnilal'))
+    except AttributeError:
+        data= {}
+    else:
+        cantidad= data.get('cant')
+
+
+    for cont  in cantidad:
+        try:
+            _id= row[cont][0]
+        except IndexError:
+            break
+        else:
+            _name=row[cont][1]
+            _photo=row[cont][2]
+
+            ficha="""id= {}, Nombre={}, Foto={}""".format(_id, _name, _photo)
+
+            cont += 1
+    return (ficha)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

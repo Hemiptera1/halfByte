@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="CSS\styleJuana.css">
 
     <link href="https://fonts.googleapis.com/css?family=Sriracha&display=swap" rel="stylesheet">
-   
+
 
     <script src="jsJuana.js"></script>
 </head>
@@ -74,19 +74,19 @@
             <i onclick="visibleLogin()" class="fas fa-user"></i>
         </div>
     </div>
-    
+
 </header>
-        
+
   <main>
     <div>
         <section class="mainContainer">
         <div >
           <h3 class="centrarTexto">Completa tus datos para registrar tu refugio</h3>
 
-          <div id="signup">   
+          <div id="signup">
             <div >
-            <form action="/" method="post" class="SignUpmini">
-            
+            <form action="/processSignupRef" method="post" class="SignUpmini">
+
               <div>
                 <label>
                   Nombre del refugio
@@ -101,13 +101,13 @@
                 </label>
                 <input type="text" placeholder="Departamento" name="departamento" required/>
               </div>
-              
+
               <div>
                 <label>
                   Ciudad
                 </label>
                 <input type="text" placeholder="Ciudad" name="ciudad" required/>
-              </div>  
+              </div>
 
               <div>
                 <label>
@@ -118,11 +118,11 @@
 
               <div>
                 <label>
-                  Dirección 
+                  Dirección
                 </label>
                 <input type="text" placeholder="Dirección" name="direccion" required/>
               </div>
-                      
+
               <div>
                 <label>
                   Telefono fijo de contacto
@@ -165,7 +165,7 @@
               </p>
             </ul>
             </div>
-             
+
             <div id="otrosA">
               <label>
                 Otros animales aceptados en el refugio:
@@ -184,28 +184,28 @@
               <label>Subi fotos de tu refugio:</label>
               <input type="file" id="img" name="img" accept="image/*" class="inputfile" data-multiple-caption="{count} files selected" multiple />
               </div>
-            
+
              <div>
                 <label>
                   Sitio Web
                 </label>
                 <input type="url" name="url" placeholder="Comparti tu sitio web" size="40"/>
               </div>
-  
+
             <div>
               <label>
-                Email 
+                Email
               </label>
               <input type="email" placeholder="Email" name="emailRef" required>
             </div>
-            
+
             <div>
               <label>
                 Contraseña
               </label>
               <input type="password" placeholder="Contraseña" name="contrRef" minlength="8" required/>
             </div>
-            
+
             <button type="submit" class="BotonRegistro">Registrarse</button>
             </div>
           </form>
