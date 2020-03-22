@@ -26,8 +26,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 from tablas import db
-db.drop_all()              #¡¡¡¡¡borrar cuando deje de modificar las tablas!!!!
-db.create_all()
+
 
 from sqlalchemy import create_engine, select
 from tablas import User_, Refuge_, Animals_
