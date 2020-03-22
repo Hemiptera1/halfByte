@@ -791,7 +791,7 @@ div.entrada-usuarios select {
 @media(min-width: 768px) {
     .blogAside {
         display: grid;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: repeat(auto-fill, 40rem);
         row-gap: 3rem;
     }
 }
@@ -883,8 +883,9 @@ div.entrada-usuarios select {
     }
     .grillaSuperior {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: 2rem;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 3.5rem;
+        row-gap: 3rem;
     }
 }
 
