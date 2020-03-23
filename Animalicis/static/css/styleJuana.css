@@ -170,6 +170,8 @@ footer {
   background-color: gray;
   padding-top: 2em;
   padding-bottom: 2em;
+  position: absolute;
+  width: 100%;
  }
 
 /* SIGN UP */
