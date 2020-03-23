@@ -1144,6 +1144,13 @@ div.entrada-usuarios select {
     padding: 1.3rem;
 }
 
+.registroInput {
+    font-size: 1.6rem;
+    font-family: "Open Sans";
+    padding: 1.3rem;
+    border: .1rem solid #000;
+}
+
 .botonImagen {
     display: grid;
     grid-template-columns: 50% 50%;

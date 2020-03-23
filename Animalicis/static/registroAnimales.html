@@ -78,8 +78,20 @@
         <h4 style="text-align: center;">Complete el formulario</h4>
         <form  class="registrosFormularios" action="">
             <div class="registrosCampos">
-                <label for="nombre">¿De que especie es su mascota?</label>
-                <select name="nombre" id="Especie" onchange="poblar(this.id, 'Raza')">
+                <label for="nombre">¿Cual es el nombre de su mascota?</label>
+                <input class="registroInput" type="text" placeholder="Nombre de tu mascota">
+            </div>
+            <div class="registrosCampos">
+                <label for="edad">¿A que genero pertentece tu mascota?</label>
+                <select name="edad" id="Edad">
+                    <option value="Elija" selected>Elija uno</option>
+                    <option value="Macho">Macho</option>
+                    <option value="Hembra">Hembra</option>
+                </select>
+            </div>
+            <div class="registrosCampos">
+                <label for="especie">¿De que especie es su mascota?</label>
+                <select name="especie" id="Especie" onchange="poblar(this.id, 'Raza')">
                     <option value="Elija" selected>Elija uno</option>
                     <option value="Perros">Perros</option>
                     <option value="Gatos">Gatos</option>
