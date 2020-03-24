@@ -593,12 +593,21 @@ div.entrada-usuarios2 select {
     color: #000;
     background-color: #8FD7FF;
 }
+.botones:focus {
+    outline: 0;
+}
 
 .botones:hover {
     color: #000;
     background: #FFA8AE;
     border-radius: 50% 50% 0 0;
     transition: 800ms;
+}
+
+.botonesActivos {
+    color: #000;
+    background: #FFA8AE;
+    border-radius: 50% 50% 0 0;
 }
 
 .selectores span {
@@ -791,7 +800,7 @@ div.entrada-usuarios select {
 @media(min-width: 768px) {
     .blogAside {
         display: grid;
-        grid-template-rows: repeat(auto-fill, 40rem);
+        grid-template-rows: repeat(auto-fill, 45rem);
         row-gap: 3rem;
     }
 }

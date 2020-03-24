@@ -147,10 +147,10 @@
                     <div class="contenedorInterno">
                         <div>
                             <div class="selectores">
-                                    <button class="botones">Perros</button>
-                                    <button class="botones">Gatos</button>
-                                    <button class="botones">Otros</button>
-                                    <button class="botones">Refugios</button>
+                                    <button id="botonPerros" class="botones" onclick="cambiaActivos('Perros')">Perros</button>
+                                    <button id="botonGatos" class="botones" onclick="cambiaActivos('Gatos')">Gatos</button>
+                                    <button id="botonOtros" class="botones" onclick="cambiaActivos('Otros')">Otros</button>
+                                    <button id="botonRefugios" class="botones" onclick="cambiaActivos('Refugios')">Refugios</button>
                             </div>
                         </div>
                         <form action="/searchPet">
@@ -199,7 +199,7 @@
                         </form>
                     </div> <!-- FIN CONTENEDOR INTERNO -->
                     <div class="imagenBuscador">
-                        <img src="/Animalicis/static/image/perroDesktop.png" alt="">
+                        <img id="botonImagen" src="/Animalicis/static/image/perroDesktop.png" alt="">
                     </div>
                 </div> <!-- Fin Contenedor Buscadores -->
 
@@ -259,6 +259,33 @@
         <h3 style="text-align: center; margin-top: 6rem;">Mascotas en adopción</h3>
         <div class="grillaExterior">
             <div class="grillaSuperior">
+                <div class="animalesGrilla">
+                    <div class="animalesImagen">
+                        <img src="/Animalicis/static/image/placeholderGrilla/gato1.jpg" alt="">
+                    </div>
+                    <div class="animalesInferior">
+                        <p><span>Nombre</span></p>
+                        <p>Sexo / Edad<br>Localización</p>
+                    </div>
+                </div>
+                <div class="animalesGrilla">
+                    <div class="animalesImagen">
+                        <img src="/Animalicis/static/image/placeholderGrilla/gato1.jpg" alt="">
+                    </div>
+                    <div class="animalesInferior">
+                        <p><span>Nombre</span></p>
+                        <p>Sexo / Edad<br>Localización</p>
+                    </div>
+                </div>
+                <div class="animalesGrilla">
+                    <div class="animalesImagen">
+                        <img src="/Animalicis/static/image/placeholderGrilla/gato1.jpg" alt="">
+                    </div>
+                    <div class="animalesInferior">
+                        <p><span>Nombre</span></p>
+                        <p>Sexo / Edad<br>Localización</p>
+                    </div>
+                </div>
                 <div class="animalesGrilla">
                     <div class="animalesImagen">
                         <img src="/Animalicis/static/image/placeholderGrilla/gato1.jpg" alt="">
