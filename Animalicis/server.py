@@ -10,9 +10,10 @@ import json
 import psycopg2
 import config
 import os
+from PIL import Image
 from flask import Flask, request, url_for, redirect
 app = Flask(__name__)
-from flask_sqlalchemy import SQLAlchemy #por algun otibo no reconose el proseso create_engine
+from flask_sqlalchemy import SQLAlchemy
 
 DB_URL = 'postgresql+psycopg2://{user}:{pw}@{url}/{db}'.format(user="postgres",pw="Perros2012",url="animalicis.crl39vc3ngno.us-east-2.rds.amazonaws.com",db="animalicis")
 IMA_F = './data/Photo/Ref'
@@ -26,7 +27,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 from tablas import db
-
+db.drop_all()              #¡¡¡¡¡borrar cuando deje de modificar las tablas!!!!
+db.create_all()
 
 from sqlalchemy import create_engine, select
 from tablas import User_, Refuge_, Animals_
@@ -63,7 +65,7 @@ def profile():#Probar
         animals= myanimal(ram)
         context={"Nombre":row.name, "Apellido":row.lastname, "Email":row.email, "miAnimal":animals}
     else:
-        return app.send_static_file('index.html')
+        return redirect(url_for('index'))
 
     return app.send_static_file('perfilUsuario.html')
 
@@ -84,7 +86,7 @@ def profileV(_email=""):#Probar
     return app.send_static_file('perfilUsuarioV.html')
 
 @app.route('/profileRef', methods=['GET']) #poner el **context
-def profile():#Probar
+def profileRef():#Probar
     data= json.load(request.cookis.get('User'))
     _email= data.get('email')
     _password= data.get('password')
@@ -105,12 +107,12 @@ def profile():#Probar
                 "Animales":row.animal, "Abierto":row.time_o,
                 "Cerrado":row.time_c, "Foto":row.photo}
     else:
-        return app.send_static_file('index.html')
+        return redirect(url_for('profile'))
 
     return app.send_static_file('perfilRef.html')
 
 @app.route('/profileRefV', methods=['GET']) #poner el **context
-def profile(_email=""):#Probar
+def profileRefV(_email=""):#Probar
 
     row= Refuge_.query.filter_by(email=_email).first()
     if row != None:
@@ -140,6 +142,9 @@ def signup():
 def signupRef():
     return app.send_static_file('SignupRef.html')
 
+@app.route('/signupAnimal', methods=['GET'])
+def signupAnimal():
+    return app.send_static_file('registroAnimales.html')
 
 @app.route('/processLogin', methods=['GET', 'POST'])
 def processLogin():
@@ -220,11 +225,10 @@ def processSignupRef(): #Probar el funcionamiento de la imagen
     _time_c= request.form['horaFinal']
     _type= ""
 
-    email= " " + _email
+    _photo= IMA_F + "/" + _email + ".jpg"
 
-    photo.save(os.path.join(app.config['UPLOAD_FOLDER'], email))
-    _photo= os.getcwd() + "\ " +  _email
-
+    img=Image.open(photo)
+    img.save(_photo)
 
     if request.form['gatos'] == 'gatos': #reparar
         _type= "Gatos "
@@ -266,25 +270,27 @@ def processSignupRefUpdate():#terminar Copiar el up data de user
 
 @app.route('/insertPet', methods=['GET', 'POST'])
 def insert_Pet():#Terminar (enlases al formulario) probar
-    data= json.load(request.cookis.get('User'))
+    data= json.load(request.cookis.get('User')) #recordar si el enlace esta para no registrados poner un try
     ty= data.get('email')
 
     image = request.files['img']
 
-    _name= request.form['']
-    _age= request.form['']
-    _race= request.form['']
-    _gender= request.form['']
-    _health= request.form['']
-    _coment= request.form['']
-    _type= ""
+    _name= request.form['name']
+    _age= request.form['edad']
+    _race= request.form['raza']
+    _gender= request.form['genero']
+    _coment= request.form['comentarios']
+    _type= request.form['especie']
 
-    if request.form[''] == True:
-        _type= ("Gato ")
-    if request.form[''] == True:
-        _type= _type + ("Perro ")
-    if request.form[''] != None:
-        _type= _type + (str (request.form['']))
+    if request.form['castracion'] == "Castrado":
+        _health= "Esta Castrado"
+    else:
+        _health= "No esta Castrado"
+
+    if request.form['enfermedades'] != "No":
+        _health+= "    " + "Está " + request.form['enfermedades']
+
+
 
     image_a= os.listdir(IMG_ANIMALS)
     if image_a == None:
@@ -292,10 +298,10 @@ def insert_Pet():#Terminar (enlases al formulario) probar
     else:
         _id = 1 + int(image_a[-1])
 
-    id_= " " + str(_id)
+    _photo= IMG_ANIMALS + "/" + str(_id) + ".jpg"
 
-    image.save(os.path.join(app.config['UPLOAD_FOLDER1'], id_))
-    _photo= os.getcwd() + "\ " +  str(_id)
+    img=Image.open(image)
+    img.save(_photo)
 
     intro=Animals_(email=ty, name=_name, age=_age,
                    breed=_race, gender=_gender,
@@ -304,8 +310,8 @@ def insert_Pet():#Terminar (enlases al formulario) probar
 
     db.session.add(intro)
     db.session.commit()
-
-    return redirect(url_for('index'))
+    context={"confirmacion":"Su mascota fue registrada con exito"}
+    return redirect(url_for('signupAnimal'))
 
 @app.route('/searchCat', methods=['GET', 'POST'])              #eliminar
 def search_Cat():#Terminar pasar dato a el index ()
@@ -368,29 +374,18 @@ def search_Other():#Terminar pasar dato a el index()
 
 @app.route('/searchPet', methods=['GET', 'POST'])    #(((Boton de busqueda general)))
 def search_Pet(): #terminar y testear prinsipalmente la foto #puedo usar el metodo Animals_.query.slice(self, start, stop)
-    intro= Animals_(name= 'Sonriente', age='Joven', email='_email', breed='Pelo corto', gender='Macho' , health='si', coments='sonrie', type='Gato')
-    intro1= Animals_(name= 'Felix', age='Joven', email='_email', breed='Persa', gender='Macho' , health='si', coments='sonrie', type='Gato')
-    intro2= Animals_(name= 'Blair', age='Joven', email='_email', breed='Bombai', gender='Hembra' , health='si', coments='sonrie', type='Gato')
-    intro3= Animals_(name= 'Makise', age='Adulto', email='_email', breed='Bombai', gender='Hembra' , health='si', coments='sonrie', type='Gato')
-    intro4= Animals_(name= 'Makise', age='Adulto', email='_email', breed='Bombai', gender='Hembra' , health='si', coments='sonrie', type='Gato')
-    db.session.add(intro4)
-    db.session.add(intro)
-    db.session.add(intro1)
-    db.session.add(intro2)
-    db.session.add(intro3)
-    db.session.commit()
 
-    if request.args.get('edad') != "F":
+    if request.args.get('edad') != "F":#poner el valor real
         _age= "= " + "'" + str (request.args.get('edad')) + "'"
     else:
         _age= "<> " + "'" + str (request.args.get('edad')) + "'"
 
-    if request.args.get('sexo') == "R":
+    if request.args.get('sexo') == "R":#poner el valor real
         _gender=  "= " + "'" + str (request.args.get('sexo')) + "'"
     else:
         _gender= "<> " + "'" + str (request.args.get('sexo')) + "'"
 
-    if request.args.get('raza') == "O":
+    if request.args.get('raza') == "O":#poner el valor real
         _race= "= " + "'" + str (request.args.get('raza')) + "'"
     else:
         _race= "<> " + "'" + str (request.args.get('raza')) + "'"
@@ -405,13 +400,15 @@ def search_Pet(): #terminar y testear prinsipalmente la foto #puedo usar el meto
         _type= "'" + "Gato" + "'"
     elif request.args.get('Perro') == "Perro":
         _type= "'" + "Perro" + "'"
+    elif request.args.get('Otro') == "Otro":
+        _type= "'" + "Otro" + "'"
 
     sql_search= "SELECT email, name, age, breed, gender, health, coments, type FROM Animals_ WHERE type ={} AND breed {} AND gender {} AND age {}".format(_type, _race, _gender, _age)
 
-    if request.args.get('Otro') == "Otro":
-        _type1= "'" + "Gato" + "'"
-        _type2= "'" + "Perro" + "'"
-        sql_search= "SELECT email, name, eag, breed, gender, health, coments, type, photo FROM Animals_ WHERE type <>{} AND type <>{} AND breed {} AND gender {} AND age {}".format(_type1, _type2, _race, _gender, _age)
+    #if request.args.get('Otro') == "Otro":
+    #    _type1= "'" + "Gato" + "'"
+    #    _type2= "'" + "Perro" + "'"
+    #    sql_search= "SELECT email, name, eag, breed, gender, health, coments, type, photo FROM Animals_ WHERE type <>{} AND type <>{} AND breed {} AND gender {} AND age {}".format(_type1, _type2, _race, _gender, _age)
 
     engine = create_engine(DB_URL)
     row = engine.execute(sql_search).fetchall ()
