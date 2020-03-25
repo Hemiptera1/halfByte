@@ -55,10 +55,12 @@ const botonGatos = document.getElementById("botonGatos");
 const botonOtros = document.getElementById("botonOtros");
 const botonRefugios = document.getElementById("botonRefugios");
 const botonImagen = document.getElementById("botonImagen");
+const panelBusqueda = document.getElementById("panelBusqueda");
 const panelRaza = document.getElementById("Raza");
 const panelSalud = document.getElementById("Salud");
 const panelEdad = document.getElementById("Edad");
 const panelSexo = document.getElementById("Sexo");
+const panelDisponible = document.getElementById("panelDisponible");
 
 var opcionesPerros = ["razaCredo|Raza / Credo","cimarron|Cimarron","rottweiler|Rottweiler","ovejeroAleman|Ovejero Aleman","mixto|Mixto"];
 var opcionesGatos = ["largoPelo|Largo del Pelo","largo|Largo","medio|Medio","largo|Corto","sinPelo|Sin pelo"];
@@ -80,6 +82,8 @@ function cambiaActivos(argumento) {
         botonImagen.style.bottom="0";
         botonImagen.style.left="0";
 
+        panelDisponible.style.display="none";
+        panelBusqueda.style.display="block";
         panelRaza.style.display = "block";
         panelSalud.style.display = "block";
         panelRaza.style.width = "45%";
@@ -122,6 +126,8 @@ function cambiaActivos(argumento) {
         botonImagen.style.bottom="-1.3rem";
         botonImagen.style.left="-5.5rem";
 
+        panelDisponible.style.display="none";
+        panelBusqueda.style.display="block";
         panelRaza.style.display = "block";
         panelSalud.style.display = "block";
         panelRaza.style.width = "45%";
@@ -159,6 +165,14 @@ function cambiaActivos(argumento) {
         botonGatos.classList.remove("botonesActivos");
         botonOtros.classList.add("botonesActivos");
         botonRefugios.classList.remove("botonesActivos");
+
+        botonImagen.src="/Animalicis/static/image/panelOtros.png";
+        botonImagen.style.width="140%";
+        botonImagen.style.left="-10rem";
+        botonImagen.style.bottom="0";
+
+        panelBusqueda.style.display="none";
+        panelDisponible.style.display="block";
     }
     else if(argumento === botonRefugios.innerHTML) {
         botonPerros.classList.remove("botonesActivos");
@@ -166,6 +180,8 @@ function cambiaActivos(argumento) {
         botonOtros.classList.remove("botonesActivos");
         botonRefugios.classList.add("botonesActivos");
 
+        panelDisponible.style.display="none";
+        panelBusqueda.style.display="block";
         panelRaza.style.display = "none";
         panelSalud.style.display = "none";
         panelSexo.style.width = "95%";
