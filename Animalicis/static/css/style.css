@@ -485,6 +485,19 @@ h4 {
 .selectores2 button {
     margin-top: 1rem;
 }
+
+.panelNoDisponible {
+    display: none;
+    height: 90%;
+    width: 90%;
+    background-color: #FFFB75;
+    border-radius: 2rem;
+}
+.panelNoDisponible h4 {
+    font-family: "Signika";
+    text-align: center;
+}
+
 .entrada-usuarios2 {
     display: flex;
     justify-content: space-between;
@@ -887,7 +900,7 @@ div.entrada-usuarios select {
         display: grid;
         grid-template-columns: 2.8fr 1fr;
         column-gap: 3.5rem;
-        width: 85%;
+        width: 80%;
         margin: 4rem auto;
     }
     .grillaSuperior {
