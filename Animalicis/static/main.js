@@ -68,6 +68,7 @@ var opcionesEdad = ["franajaEtaria|Franja Etaria","cachorro|Cachorro","joven|Jov
 var opcionesSexo = ["optar|Opta por un Género","macho|Macho","hembra|Hembra"];
 var opcionesRefugiosDistancia = ["distancia|Distancia del Refugio","10kilometros|10 Kilometros o menos","25kilometros|25 Kilometros o menos","50kilometros|50 kilometros o menos","sinLimite|Sin límite"]
 var opcionesRefugiosAnimales = ["mascotaQueBusco|Mascota que Busco","perros|Perros","gatos|Gatos","otros|Otros"]
+var opcionesAnimales = ["tipoDeMascota|Elije un tipo de mascota","aves|Aves","ofidios|Ofidios","roedores|Roedores","otros|Otros"];
 botonPerros.classList.add("botonesActivos");
 
 
@@ -82,8 +83,6 @@ function cambiaActivos(argumento) {
         botonImagen.style.bottom="0";
         botonImagen.style.left="0";
 
-        panelDisponible.style.display="none";
-        panelBusqueda.style.display="block";
         panelRaza.style.display = "block";
         panelSalud.style.display = "block";
         panelRaza.style.width = "45%";
@@ -121,13 +120,12 @@ function cambiaActivos(argumento) {
         botonGatos.classList.add("botonesActivos");
         botonOtros.classList.remove("botonesActivos");
         botonRefugios.classList.remove("botonesActivos");
-        botonImagen.src="/Animalicis/static/image/gatoSelectores.png";
-        botonImagen.style.width="115%";
-        botonImagen.style.bottom="-1.3rem";
-        botonImagen.style.left="-5.5rem";
 
-        panelDisponible.style.display="none";
-        panelBusqueda.style.display="block";
+        botonImagen.src="/Animalicis/static/image/gatoPanel.png";
+        botonImagen.style.width="130%";
+        botonImagen.style.bottom="-1.3rem";
+        botonImagen.style.left="-10rem";
+
         panelRaza.style.display = "block";
         panelSalud.style.display = "block";
         panelRaza.style.width = "45%";
@@ -166,13 +164,32 @@ function cambiaActivos(argumento) {
         botonOtros.classList.add("botonesActivos");
         botonRefugios.classList.remove("botonesActivos");
 
+        panelRaza.style.display = "none";
+        panelSalud.style.display = "none";
+        panelSexo.style.width = "95%";
+        panelEdad.style.width = "95%";
+
         botonImagen.src="/Animalicis/static/image/panelOtros.png";
         botonImagen.style.width="140%";
         botonImagen.style.left="-10rem";
         botonImagen.style.bottom="0";
 
-        panelBusqueda.style.display="none";
-        panelDisponible.style.display="block";
+        panelEdad.innerHTML = "";
+        for(let opcion in opcionesAnimales) {
+            let par = opcionesAnimales[opcion].split("|");
+            let nuevoElemento = document.createElement("option");
+            nuevoElemento.value = par[0];
+            nuevoElemento.innerHTML = par[1];
+            panelEdad.options.add(nuevoElemento);
+        }
+        panelSexo.innerHTML = "";
+        for(let opcion in opcionesSexo) {
+            let par = opcionesSexo[opcion].split("|");
+            let elementoNuevo = document.createElement("option");
+            elementoNuevo.value = par[0];
+            elementoNuevo.innerHTML = par[1];
+            panelSexo.options.add(elementoNuevo);
+        }
     }
     else if(argumento === botonRefugios.innerHTML) {
         botonPerros.classList.remove("botonesActivos");
@@ -180,8 +197,6 @@ function cambiaActivos(argumento) {
         botonOtros.classList.remove("botonesActivos");
         botonRefugios.classList.add("botonesActivos");
 
-        panelDisponible.style.display="none";
-        panelBusqueda.style.display="block";
         panelRaza.style.display = "none";
         panelSalud.style.display = "none";
         panelSexo.style.width = "95%";
