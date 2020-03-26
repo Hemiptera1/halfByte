@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Sign Up Adoptantes</title>
+
+    <link rel="stylesheet" href="CSS\normalize.css.css">
+    <link rel="stylesheet" href="CSS\all.css">
+    <link rel="stylesheet" href="CSS\styleJuana.css">
+
+   <link href="https://fonts.googleapis.com/css?family=Montserrat|Signika|Sriracha&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+  <header class="header-site">
+    <div class="logo">
+        <a href="/index.html"><h2>Animalis Amicis</h2></a>
+    </div>
+    <div class="redes-sociales">
+        <div>
+            <a href="http://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+            <a href="http://twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="http://instagram.com"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div>
+            <a href="http://pinterest.com"><i class="fab fa-pinterest-p"></i></a>
+            <a href="http://youtube.com"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+    <div class="botonesHeader">
+        <ul class="navMenu">
+            <li>
+                <a href="">Refugios</a>
+                <ul class="subMenu">
+                    <li><a href="">Refugios de Canes</a></li>
+                    <li><a href="">Refugios de Felinos</a></li>
+                    <li><a href="">Refugios Mixtos</a></li>
+                    <li><a href="">Mapa de Refugios</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">Funcionamiento</a>
+            </li>
+            <li>
+                <a href="">Consejos</a>
+                <ul class="subMenu">
+                    <li><a href="">Adoptar un perro</a></li>
+                    <li><a href="">Adoptar un gato</a></li>
+                    <li><a href="">Adoptar otros</a></li>
+                    <li><a href="">Refugios</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">Social</a>
+                <ul class="subMenu">
+                    <li><a href="">Facebook</a></li>
+                    <li><a href="">Twitter</a></li>
+                    <li><a href="">Instagram</a></li>
+                    <li><a href="">Youtube</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">Contacto</a>
+            </li>
+        </ul>
+        <div class="loginHeaderDesktop">
+            <p onclick="visibleLogin()">Login/Singup</p>
+            <i onclick="visibleLogin()" class="fas fa-user"></i>
+        </div>
+    </div>
+</header>
+
+  <main>
+    <div>
+        <section class="mainContainer">
+        <div >
+          <h3 class="centrarTexto">Completa tus datos para registrarte</h3>
+
+          <div id="signup">
+            <div >
+            <form action="/processSignup" method="post" class="SignUpmini">
+
+              <div>
+                <label>
+                  Nombre
+                </label>
+                <input type="text" placeholder="Nombre" name="name" autofocus required/>
+              </div>
+
+              <div>
+                <label>
+                  Apellido
+                </label>
+                <input type="text" placeholder="Apellido" name="surname" required/>
+              </div>
+
+            <div>
+              <label>
+                Email
+              </label>
+              <input type="email" placeholder="Email" name="email" required>
+            </div>
+
+            <div>
+              <label>
+                Contraseña
+              </label>
+              <input type="password" placeholder="Contraseña" name="contr" minlength="8" required/>
+            </div>
+
+            <button type="submit" class="BotonRegistro">Registrarse</button>
+            </div>
+          </form>
+
+          <div>
+          <h4 class="centrarTexto">También podes ingresar con:</h4>
+          <div class="botonesSignUp">
+             <button><img src="iconos\googleLog" alt="Icono Google">Ingresa con Google</button>
+             <button><img src="iconos\facebookIcon" alt="Icono Facebook">Ingresa con Facebook</button>
+         </div>
+          </div>
+          </section>
+  </div>
+  </main>
+
+  <footer>
+    <p> Página realizada en el marco del Proyecto B_it de la Cámara Uruguaya de Tecnología e Información</p>
+    <p>2020</p>
+   </footer>
+</body>
+</html>
