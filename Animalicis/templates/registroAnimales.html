@@ -76,14 +76,14 @@
 
     <section class="formulario" id="formularioScroll">
         <h4 style="text-align: center;">Complete el formulario</h4>
-        <form  class="registrosFormularios" action="">
+        <form  class="registrosFormularios" action="/insertPet">
             <div class="registrosCampos">
                 <label for="nombre">¿Cual es el nombre de su mascota?</label>
-                <input class="registroInput" type="text" placeholder="Nombre de tu mascota">
+                <input class="registroInput" name="name" type="text" placeholder="Nombre de tu mascota">
             </div>
             <div class="registrosCampos">
-                <label for="edad">¿A que genero pertentece tu mascota?</label>
-                <select name="edad" id="Edad">
+                <label for="genero">¿A que genero pertentece tu mascota?</label>
+                <select name="genero" id="Genero">
                     <option value="Elija" selected>Elija uno</option>
                     <option value="Macho">Macho</option>
                     <option value="Hembra">Hembra</option>
@@ -93,9 +93,9 @@
                 <label for="especie">¿De que especie es su mascota?</label>
                 <select name="especie" id="Especie" onchange="poblar(this.id, 'Raza')">
                     <option value="Elija" selected>Elija uno</option>
-                    <option value="Perros">Perros</option>
-                    <option value="Gatos">Gatos</option>
-                    <option value="Otros">Otros</option>
+                    <option value="Perro">Perros</option>  <!-- yo los dejaria en singular (se esta registrando un animal no barios) -->
+                    <option value="Gato">Gatos</option>
+                    <option value="Otro">Otros</option>
                 </select>
             </div>
             <div class="registrosCampos">
@@ -128,7 +128,7 @@
                     <option value="Ciego">Mi mascota es ciega</option>
                     <option value="Sordo">Mi mascota es sorda</option>
                     <option value="Lisiado">Mi mascota sufre una discapacidad</option>
-                    <option value="Enfermedad">Mi mascota está actualmente enferma</option>
+                    <option value="Enfermo">Mi mascota está actualmente enferma</option>
                 </select>
             </div>
             <div class="registrosCampos">
@@ -144,7 +144,7 @@
             <div class="botonImagen">
                 <p>Sube una imagen de tu mascota</p>
                 <div class="botonImagen2">
-                    <input type="file" id="botonOriginal" accept="image/jpeg, image/png" hidden />
+                    <input type="file" name="img" id="botonOriginal" accept="image/jpeg, image/png" hidden />
                     <button type="button" id="botonFalso">Escoja un archivo</button>
                     <p style="text-align: center" id="infoBoton">Aun sin subir</p>
                 </div>

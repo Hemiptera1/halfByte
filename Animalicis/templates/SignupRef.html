@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Sign Up Refugios</title>
+
+    <link rel="stylesheet" href="CSS\normalize.css.css">
+    <link rel="stylesheet" href="CSS\all.css">
+    <link rel="stylesheet" href="CSS\styleJuana.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Sriracha&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="jsJuana.js"></script>
+</head>
+<body>
+
+  <header class="header-site">
+    <div class="logo">
+        <a href="/index.html"><h2>Animalis Amicis</h2></a>
+    </div>
+    <div class="redes-sociales">
+        <div>
+            <a href="http://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+            <a href="http://twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="http://instagram.com"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div>
+            <a href="http://pinterest.com"><i class="fab fa-pinterest-p"></i></a>
+            <a href="http://youtube.com"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+    <div class="botonesHeader">
+        <ul class="navMenu">
+            <li>
+                <a href="">Refugios</a>
+                <ul class="subMenu">
+                    <li><a href="">Refugios de Canes</a></li>
+                    <li><a href="">Refugios de Felinos</a></li>
+                    <li><a href="">Refugios Mixtos</a></li>
+                    <li><a href="">Mapa de Refugios</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">Funcionamiento</a>
+            </li>
+            <li>
+                <a href="">Consejos</a>
+                <ul class="subMenu">
+                    <li><a href="">Adoptar un perro</a></li>
+                    <li><a href="">Adoptar un gato</a></li>
+                    <li><a href="">Adoptar otros</a></li>
+                    <li><a href="">Refugios</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">Social</a>
+                <ul class="subMenu">
+                    <li><a href="">Facebook</a></li>
+                    <li><a href="">Twitter</a></li>
+                    <li><a href="">Instagram</a></li>
+                    <li><a href="">Youtube</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">Contacto</a>
+            </li>
+        </ul>
+        <div class="loginHeaderDesktop">
+            <p onclick="visibleLogin()">Login/Singup</p>
+            <i onclick="visibleLogin()" class="fas fa-user"></i>
+        </div>
+    </div>
+
+</header>
+
+  <main>
+    <div>
+        <section class="mainContainer">
+        <div >
+          <h3 class="centrarTexto">Completa tus datos para registrar tu refugio</h3>
+
+          <div id="signup">
+            <div >
+            <form action="/processSignupRef" method="post" class="SignUpmini">
+
+              <div>
+                <label>
+                  Nombre del refugio
+                </label>
+                <input type="text" placeholder="Nombre del refugio" name="nameRef" autofocus required/>
+              </div>
+
+
+              <div>
+                <label>
+                  Departamento
+                </label>
+                <input type="text" placeholder="Departamento" name="departamento" required/>
+              </div>
+
+              <div>
+                <label>
+                  Ciudad
+                </label>
+                <input type="text" placeholder="Ciudad" name="ciudad" required/>
+              </div>
+
+              <div>
+                <label>
+                  Barrio
+                </label>
+                <input type="text" placeholder="Barrio" name="barrio" required/>
+              </div>
+
+              <div>
+                <label>
+                  Dirección
+                </label>
+                <input type="text" placeholder="Dirección" name="direccion" required/>
+              </div>
+
+              <div>
+                <label>
+                  Telefono fijo de contacto
+                </label>
+                <input type="tel" placeholder="..." name="telcontactoFijo"/>
+              </div>
+
+              <div>
+                <label>
+                  Telefono celular de contacto
+                </label>
+                <input type="tel" placeholder="..." name="telcontacto" required/>
+              </div>
+
+              <div>
+                <label>
+                  Nombre del repsonsable a contactar
+                </label>
+                <input type="text" placeholder="..." name="responsableContacto" required/>
+              </div>
+
+              <div>
+                <label>
+                  Horiarios de atención
+                </label>
+                <p> Desde <input type="time" name="horaInicio" required/> hasta <input type="time" name="horaFinal" required/> </p>
+              </div>
+
+            <div>
+              <label>
+                Elegi los animales aceptados en el refugio
+              </label>
+              <ul>
+              <p>
+              <input type="radio" name="perros" value="perros" class="multiplechoice">Perros <br>
+              <input type="radio" name="gatos" value="gatos" class="multiplechoice">Gatos <br>
+
+              <input type="radio" name="caballos" value="caballos" class="multiplechoice">Caballos <br>
+              <input type="radio" name="otros" value="otros" class="multiplechoice" id="mostrar">Otros <br>
+              </p>
+            </ul>
+            </div>
+
+            <div id="otrosA">
+              <label>
+                Otros animales aceptados en el refugio:
+              </label>
+              <input type="text" placeholder="Especifica que otros animales son aceptados" name="otrosAceptados" />
+            </div>
+
+            <div>
+                <label>
+                  Realiza una pequeña descripción del refugio
+                </label>
+                <textarea name="descripcion" rows="3" cols="30" maxlength="3000" placeholder="Contanos que te llevó a crear el refugio y como funciona" required></textarea>
+            </div>
+
+            <div>
+              <label>Subi fotos de tu refugio:</label>
+              <input type="file" id="img" name="img" accept="image/*" class="inputfile" data-multiple-caption="{count} files selected" multiple />
+              </div>
+
+             <div>
+                <label>
+                  Sitio Web
+                </label>
+                <input type="url" name="url" placeholder="Comparti tu sitio web" size="40"/>
+              </div>
+
+            <div>
+              <label>
+                Email
+              </label>
+              <input type="email" placeholder="Email" name="emailRef" required>
+            </div>
+
+            <div>
+              <label>
+                Contraseña
+              </label>
+              <input type="password" placeholder="Contraseña" name="contrRef" minlength="8" required/>
+            </div>
+
+            <button type="submit" class="BotonRegistro">Registrarse</button>
+            </div>
+          </form>
+          </section>
+  </div>
+  </main>
+
+  <footer>
+     <p> Página realizada en el marco del Proyecto B_it de la Cámara Uruguaya de Tecnología e Información</p>
+     <p>2020</p>
+    </footer>
+</body>
+</html>
