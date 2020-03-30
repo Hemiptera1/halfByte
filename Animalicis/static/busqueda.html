@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/Animalicis/static/css/style.css">
 </head>
 
-<body style="overflow: hidden;">
+<body style="background-color: rgb(243, 243, 243);">
     <header class="header-site">
         <div class="logo">
             <a href="/Animalicis/static/index.html"><h2>Animalis Amicis</h2></a>
@@ -70,30 +70,35 @@
             </div>
         </div>       
     </header> <!-- FIN DEL HEADER -->
-
-    <div class="busquedaGrilla">
-        <div class="contenedorInterno2">
-            <div>
-                <div class="selectores2">
-                        <button class="botones2">Perros</button>
-                        <button class="botones2">Gatos</button>
-                        <button class="botones2">Otros</button>
-                        <button class="botones2">Refugios</button>
-                </div>
-            </div>
-            <form action="">
+    <form class="contenedorForm" action="">
+        <div class="formImagen">
+            <img id="botonImagen" src="/Animalicis/static/image/busquedaPerro3.png" alt="">
+        </div>
+        <div class="fromSelect">
+            <div id="porBarraSearch" class="formSelectInterno">
                 <div class="barra-search2">
-                    <input type="search" id="localizacion" placeholder="Busque por ciudad o barrio">
+                    <input id="porBarraInput" type="search" id="localizacion" placeholder="Busque por ciudad o barrio">
                 </div>
                 <div class="entrada-usuarios2">
-                    <select name="" id="edad">
+                    <select name="" id="Sexo">
+                        <option value="" id="Sexo" selected>Optá por un género</option>
+                        <option value="Macho">Macho</option>
+                        <option value="Hembra">Hembra</option>
+                    </select>
+                </div>
+            </div>
+            <div class="formSelectInterno">
+                <div class="entrada-usuarios2">
+                    <select style="margin-top: 0;" name="" id="Edad">
                         <option selected>Franja Etaria</option>
                         <option value="Cachorro">Cachorro</option>
                         <option value="Joven">Joven</option>
                         <option value="Adulto">Adulto</option>
                         <option value="Mayor">Mayor</option>
                     </select>
-                    <select name="" id="raza">
+                </div>
+                <div class="entrada-usuarios2">
+                    <select style="margin-top: 0;" name="" id="Raza">
                         <option value="" id="raza" selected>Raza / Credo</option>
                         <option value="Labrador-Re">Labrador Retriever</option>
                         <option value="Pastor-Alemán">Pastor Alemán</option>
@@ -109,21 +114,20 @@
                         <option value="Otros">Otros</option>
                     </select>
                 </div>
-                <div class="entrada-usuarios2">
-                    <select name="" id="sexo">
-                        <option value="" id="sexo" selected>Optá por un género</option>
-                        <option value="Macho">Macho</option>
-                        <option value="Hembra">Hembra</option>
-                    </select>
-                </div>
-                <div class="contenedor-buscar2">
-                    <button class="botonBuscar">Encontrar!</button>
-                </div>
-            </form>
-            <div class="busquedaImagen">
-                <img src="/Animalicis/static/image/busquedaPerro3.png" alt="">
             </div>
-        </div> <!-- FIN CONTENEDOR INTERNO -->
+        </div>
+        <div class="selectores2">
+            <button type="button" id="botonPerros" class="botones2" onclick="cambiaActivos('Perros')">Perros</button>
+            <button type="button" id="botonGatos" class="botones2" onclick="cambiaActivos('Gatos')">Gatos</button>
+            <button type="button" id="botonOtros" class="botones2" onclick="cambiaActivos('Otros')">Otros</button>
+            <button type="button" id="botonRefugios" class="botones2" onclick="cambiaActivos('Refugios')">Refugios</button>
+        </div>
+        <div class="formBoton">
+            <button><img src="/Animalicis/static/image/lupaBusqueda.png" alt=""></button>
+        </div>
+    </form>
+
+    <h1 class="busquedaTitulo">Hemos encontrado --- mascotas cerca de ti!</h1>
 
         <div class="busquedaAnimales">
             <div class="busquedaInterna busquedaContenedor">
@@ -236,7 +240,32 @@
                     </div>
                 </div>
             </div>
-            
-        </div>
-    </div> <!-- Fin busquedaGrilla -->
+            <aside class="cajaConsejos">
+                <h4>10 consejos para adoptar!</h4>
+                <ol>
+                    <li>Considera el tamaño del perro a adoptar en relación con el espacio del que
+                        dispones, recuerda también que a mayor tamaño mayores serás las raciones.</li>
+                    <li>¡El temperamento cuenta! Un perro muy activo puede ser un grán compañero
+                        o un verdadero dolor de cabeza. Lo mismo puede decirse de un perro sereno.</li>
+                    <li>¿Tienes niños? En teoría, todos los perros comulgan con los niños, sin embargo
+                        hay razas que se adaptan mejor, si la respuesta es si busca información al respecto.</li>
+                    <li>En general los perros aprenden mejor con refuerzos positivos que con los negativos.
+                        Si te es posible premialo con caricias o premios en lugar de reñirle.</li>
+                    <li>Los perros son cachorros hasta que alcanzan los 16 meses de vida, hasta entonces
+                        solo querrá comer, jugar y dormir. ¡Ten paciencia!</li>
+                    <li>Averigüa si ya tiene todas las vacunas y cuando fue desparasitado la última vez.
+                        Si es necesario vacunalo y desparasítalo.</li>
+                    <li>Recuerda que existen profesionales que pueden asesorate en todo lo relativo
+                        a nuestras mascotas, si tienes preguntas visita un veterinario.</li>
+                    <li>Los perros son animales de constumbres, si lo paseas siempre a la misma hora 
+                        aprenderá a hacer sus necesidades fuera más rápido ;)</li>
+                    <li>Entre el collar y el cuello deberías poder meter dos dedos sin sentir grán presión.
+                        Si es jóven crecerá rápido, recuerda cambiarlo.</li>
+                    <li>¡Los perros y los gatos pueden convivir sin ningún inconveniente.
+                        No lo descartes! </li>
+                </ol>
+            </aside>
+        </div> <!-- FIN BUSQUEDA ANIMALES -->
 </body>
+<script src="/Animalicis/static/busquedaJS.js"></script>
+</html>
