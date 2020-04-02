@@ -1157,6 +1157,21 @@ div.entrada-usuarios select {
 .stickyBar {
     position: sticky;
     top: 0;
+    z-index: 10;
+}
+
+.articuloInfo {
+    text-align: center;
+    height: 18rem;
+    background: url(/Animalicis/static/image/articuloInfo.jpg);
+    background-size: cover;
+    background-position: 0rem -20rem;
+}
+.articuloInfo h4 {
+    font: 5rem "Permanent Marker";
+    margin: 0;
+    padding-top: 5rem;
+    text-shadow: .2rem .2rem #fff;
 }
 
 .articuloTitulo {
