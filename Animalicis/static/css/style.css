@@ -1159,47 +1159,47 @@ div.entrada-usuarios select {
     top: 0;
 }
 
-.mainArticulos {
+.articuloTitulo {
+    font: bold 6.4rem "Open Sans", Helvetica;
+    text-align: center;
+    margin: 5rem 0;
+}
+
+.articuloIntroduccion {
+    width: 80%;
+    margin: auto;
+    font: 500 2rem/1.8 "Open Sans", Helvetica;
+    text-align: center;
+}
+
+.moldeArticulo {
     display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
+    margin: 5rem 0;
 }
 
-.articulosLaterales {
-    overflow: hidden;
+.articuloImgP {
+    position: relative;
+}
+.articuloImgP img {
+    position: absolute;
+    left: 0;
+    width: 90%;
 }
 
-.articulosPadding {
-    padding: 1rem;
+.articuloImgG {
+    position: relative;
+}
+.articuloImgG img {
+    position: absolute;
+    right: 0;
+    width: 55%;
 }
 
-.articulosTitulo {
-    background-color: rgb(182, 144, 95);
-    padding: 3rem;
-    letter-spacing: .2rem;
-    color: #fff;
-    text-shadow: .1rem .1rem #000;
+.articuloTexto {
+    font: 2rem "Open Sans", arial;
 }
-.articulosTitulo h1,
-.articulosTitulo h4 {
-    font-family: 'Goudy Bookletter 1911', serif;
-}
-.articulosTitulo h1 {
-    font-size: 4rem;
-    margin: 0;
-}
-.articulosTitulo h4 {
-    font-size: 2.4rem;
-    margin-bottom: 0rem;
-}
-.articulosMensaje p {
-    font-size: 1.8rem;
-    line-height: 2.7rem;
-    font-family: 'Roboto', sans-serif;
-    color: rgb(48, 47, 47);
-}
-.articulosMensaje {
-    padding: 1.5rem 8rem;
-}
+
 /* FIN MOLDE ARTÍCULOS */
 
 
