@@ -242,13 +242,14 @@ def processSignupRef(): #Probar el funcionamiento de la imagen
     _time_c= request.form['horaFinal']
     _type= ""
 
-    if photo !="":
-        _photo= IMA_F + "/" + _email + ".jpg"
+    #if photo !=None:
+    _photo= IMA_F + "/" + _email + ".jpg"
 
-        img=Image.open(photo)  #reparar el error de cunado photo no tiene imagen !!!!!
-        img.save(_photo)
-    else:
-        _photo= IMA_F + "/base.jpg"
+    img=Image.open(photo)  #reparar el error de cunado photo no tiene imagen !!!!!
+    img.save(_photo)
+    #else:
+        #_photo= IMA_F + "/base.jpg"
+        #img=Image.open(_photo)
 
     if request.form['gatos'] == 'gatos': #reparar
         _type= "Gatos "
