@@ -75,8 +75,8 @@
             <i class="far fa-times-circle contraer" onclick="invisibleLogin()"></i>
             <h3 class="centrarTexto" style="margin: 2rem 0 3.5rem 0">Login</h3>
             <div class="botonesLogin">
-                <button><img src="/Animalicis/static/image/iconos/googleLog2-1.png" alt="Icono Google"></button>
-                <button><img src="/Animalicis/static/image/iconos/facebookLog2-1.png" alt=""></button>
+                <button><img src="{{ url_for('static', filename='image/iconos/googleLog2-1.png') }}" alt="Icono Google"></button>
+                <button><img src="{{ url_for('static', filename='image/iconos/facebookLog2-1.png') }}" alt=""></button>
             </div>
             <div class="boxLogin">
                 <form action="/processLogin" class="boxIntermedia">
@@ -155,17 +155,17 @@
                         </div>
                         <form id="panelBusqueda" action="/searchPet">
                             <div class="barra-search">
-                                <input type="search" id="localizacion" placeholder="Busque por ciudad o barrio">
+                                <input type="search" name="direccion" id="localizacion" placeholder="Busque por ciudad o barrio">
                             </div>
                             <div class="entrada-usuarios">
-                                <select name="" id="Edad">
+                                <select name="Edad" id="Edad">
                                     <option selected>Franja Etaria</option>
                                     <option value="Cachorro">Cachorro</option>
                                     <option value="Joven">Joven</option>
                                     <option value="Adulto">Adulto</option>
                                     <option value="Mayor">Mayor</option>
                                 </select>
-                                <select name="" id="Raza">
+                                <select name="Raza" id="Raza">
                                     <option value="" selected>Raza / Credo</option>
                                     <option value="Labrador-Re">Labrador Retriever</option>
                                     <option value="Pastor-Alemán">Pastor Alemán</option>
@@ -182,12 +182,12 @@
                                 </select>
                             </div>
                             <div class="entrada-usuarios">
-                                <select name="" id="Sexo">
+                                <select name="Sexo" id="Sexo">
                                     <option value="" id="sexo" selected>Optá por un género</option>
                                     <option value="Macho">Macho</option>
                                     <option value="Hembra">Hembra</option>
                                 </select>
-                                <select name="" id="Salud">
+                                <select name="Salud" id="Salud">
                                     <option value="" id="Elije" selected>Vacunas y salud</option>
                                     <option value="Al-Día">Vacunado y desparasitado</option>
                                     <option value="Incompleto">Incompleto</option>
@@ -199,12 +199,14 @@
                         </form>
                     </div> <!-- FIN CONTENEDOR INTERNO -->
                     <div class="imagenBuscador">
-                        <img id="botonImagen" src="/Animalicis/static/image/perroDesktop.png" alt="">
+                        <img id="botonImagen" src="{{ url_for('static', filename='image/perroDesktop.png') }}" alt="">
                     </div>
                 </div> <!-- Fin Contenedor Buscadores -->
 
                 <aside class="blogEntrada">
-                    <div class="blogSuperior back1"></div>
+                    <div class="imagenBuscador">
+                        <img id="botonImagen" src="{{ url_for('static', filename='image/perroDesktop.png') }}" alt="">
+                    </div>
                     <div class="blogIntermedio">
                         <a href="/Animalicis/static/comoFunciona.html">
                             <h5>¿Como Funciona?</h5>
@@ -235,7 +237,7 @@
         <section class="medioGrilla">
             <div class="medio1">
                 <div class="medioImagen">
-                    <img src="/Animalicis/static/image/gatoIntro1.png" alt="">
+                    <img src="{{ url_for('static', filename='image/gatoIntro1.png') }}" alt="">
                 </div>
                 <div class="medioAdopcion">
                     <h4>Dar en Adopción</h4>
@@ -245,7 +247,7 @@
                         <li>Si tu situación financiera a cambiado desfavorablemente</li>
                         <li>O si por cualquier otro motivo no puedes sostener a tu mascota</li>
                     </ul>
-                    <a href="/Animalicis/static/registroAnimales.html">
+                    <a href="{{ url_for('static', filename='registroAnimales.html') }}">
                         <p>Podés seguir este enlace para encontrarle un nuevo hogar</p>
                     </a>
                 </div>
@@ -261,7 +263,7 @@
             <div class="grillaSuperior">
                 <div class="animalesGrilla">
                     <div class="animalesImagen">
-                        <img src="/Animalicis/static/image/placeholderGrilla/gato1.jpg" alt="">
+                        <img src="{{ url_for('static', filename='image/placeholderGrilla/gato1.jpg') }}" alt="">
                     </div>
                     <div class="animalesInferior">
                         <p><span>Nombre</span></p>
@@ -270,7 +272,7 @@
                 </div>
                 <div class="animalesGrilla">
                     <div class="animalesImagen">
-                        <img src="/Animalicis/static/image/placeholderGrilla/gato1.jpg" alt="">
+                        <img src="{{ url_for('static', filename='image/placeholderGrilla/gato1.jpg') }}" alt="">
                     </div>
                     <div class="animalesInferior">
                         <p><span>Nombre</span></p>
@@ -279,7 +281,7 @@
                 </div>
                 <div class="animalesGrilla">
                     <div class="animalesImagen">
-                        <img src="/Animalicis/static/image/placeholderGrilla/gato1.jpg" alt="">
+                        <img src="{{ url_for('static', filename='image/placeholderGrilla/gato1.jpg') }}" alt="">
                     </div>
                     <div class="animalesInferior">
                         <p><span>Nombre</span></p>
@@ -288,7 +290,7 @@
                 </div>
                 <div class="animalesGrilla">
                     <div class="animalesImagen">
-                        <img src="/Animalicis/static/image/placeholderGrilla/gato1.jpg" alt="">
+                        <img src="{{ url_for('static', filename='image/placeholderGrilla/gato1.jpg') }}" alt="">
                     </div>
                     <div class="animalesInferior">
                         <p><span>Nombre</span></p>
@@ -297,7 +299,7 @@
                 </div>
                 <div class="animalesGrilla">
                     <div class="animalesImagen">
-                        <img src="/Animalicis/static/image/placeholderGrilla/gato1.jpg" alt="">
+                        <img src="{{ url_for('static', filename='image/placeholderGrilla/gato1.jpg') }}" alt="">
                     </div>
                     <div class="animalesInferior">
                         <p><span>Nombre</span></p>
@@ -306,7 +308,7 @@
                 </div>
                 <div class="animalesGrilla">
                     <div class="animalesImagen">
-                        <img src="/Animalicis/static/image/placeholderGrilla/gato1.jpg" alt="">
+                        <img src="{{ url_for('static', filename='image/placeholderGrilla/gato1.jpg') }}" alt="">
                     </div>
                     <div class="animalesInferior">
                         <p><span>Nombre</span></p>
@@ -315,7 +317,7 @@
                 </div>
                 <div class="animalesGrilla">
                     <div class="animalesImagen">
-                        <img src="/Animalicis/static/image/placeholderGrilla/gato1.jpg" alt="">
+                        <img src="{{ url_for('static', filename='image/placeholderGrilla/gato1.jpg') }}" alt="">
                     </div>
                     <div class="animalesInferior">
                         <p><span>Nombre</span></p>
@@ -324,7 +326,7 @@
                 </div>
                 <div class="animalesGrilla">
                     <div class="animalesImagen">
-                        <img src="/Animalicis/static/image/placeholderGrilla/gato1.jpg" alt="">
+                        <img src="{{ url_for('static', filename='image/placeholderGrilla/gato1.jpg') }}" alt="">
                     </div>
                     <div class="animalesInferior">
                         <p><span>Nombre</span></p>
@@ -333,7 +335,7 @@
                 </div>
                 <div class="animalesGrilla">
                     <div class="animalesImagen">
-                        <img src="/Animalicis/static/image/placeholderGrilla/gato1.jpg" alt="">
+                        <img src="{{ url_for('static', filename='image/placeholderGrilla/gato1.jpg') }}" alt="">
                     </div>
                     <div class="animalesInferior">
                         <p><span>Nombre</span></p>

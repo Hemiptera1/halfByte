@@ -103,7 +103,7 @@ function cambiaActivos(argumento) {
             elementoNuevo.value = par[0];
             elementoNuevo.innerHTML = par[1];
             panelSexo.options.add(elementoNuevo);
-        } 
+        }
         panelRaza.innerHTML = "";
         for(let opcion in opcionesPerros) {
             let par = opcionesPerros[opcion].split("|");
