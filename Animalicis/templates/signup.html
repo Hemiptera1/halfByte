@@ -7,14 +7,14 @@
 
     <title>Sign Up Adoptantes</title>
 
-    <link rel="stylesheet" href="CSS\normalize.css.css">
-    <link rel="stylesheet" href="CSS\all.css">
-    <link rel="stylesheet" href="CSS\styleJuana.css">
-
-   <link href="https://fonts.googleapis.com/css?family=Montserrat|Signika|Sriracha&display=swap" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS\normalize.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS\all.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS\styleJuana.css')}}">
+    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Signika|Sriracha&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 </head>
 <body>
 
@@ -81,18 +81,18 @@
         <section class="mainContainer">
         <div >
           <h3 class="centrarTexto">Completa tus datos para registrarte</h3>
-
-          <div id="signup">
+          
+          <div id="signup">   
             <div >
-            <form action="/processSignup" method="post" class="SignUpmini">
-
+            <form action="/" method="post"  class="SignUpmini">
+            
               <div>
                 <label>
                   Nombre
                 </label>
                 <input type="text" placeholder="Nombre" name="name" autofocus required/>
               </div>
-
+          
               <div>
                 <label>
                   Apellido
@@ -102,28 +102,28 @@
 
             <div>
               <label>
-                Email
+                Email 
               </label>
               <input type="email" placeholder="Email" name="email" required>
             </div>
-
+            
             <div>
               <label>
                 Contraseña
               </label>
               <input type="password" placeholder="Contraseña" name="contr" minlength="8" required/>
             </div>
-
+            
             <button type="submit" class="BotonRegistro">Registrarse</button>
             </div>
           </form>
 
           <div>
-          <h4 class="centrarTexto">También podes ingresar con:</h4>
+          <h4 class="centrarTexto">También podes registrarte con:</h4>
           <div class="botonesSignUp">
-             <button><img src="iconos\googleLog" alt="Icono Google">Ingresa con Google</button>
-             <button><img src="iconos\facebookIcon" alt="Icono Facebook">Ingresa con Facebook</button>
-         </div>
+             <button><span style="font-family: Arial, Helvetica, sans-serif; font-weight: bolder;">Ingresa con Google</span></button>
+             <button><span style="font-family: Arial, Helvetica, sans-serif; font-weight: bolder;">Ingresa con Facebook</span></button>
+         </div> 
           </div>
           </section>
   </div>

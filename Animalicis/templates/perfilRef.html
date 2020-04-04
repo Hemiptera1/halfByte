@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mi perfil</title>
-    <link rel="stylesheet" href="CSS\normalize.css.css">
-    <link rel="stylesheet" href="CSS\all.css">
-    <link rel="stylesheet" href="CSS\styleJuana.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS\normalize.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS\all.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS\styleJuana.css')}}">
     
-   <link href="https://fonts.googleapis.com/css?family=Montserrat|Signika|Sriracha&display=swap" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Signika|Sriracha&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    <script src="jsJuana.js"></script>
+    <script src="{{ url_for('static', filename='jsJuana.js')}}"></script>
 </head>
 
 <body>
@@ -79,16 +80,17 @@
   <main>
     <div class="mainContainer "> 
           <div class="alinear">
-          <h3 > Mis animales encontrados</h3>
+          <h3 > Mis animales </h3>
 
           <img src="image\perro1.jpg" style="width:150px;height:200px" class="fotosSubidas responsive"> 
           <img src="image\perro2.jpg" style="width:150px;height:200px" class="fotosSubidas responsive"> 
           <img src="image\perro3.jpg" style="width:150px;height:200px" class="fotosSubidas responsive">
 
-          <p> Si encontraste otro animal y queres darlo en adopción, hace click <span style="font-family: Signika;"><a href="" class="linksP"> aqui</a></p> </span> <br>  
-          <p> Si adoptar otro animal, hace click <span style="font-family: Signika;"><a href="" class="linksP"> aqui</a></p> </span>  
+          <p> Si perdiste un animal y queres reportarlo, hace click <span style="font-family: Signika;"><a href="" class="linksP"> aqui</a></p> </span> <br>  
+          <p> Si adoptar otro animal, hace click <span style="font-family: Signika;"><a href="" class="linksP"> aqui</a></p> </span> 
         </div>
-        
+
+ 
       <div class="alinear">
           <h3 >Mis eventos</h3>
 
@@ -107,130 +109,130 @@
   <label for="cerrar" class="botonCerrar" onclick="perfilInvisible()">X</label>
   <h3 class="centrarTexto" style="margin: 2rem 0 3.5rem 0">Edita tu perfil</h3>
   <div>
-    <form action="/" method="post" class="formularioMini">
+    <form action="/" method="post" nctype="multipart/form-data" class="formularioMini">
       
-      <div>
-        <label>
-          Nombre del refugio
-        </label>
-        <input type="text" placeholder="Nombre del refugio" name="nameRef" autofocus/>
-      </div>
+        <div>
+          <label>
+            Nombre del refugio
+          </label>
+          <input type="text" placeholder="Nombre del refugio" name="nameRef" autofocus required/>
+        </div>
 
-      <div>
-        <label>
-          Departamento
-        </label>
-        <input type="text" placeholder= "Departamento" name="departamento"/>
-      </div>
-      
-      <div>
-        <label>
-          Ciudad
-        </label>
-        <input type="text" placeholder= "Ciudad" name="ciudad"/>
-      </div>  
+        <div>
+          <label>
+            Departamento
+          </label>
+          <input type="text" placeholder="Departamento" name="departamento" required/>
+        </div>
+        
+        <div>
+          <label>
+            Ciudad
+          </label>
+          <input type="text" placeholder="Ciudad" name="ciudad" required/>
+        </div>  
 
-      <div>
-        <label>
-          Barrio
-        </label>
-        <input type="text" placeholder="Barrio" name="barrio"/>
-      </div>
+        <div>
+          <label>
+            Barrio
+          </label>
+          <input type="text" placeholder="Barrio" name="barrio" required/>
+        </div>
 
-      <div>
-        <label>
-          Dirección 
-        </label>
-        <input type="text" placeholder="Dirección" name="direccion"/>
-      </div>
-              
-      <div>
-        <label>
-          Telefono fijo de contacto
-        </label>
-        <input type="tel" placeholder="Telefono de contacto" name="telcontactoFijo"/>
-      </div>
+        <div>
+          <label>
+            Dirección 
+          </label>
+          <input type="text" placeholder="Dirección" name="direccion" required/>
+        </div>
+                
+        <div>
+          <label>
+            Telefono fijo de contacto
+          </label>
+          <input type="tel" placeholder="..." name="telcontactoFijo"/>
+        </div>
 
-      <div>
-        <label>
-          Telefono celular de contacto
-        </label>
-        <input type="tel" placeholder="Celular de contacto" name="telcontacto"/>
-      </div>
-       
-       <div>
-         <label>
-           Nombre del repsonsable a contactar
-         </label>
-         <input type="text" placeholder="..." name="responsableContacto" required/>
-       </div>
+        <div>
+          <label>
+            Telefono celular de contacto
+          </label>
+          <input type="tel" placeholder="..." name="telcontacto" required/>
+        </div>
 
-       <div>
+        <div>
+          <label>
+            Nombre del repsonsable a contactar
+          </label>
+          <input type="text" placeholder="..." name="responsableContacto" required/>
+        </div>
+
+        <div>
           <label>
             Horiarios de atención
           </label>
           <p> Desde <input type="time" name="horaInicio" required/> hasta <input type="time" name="horaFinal" required/> </p>
-        </div>        
-        
-    <div>
-      <label>
-        Elegi los animales aceptados en el refugio
-      </label>
-      <ul>
-      <p>
-      <input type="radio" name="perros" value="perros" class="multiplechoice">Perros <br>
-      <input type="radio" name="gatos" value="gatos" class="multiplechoice">Gatos <br>
+        </div>
 
-      <input type="radio" name="caballos" value="caballos" class="multiplechoice">Caballos <br>
-      <input type="radio" name="otros" value="otros" class="multiplechoice" id="mostrar">Otros <br>
-      </p>
-    </ul>
-    </div>
-     
-    <div id="otrosA">
-      <label>
-        Otros animales aceptados en el refugio:
-      </label>
-      <input type="text" placeholder="Especifica que otros animales son aceptados" name="otrosAceptados" />
-    </div>
-
-    <div>
+      <div>
         <label>
-          Realiza una pequeña descripción del refugio
+          Elegi los animales aceptados en el refugio
         </label>
-        <textarea name="descripcion" rows="3" cols="30" maxlength="3000" placeholder=Describí el refugio></textarea>
-    </div>
+        <ul>
+        <p>
+        <input type="radio" name="perros" value="perros" class="multiplechoice">Perros <br>
+        <input type="radio" name="gatos" value="gatos" class="multiplechoice">Gatos <br>
 
-    <div>
-      <label>Subi fotos de tu refugio:</label>
-      <input type="file" id="img" name="img" accept="image/*" class="inputfile" data-multiple-caption="{ count } files selected" multiple />
+        <input type="radio" name="caballos" value="caballos" class="multiplechoice">Caballos <br>
+        <input type="radio" name="otros" value="otros" class="multiplechoice" id="mostrar">Otros <br>
+        </p>
+        </ul>
       </div>
-    
-     <div>
+       
+        <div id="otrosA">
+         <label>
+          Otros animales aceptados en el refugio:
+         </label>
+         <input type="text" placeholder="Especifica que otros animales son aceptados" name="otrosAceptados" />
+        </div>
+
+        <div>
+          <label>
+            Realiza una pequeña descripción del refugio
+          </label>
+          <textarea name="descripcion" rows="3" cols="30" maxlength="3000" placeholder="Contanos que te llevó a crear el refugio y como funciona" required></textarea>
+        </div>
+
+      <div>
+        <label>Subi fotos de tu refugio:</label>
+        <input type="file" id="img" name="img" accept="image/*" class="inputfile" multiple required />
+      </div>
+      
+       <div>
+          <label>
+            Sitio Web
+          </label>
+          <input type="url" name="url" placeholder="Comparti tu sitio web" size="40"/>
+        </div>
+
+      <div>
         <label>
-          Sitio Web
+          Email 
         </label>
-        <input type="url" name="url" placeholder="Sitio Web" size="40"/>
+        <input type="email" placeholder="Email" name="emailRef" required>
       </div>
-
-    <div>
-      <label>
-        Email 
-      </label>
-      <input type="email" placeholder="Email" name="emailRef"/>
-    </div>
-    
-    <div>
-      <label>
-        Contraseña
-      </label>
-      <input type="password" placeholder="Contraseña" name="contrRef" minlength="8"/>
-    </div>
-    
-    <button type="submit" class="BotonRegistro" onclick="perfilInvisible()">Guardar cambios</button>
-    </div>
-  </form>
-</div>
+      
+      <div>
+        <label>
+          Contraseña
+        </label>
+        <input type="password" placeholder="Contraseña" name="contrRef" minlength="8" required/>
+      </div>
+      
+      <button type="submit" class="BotonRegistro">Registrarse</button>
+      
+    </form>
+  </div>
 <!--FIN MODAL DEL FORMULARIO-->
   </main>
 

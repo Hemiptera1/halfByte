@@ -7,15 +7,15 @@
 
     <title>Perfil Publico</title>
 
-    <link rel="stylesheet" href="CSS\normalize.css.css">
-    <link rel="stylesheet" href="CSS\all.css">
-    <link rel="stylesheet" href="CSS\styleJuana.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS\normalize.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS\all.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS\styleJuana.css')}}">
 
-    <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Signika|Sriracha&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <script src="jsJuana.js"></script>
+    <script src="{{ url_for('static', filename='jsJuana.js')}}"></script>
 </head>
 <body>
 
@@ -81,7 +81,7 @@
     <main>
         <div class="mainContainer">
             <div class="alinear">
- <h3>Segunda oportunidad</h3>
+                <h3>Segunda oportunidad</h3>
                 <p class="fontUnificada">Somos una organización sin fines de lucro que surge como respuesta a problematica social que presentan
                     los animales sin hogar. Nuestra misión es crear una comunidad en la que todos los animales se encuentren viviendo de manera segura
                     con dueños responsables, trabajando para que en el futuro los animales de compañía no sean vistos como desechables.

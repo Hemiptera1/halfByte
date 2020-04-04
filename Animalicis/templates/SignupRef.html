@@ -7,15 +7,15 @@
 
     <title>Sign Up Refugios</title>
 
-    <link rel="stylesheet" href="CSS\normalize.css.css">
-    <link rel="stylesheet" href="CSS\all.css">
-    <link rel="stylesheet" href="CSS\styleJuana.css">
-    
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS\normalize.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS\all.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS\styleJuana.css')}}">
+
     <link href="https://fonts.googleapis.com/css?family=Sriracha&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <script src="jsJuana.js"></script>
+    <script src="{{ url_for('static', filename='jsJuana.js')}}"></script>
 </head>
 <body>
 
@@ -75,19 +75,19 @@
             <i onclick="visibleLogin()" class="fas fa-user"></i>
         </div>
     </div>
-
+    
 </header>
-
+        
   <main>
     <div>
         <section class="mainContainer">
         <div >
           <h3 class="centrarTexto">Completa tus datos para registrar tu refugio</h3>
 
-          <div id="signup">
-            <div >
-            <form action="/processSignupRef" method="post" class="SignUpmini">
-
+          <div id="signup">   
+            <div>
+            <form action="/" method="post"  nctype="multipart/form-data" class="SignUpmini">
+            
               <div>
                 <label>
                   Nombre del refugio
@@ -95,20 +95,19 @@
                 <input type="text" placeholder="Nombre del refugio" name="nameRef" autofocus required/>
               </div>
 
-
               <div>
                 <label>
                   Departamento
                 </label>
                 <input type="text" placeholder="Departamento" name="departamento" required/>
               </div>
-
+              
               <div>
                 <label>
                   Ciudad
                 </label>
                 <input type="text" placeholder="Ciudad" name="ciudad" required/>
-              </div>
+              </div>  
 
               <div>
                 <label>
@@ -119,11 +118,11 @@
 
               <div>
                 <label>
-                  Dirección
+                  Dirección 
                 </label>
                 <input type="text" placeholder="Dirección" name="direccion" required/>
               </div>
-
+                      
               <div>
                 <label>
                   Telefono fijo de contacto
@@ -166,7 +165,7 @@
               </p>
             </ul>
             </div>
-
+             
             <div id="otrosA">
               <label>
                 Otros animales aceptados en el refugio:
@@ -183,35 +182,37 @@
 
             <div>
               <label>Subi fotos de tu refugio:</label>
-              <input type="file" id="img" name="img" accept="image/*" class="inputfile" data-multiple-caption="{count} files selected" multiple />
+              <input type="file" id="img" name="img" accept="image/*" class="inputfile" multiple required/>
               </div>
-
+            
              <div>
                 <label>
                   Sitio Web
                 </label>
                 <input type="url" name="url" placeholder="Comparti tu sitio web" size="40"/>
               </div>
-
+  
             <div>
               <label>
-                Email
+                Email 
               </label>
               <input type="email" placeholder="Email" name="emailRef" required>
             </div>
-
+            
             <div>
               <label>
                 Contraseña
               </label>
               <input type="password" placeholder="Contraseña" name="contrRef" minlength="8" required/>
             </div>
-
+            
             <button type="submit" class="BotonRegistro">Registrarse</button>
-            </div>
-          </form>
-          </section>
-  </div>
+            </form>
+          </div> 
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer>
