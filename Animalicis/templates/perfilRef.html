@@ -82,9 +82,9 @@
           <div class="alinear">
           <h3 > Mis animales </h3>
 
-          <img src="image\perro1.jpg" style="width:150px;height:200px" nctype="multipart/form-data" class="fotosSubidas responsive"> 
-          <img src="image\perro2.jpg" style="width:150px;height:200px" nctype="multipart/form-data" class="fotosSubidas responsive"> 
-          <img src="image\perro3.jpg" style="width:150px;height:200px" nctype="multipart/form-data" class="fotosSubidas responsive">
+          <img src="{{ url_for('static', filename='image\perro1.jpg')}}" style="width:150px;height:200px" class="fotosSubidas responsive"> 
+          <img src="{{ url_for('static', filename='image\perro2.jpg')}}" style="width:150px;height:200px" class="fotosSubidas responsive"> 
+          <img src="{{ url_for('static', filename='image\perro3.jpg')}}" style="width:150px;height:200px" class="fotosSubidas responsive">
 
           <p> Si perdiste un animal y queres reportarlo, hace click <span style="font-family: Signika;"><a href="" class="linksP"> aqui</a></p> </span> <br>  
           <p> Si adoptar otro animal, hace click <span style="font-family: Signika;"><a href="" class="linksP"> aqui</a></p> </span> 
