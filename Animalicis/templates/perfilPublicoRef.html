@@ -7,9 +7,9 @@
 
     <title>Perfil Publico</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='CSS\normalize.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='CSS\all.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='CSS\styleJuana.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/normalize.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/all.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/styleJuana.css')}}">
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Signika|Sriracha&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
 
     <header class="header-site">
         <div class="logo">
-            <a href="/index.html"><h2>Animalis Amicis</h2></a>
+            <a href="/"><h2>Animalis Amicis</h2></a>
         </div>
         <div class="redes-sociales">
             <div>
@@ -75,7 +75,7 @@
                 <i onclick="visibleLogin()" class="fas fa-user"></i>
             </div>
         </div>
-        
+
     </header>
 
     <main>
@@ -86,7 +86,7 @@
                     los animales sin hogar. Nuestra misión es crear una comunidad en la que todos los animales se encuentren viviendo de manera segura
                     con dueños responsables, trabajando para que en el futuro los animales de compañía no sean vistos como desechables.
                 </p>
-                
+
                 <h4> Datos del refugio</h4>
                 <p class="fontUnificada"> <span style="font-weight: bolder;">Dirección:</span> Camino Manuel M. Flores, Paso de la Arena, Montevideo</p>
                 <p class="fontUnificada"> <span style="font-weight: bolder;">Nombre del responsable a contactar:</span> Cristina López</p>
@@ -97,9 +97,9 @@
                 <p class="fontUnificada"> <span style="font-weight: bolder;">Fotos:</span> Aún no hay fotos</p>
 
                 <h4> Animales en adopción</h4>
-                <img src="image\perro1.jpg" style="width:150px;height:200px" class="fotosSubidas responsive"> 
-                <img src="image\perro2.jpg" style="width:150px;height:200px" class="fotosSubidas responsive"> 
-                <img src="image\perro3.jpg" style="width:150px;height:200px" class="fotosSubidas responsive">  
+                <img src="{{ url_for('static', filename='image/perro1.jpg' ) }}" style="width:150px;height:200px" class="fotosSubidas responsive">
+                <img src="{{ url_for('static', filename='image/perro2.jpg' ) }}" style="width:150px;height:200px" class="fotosSubidas responsive">
+                <img src="{{ url_for('static', filename='image/perro3.jpg' ) }}" style="width:150px;height:200px" class="fotosSubidas responsive">
 
             </div>
         </div>

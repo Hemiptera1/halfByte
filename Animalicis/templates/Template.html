@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/all.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css' ) }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.css' ) }}">
     <link href="https://fonts.googleapis.com/css?family=Sriracha&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css' ) }}">
 </head>
 <body>
     <header class="header-site">
@@ -49,7 +49,7 @@
             <i class="far fa-times-circle"></i>
             <ul>
                 <li><span>Animalicis</span></li>
-                <li><a href="#">Como funciona</a></li>
+                <li><a href="/operation">Como funciona</a></li>
                 <li><a href="#">Adoptando un perro</a></li>
                 <li><a href="#">Adoptando un gato</a></li>
                 <li><a href="#">Adoptando otros animales</a></li>
@@ -60,5 +60,5 @@
 </main>
 <!-- Podria quedar bueno poner un footer y ahí los links -->
 </body>
-<script src="main.js"></script>
+<script src="{{ url_for('static', filename='main.js')}}"></script>
 </html>

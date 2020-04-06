@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/Animalicis/static/css/normalize.css">
-    <link rel="stylesheet" href="/Animalicis/static/css/all.css">
-    <link rel="stylesheet" href="/Animalicis/static/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css' ) }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.css' ) }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css' ) }}">
 </head>
 
 <body>
@@ -71,7 +71,7 @@
     </header> <!-- FIN DEL HEADER -->
     <div class="raPortada">
         <h1>Encuentrale a tu mascota un cariñoso hogar</h1>
-        <img src="/Animalicis/static/image/scrollDownWhite.png" alt="">
+        <img src="{{ url_for('static', filename='image/scrollDownWhite.png' ) }}" alt="">
     </div>
 
     <section class="formulario" id="formularioScroll">
@@ -165,5 +165,5 @@
     </footer>
 
 </body>
-<script src="/Animalicis/static/registroJS.js"></script>
+<script src="{{ url_for('static', filename='registroJS.js' ) }}"></script>
 </html>

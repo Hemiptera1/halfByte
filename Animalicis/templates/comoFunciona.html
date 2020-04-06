@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Como Funciona</title>
-    <link rel="stylesheet" href="/Animalicis/static/css/normalize.css">
-    <link rel="stylesheet" href="/Animalicis/static/css/all.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata|Permanent+Marker&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/Animalicis/static/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <div class="articuloInfo">
@@ -16,7 +16,7 @@
     </div>
     <header class="header-site stickyBar">
         <div class="logo">
-            <a href="/index.html"><h2>Animalis Amicis</h2></a>
+            <a href="/"><h2>Animalis Amicis</h2></a>
         </div>
         <div class="redes-sociales">
             <div>
@@ -76,14 +76,14 @@
         <p class="articuloIntroduccion">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit ex tempore asperiores vero ea totam nostrum doloremque odio omnis repudiandae voluptatem vitae nemo vel suscipit, provident atque repellat? Natus, itaque!</p>
         <div class="moldeArticulo">
             <div class="articuloImgP">
-                <img src="/Animalicis/static/image/articuloImagenP2.png" alt="">
+                <img src="{{ url_for('static', filename='image/articuloImagenP2.png') }}" alt="">
             </div>
             <div class="articuloTexto">
                 <p>Vestibulum ullamcorper convallis ultricies. Cras tristique, orci ut ornare suscipit, magna lorem faucibus velit, non consequat tortor eros at ligula. Vivamus auctor iaculis tempor. Duis nec ipsum commodo, fermentum leo in, viverra eros. Aliquam imperdiet risus at mi volutpat, non maximus arcu molestie. Proin mattis accumsan diam vitae convallis. Morbi varius convallis risus eget cursus.</p>
                 <p>Vivamus ullamcorper efficitur dignissim. In porttitor tellus eget commodo semper. Sed massa erat, ultricies et ultrices vel, mollis vitae dui. Quisque mollis non tortor in maximus. Donec eget cursus nisl. Quisque at facilisis arcu. Nullam finibus, quam ut consequat vehicula, ex diam mattis ipsum, et maximus dolor lacus in mi. Vestibulum ante magna, venenatis ut mauris in, tempor eleifend nisi. Sed tincidunt fringilla enim, id dictum nisl finibus ornare. In eget imperdiet nisl. Sed sed purus sed sem accumsan laoreet. Quisque laoreet eget ex pharetra finibus. Pellentesque justo ligula, vestibulum in accumsan vitae, finibus quis neque. Duis laoreet pharetra faucibus.</p>
             </div>
             <div class="articuloImgG">
-                <img src="/Animalicis/static/image/articuloImagenG.png" alt="">
+                <img src="{{ url_for('static', filename='image/articuloImagenG.png') }}" alt="">
             </div>
         </div>
     </main>

@@ -44,9 +44,11 @@ def index():
 
     if "name" in session:
         _name=session['name']
+        _type=session['type']
     else:
         _name=""
-    context={'Nombre': _name}
+        _type=""
+    context={'Nombre': _name, 'Tipo':_type}
     return render_template('index.html', **context)
 
 @app.route('/account', methods=['GET'])    #ruta a la seleccion de signup
@@ -72,7 +74,7 @@ def profile():#Probar
                 "Ciudad":row.city, "Barrio":row.neighborhood,
                 "Diereccion":row.Googlemaps, "Descripcion":row.description,
                 "Representante":row.rep, "Telefono":row.phone,
-                "Celular":row.celphone, "Web":row.web,
+                "Celular":row.celphone, "Web":row.website,
                 "Animales":row.animal, "Abierto":row.time_o,
                 "Cerrado":row.time_c, "Foto":row.photo}
 
@@ -159,7 +161,7 @@ def processLogin():
             if row is None:
                 return  "Correo y/o contraceña incorrecta"
             else:
-                usuario= redirect(url_for('index'))
+                usuario= redirect(url_for('profile'))
                 session['email']= row.email
                 session['password']= row.pw_hash
                 session['name']= row.name
@@ -171,7 +173,7 @@ def processLogin():
             session['password']= row.pw_hash
             session['name']= row.name
             session['type']= "Refuge"
-            return redirect(url_for('index'))
+            return redirect(url_for('profile'))
 
 @app.route('/processSignup', methods=['GET', 'POST']) #proceso de registro de Usuario
 def processSignup():
@@ -535,14 +537,14 @@ def search_Pet(): #terminar y testear prinsipalmente la foto #puedo usar el meto
         _race= "<> " + "'" + str (request.args.get('raza')) + "'"
 
 
-    if request.args.get('Gato') == "Gato":
+    if request.args.get('Animal') == "Gato":
         _type= "'" + "Gato" + "'"
-    elif request.args.get('Perro') == "Perro":
+    elif request.args.get('Animal') == "Perro":
         _type= "'" + "Perro" + "'"
-    elif request.args.get('Otro') == "Otro":
+    elif request.args.get('Animal') == "Otro":
         _type= "'" + "Otro" + "'"
     else:
-        _type= "'" + "Gato" + "'" #comentar despues
+        _type= "'" + " " + "'" #comentar despues
 
 
     if request.args.get('direccion') != None:

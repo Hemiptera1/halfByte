@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tipos de Cuentas</title>
-    <link rel="stylesheet" href="/Animalicis/static/css/normalize.css">
-    <link rel="stylesheet" href="/Animalicis/static/css/all.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css' ) }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.css' ) }}">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Sriracha&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/Animalicis/static/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css' ) }}">
 </head>
 <body>
     <header class="header-site">
         <div class="logo">
-            <a href="/index.html"><h2>Animalis Amicis</h2></a>
+            <a href="/"><h2>Animalis Amicis</h2></a>
         </div>
         <div class="redes-sociales">
             <div>
@@ -33,7 +33,7 @@
 
     <div class="boxCuenta">
         <div class="portadaCuenta">
-            <img src="/Animalicis/static/image/adoptador.jpg" alt="">
+            <img src="{{ url_for('static', filename='image/adoptador.jpg' ) }}" alt="">
         </div>
         <h4 class="centrarTexto">Adoptantes</h4>
         <p>Encuentra la mascota de tus sueños. Podrás acceder a un registro con miles de mascotas,
@@ -45,7 +45,7 @@
 
     <div class="boxCuenta">
         <div class="portadaCuenta">
-            <img src="/Animalicis/static/image/refugio.jpg" alt="">
+            <img src="{{ url_for('static', filename='image/refugio.jpg' ) }}" alt="">
         </div>
         <h4 class="centrarTexto">Refugios</h4>
         <p>Dale visibilidad a tu refugio poniendo a disposición de la comunidad las mascotas que tengas

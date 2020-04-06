@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mi perfil</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='CSS\normalize.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='CSS\all.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='CSS\styleJuana.css')}}">
-    
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/normalize.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/all.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/styleJuana.css')}}">
+
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Signika|Sriracha&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <script src="{{ url_for('static', filename='jsJuana.js')}}"></script>
 </head>
 
@@ -21,7 +21,7 @@
 
   <header class="header-site">
     <div class="logo">
-        <a href="/index.html"><h2>Animalis Amicis</h2></a>
+        <a href="/"><h2>Animalis Amicis</h2></a>
     </div>
     <div class="redes-sociales">
         <div>
@@ -74,23 +74,23 @@
             <p onclick="visibleLogin()">Login/Singup</p>
             <i onclick="visibleLogin()" class="fas fa-user"></i>
         </div>
-    </div> 
+    </div>
 </header>
 
   <main>
-    <div class="mainContainer "> 
+    <div class="mainContainer ">
           <div class="alinear">
           <h3 > Mis animales </h3>
 
-          <img src="{{ url_for('static', filename='image\perro1.jpg')}}" style="width:150px;height:200px" class="fotosSubidas responsive"> 
-          <img src="{{ url_for('static', filename='image\perro2.jpg')}}" style="width:150px;height:200px" class="fotosSubidas responsive"> 
-          <img src="{{ url_for('static', filename='image\perro3.jpg')}}" style="width:150px;height:200px" class="fotosSubidas responsive">
+          <img src="{{ url_for('static', filename='image/perro1.jpg')}}" style="width:150px;height:200px" class="fotosSubidas responsive">
+          <img src="{{ url_for('static', filename='image/perro2.jpg')}}" style="width:150px;height:200px" class="fotosSubidas responsive">
+          <img src="{{ url_for('static', filename='image/perro3.jpg')}}" style="width:150px;height:200px" class="fotosSubidas responsive">
 
-          <p> Si perdiste un animal y queres reportarlo, hace click <span style="font-family: Signika;"><a href="" class="linksP"> aqui</a></p> </span> <br>  
-          <p> Si adoptar otro animal, hace click <span style="font-family: Signika;"><a href="" class="linksP"> aqui</a></p> </span> 
+          <p> Si perdiste un animal y queres reportarlo, hace click <span style="font-family: Signika;"><a href="" class="linksP"> aqui</a></p> </span> <br>
+          <p> Si adoptar otro animal, hace click <span style="font-family: Signika;"><a href="" class="linksP"> aqui</a></p> </span>
         </div>
 
- 
+
       <div class="alinear">
           <h3 >Mis eventos</h3>
 
@@ -109,8 +109,8 @@
   <label for="cerrar" class="botonCerrar" onclick="perfilInvisible()">X</label>
   <h3 class="centrarTexto" style="margin: 2rem 0 3.5rem 0">Edita tu perfil</h3>
   <div>
-    <form action="/" method="post" nctype="multipart/form-data" class="formularioMini">
-      
+    <form action="/processSignupRefUpdate" method="post" enctype="multipart/form-data" class="formularioMini">
+
         <div>
           <label>
             Nombre del refugio
@@ -124,13 +124,13 @@
           </label>
           <input type="text" placeholder="Departamento" name="departamento" required/>
         </div>
-        
+
         <div>
           <label>
             Ciudad
           </label>
           <input type="text" placeholder="Ciudad" name="ciudad" required/>
-        </div>  
+        </div>
 
         <div>
           <label>
@@ -141,11 +141,11 @@
 
         <div>
           <label>
-            Dirección 
+            Dirección
           </label>
           <input type="text" placeholder="Dirección" name="direccion" required/>
         </div>
-                
+
         <div>
           <label>
             Telefono fijo de contacto
@@ -188,7 +188,7 @@
         </p>
         </ul>
       </div>
-       
+
         <div id="otrosA">
          <label>
           Otros animales aceptados en el refugio:
@@ -207,7 +207,7 @@
         <label>Subi fotos de tu refugio:</label>
         <input type="file" id="img" name="img" accept="image/*" class="inputfile" multiple required />
       </div>
-      
+
        <div>
           <label>
             Sitio Web
@@ -217,20 +217,20 @@
 
       <div>
         <label>
-          Email 
+          Email
         </label>
         <input type="email" placeholder="Email" name="emailRef" required>
       </div>
-      
+
       <div>
         <label>
           Contraseña
         </label>
         <input type="password" placeholder="Contraseña" name="contrRef" minlength="8" required/>
       </div>
-      
+
       <button type="submit" class="BotonRegistro">Registrarse</button>
-      
+
     </form>
   </div>
 <!--FIN MODAL DEL FORMULARIO-->

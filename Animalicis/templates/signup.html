@@ -7,20 +7,20 @@
 
     <title>Sign Up Adoptantes</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='CSS\normalize.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='CSS\all.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='CSS\styleJuana.css')}}">
-    
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/normalize.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/all.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/styleJuana.css')}}">
+
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Signika|Sriracha&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
 </head>
 <body>
 
   <header class="header-site">
     <div class="logo">
-        <a href="/index.html"><h2>Animalis Amicis</h2></a>
+        <a href="/"><h2>Animalis Amicis</h2></a>
     </div>
     <div class="redes-sociales">
         <div>
@@ -81,18 +81,18 @@
         <section class="mainContainer">
         <div >
           <h3 class="centrarTexto">Completa tus datos para registrarte</h3>
-          
-          <div id="signup">   
+
+          <div id="signup">
             <div >
-            <form action="/" method="post"  class="SignUpmini">
-            
+            <form action="/processSignup" method="post"  class="SignUpmini">
+
               <div>
                 <label>
                   Nombre
                 </label>
                 <input type="text" placeholder="Nombre" name="name" autofocus required/>
               </div>
-          
+
               <div>
                 <label>
                   Apellido
@@ -102,18 +102,18 @@
 
             <div>
               <label>
-                Email 
+                Email
               </label>
               <input type="email" placeholder="Email" name="email" required>
             </div>
-            
+
             <div>
               <label>
                 Contraseña
               </label>
               <input type="password" placeholder="Contraseña" name="contr" minlength="8" required/>
             </div>
-            
+
             <button type="submit" class="BotonRegistro">Registrarse</button>
             </div>
           </form>
@@ -123,7 +123,7 @@
           <div class="botonesSignUp">
              <button><span style="font-family: Arial, Helvetica, sans-serif; font-weight: bolder;">Ingresa con Google</span></button>
              <button><span style="font-family: Arial, Helvetica, sans-serif; font-weight: bolder;">Ingresa con Facebook</span></button>
-         </div> 
+         </div>
           </div>
           </section>
   </div>

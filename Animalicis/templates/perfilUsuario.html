@@ -7,9 +7,9 @@
 
     <title>Mi perfil</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='CSS\normalize.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='CSS\all.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='CSS\styleJuana.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/normalize.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/all.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/styleJuana.css')}}">
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Signika|Sriracha&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap" rel="stylesheet">
@@ -18,7 +18,7 @@
     <script src="{{ url_for('static', filename='jsJuana.js')}}"></script>
 </head>
 <body>
-  
+
   <header class="header-site">
     <div class="logo">
         <a href="/index.html"><h2>Animalis Amicis</h2></a>
@@ -75,19 +75,19 @@
             <i onclick="visibleLogin()" class="fas fa-user"></i>
         </div>
     </div>
-    
+
 </header>
 
   <main>
-    <div class="mainContainer "> 
+    <div class="mainContainer ">
           <div class="alinear">
           <h3 > Mis animales </h3>
 
-          <img src="{{ url_for('static', filename='image\perro4.jpg') }}" style="width: 150px;height:200px" class="fotosSubidas responsive"> 
+          <img src="{{ url_for('static', filename='image\perro4.jpg') }}" style="width: 150px;height:200px" class="fotosSubidas responsive">
 
-          <p> Si perdiste un animal y queres reportarlo, hace click <span style="font-family: Signika;"><a href="" class="linksP"> aqui</a></p> </span> 
+          <p> Si perdiste un animal y queres reportarlo, hace click <span style="font-family: Signika;"><a href="" class="linksP"> aqui</a></p> </span>
           <br>
-          <p> Si adoptar otro animal, hace click <span style="font-family: Signika;"><a href="" class="linksP"> aqui</a></p> </span>       
+          <p> Si adoptar otro animal, hace click <span style="font-family: Signika;"><a href="" class="linksP"> aqui</a></p> </span>
           <br>
         </div>
 
@@ -104,15 +104,15 @@
   <h3 class="centrarTexto" style="margin: 2rem 0 3.5rem 0">Edita tu perfil</h3>
   <div>
     <form action="/" method="post" class="formularioMini">
-        <form action="/" method="post" class="SignUpmini">
-            
+        <form action="/processSignUpdate" method="post" class="SignUpmini">
+
             <div>
               <label>
                 Nombre
               </label>
               <input type="text" placeholder="Nombre" name="name" autofocus required/>
             </div>
-        
+
             <div>
               <label>
                 Apellido
@@ -122,18 +122,18 @@
 
           <div>
             <label>
-              Email 
+              Email
             </label>
             <input type="email" placeholder="Email" name="email" required>
           </div>
-          
+
           <div>
             <label>
               Contraseña
             </label>
             <input type="password" placeholder="Contraseña" name="contr" minlength="8" required/>
           </div>
-          
+
     <button type="submit" class="BotonRegistro" onclick="perfilInvisible()">Guardar cambios</button>
     </div>
   </form>
