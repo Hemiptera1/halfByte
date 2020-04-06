@@ -170,7 +170,7 @@ function cambiaActivos(argumento) {
             panelRaza.options.add(elementoNuevo);
         }
 
-        botonImagen.src="/Animalicis/static/image/shelter1.png";
+        botonImagen.src="{{ url_for('static', filename='image/shelter1.png') }}";
         botonImagen.style.width="70%";
         botonImagen.style.bottom="-1rem";
         botonImagen.style.left="20%";

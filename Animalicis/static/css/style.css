@@ -824,13 +824,18 @@ div.entrada-usuarios select {
     }
 }
 
+.imagenBuscador2 img {
+    width:20%;
+    border-radius: 2rem;
+}
+
 .blogSuperior {
     background-size: cover;
     border-radius: 1rem 1rem 0 0;
     text-align: center;
 }
 .back1 {
-    background-image: url(/Animalicis/static/image/gatoDuda1.png);
+    background-image: url(/image/gatoDuda1.png);
 }
 .back2 {
     background-image: url(/Animalicis/static/image/adoptador.jpg);

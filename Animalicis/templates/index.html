@@ -145,15 +145,15 @@
         <div class="contenedorSuperior">
                 <div class="contenedor-buscadores">
                     <div class="contenedorInterno">
-                        <div>
-                            <div class="selectores">
-                                    <button id="botonPerros" class="botones" onclick="cambiaActivos('Perros')">Perros</button>
-                                    <button id="botonGatos" class="botones" onclick="cambiaActivos('Gatos')">Gatos</button>
-                                    <button id="botonOtros" class="botones" onclick="cambiaActivos('Otros')">Otros</button>
-                                    <button id="botonRefugios" class="botones" onclick="cambiaActivos('Refugios')">Refugios</button>
-                            </div>
-                        </div>
                         <form id="panelBusqueda" action="/searchPet">
+                            <div>
+                                <div class="selectores">
+                                        <button type="button" id="botonPerros" class="botones" onclick="cambiaActivos('Perros')">Perros</button>
+                                        <button type="button" id="botonGatos" class="botones" onclick="cambiaActivos('Gatos')">Gatos</button>
+                                        <button type="button" id="botonOtros" class="botones" onclick="cambiaActivos('Otros')">Otros</button>
+                                        <button type="button" id="botonRefugios" class="botones" onclick="cambiaActivos('Refugios')">Refugios</button>
+                                </div>
+                            </div>
                             <div class="barra-search">
                                 <input type="search" name="direccion" id="localizacion" placeholder="Busque por ciudad o barrio">
                             </div>
@@ -194,7 +194,7 @@
                                 </select>
                             </div>
                             <div class="contenedor-buscar">
-                                <button class="botonBuscar">Encontrar!</button>
+                                <button type="submit" class="botonBuscar">Encontrar!</button>
                             </div>
                         </form>
                     </div> <!-- FIN CONTENEDOR INTERNO -->
@@ -205,7 +205,7 @@
 
                 <aside class="blogEntrada">
                     <div class="imagenBuscador">
-                        <img id="botonImagen" src="{{ url_for('static', filename='image/perroDesktop.png') }}" alt="">
+                        <img src="{{ url_for('static', filename='image/gatoDuda1.png') }}" alt="">
                     </div>
                     <div class="blogIntermedio">
                         <a href="/Animalicis/static/comoFunciona.html">
@@ -400,5 +400,5 @@
         <p>2020</p>
     </footer>
 </body>
-<script src="{{ url_for('static', filename='main.js' ) }}"></script>
+<script src="{{ url_for('static', filename='main.js')}}"></script>
 </html>
