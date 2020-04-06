@@ -16,8 +16,8 @@ app = Flask(__name__)
 from flask_sqlalchemy import SQLAlchemy
 
 DB_URL = 'postgresql+psycopg2://{user}:{pw}@{url}/{db}'.format(user="postgres",pw="Perros2012",url="animalicis.crl39vc3ngno.us-east-2.rds.amazonaws.com",db="animalicis")
-IMA_F = './data/Photo/Ref'
-IMG_ANIMALS = './data/Photo/Animals'
+IMA_F = './static/Photo/Ref'
+IMG_ANIMALS = './static/Photo/Animals'
 
 app.config['UPLOAD_FOLDER'] = IMA_F
 app.config['UPLOAD_FOLDER1'] = IMG_ANIMALS
@@ -34,8 +34,8 @@ from tablas import db
 from sqlalchemy import create_engine, select
 from tablas import User_, Refuge_, Animals_
 
-db.drop_all() #comentar cuando se terminen las pruebas
-db.create_all()
+#db.drop_all() #comentar cuando se terminen las pruebas
+#db.create_all()
 
 
 
@@ -91,8 +91,9 @@ def profile():#Probar
 
 @app.route('/profileV', methods=['GET'])
 def profileV(_email=""):#Probar
+    _email= session['email']
 
-    row= User.query.filter_by(email=_email).first()
+    row= User_.query.filter_by(email=_email).first()
     if row != None:
         email= "'" + _email + "'"
         sql_search="SELECT id, name, photo FROM Animals_ WHERE email ={}".format(email)
@@ -103,10 +104,11 @@ def profileV(_email=""):#Probar
     else:
         return redirect(url_for('index'))
 
-    return render_template('perfilUsuario.html', **context)
+    return render_template('perfilUsuarioV.html', **context)
 
 @app.route('/profileRefV', methods=['GET']) #cuando se elige un animal resive un correo y debuelve los datos para el perfil visible
 def profileRefV(_email=""):#Probar
+    _email= session['email']
 
     row= Refuge_.query.filter_by(email=_email).first()
     if row != None:
@@ -125,7 +127,7 @@ def profileRefV(_email=""):#Probar
                 "Animales":row.animal, "Abierto":row.time_o,
                 "Cerrado":row.time_c, "Foto":row.photo}
     else:
-        redirect(url_for('profileV'))
+        return redirect(url_for('profileV'))
 
     return render_template('perfilRef.html', **context)
 
@@ -181,19 +183,23 @@ def processSignup():
 
        row= User_.query.filter_by(email=_email).first()
        if row is None:
-           intro= User_(name= _name, lastname=_lastname, email=_email, pw_hash=_password)
-           db.session.add(intro)
-           db.session.commit()
+           row= Refuge_.query.filter_by(email=_email, pw_hash=_password).first()
+           if row is None:
+               intro= User_(name= _name, lastname=_lastname, email=_email, pw_hash=_password)
+               db.session.add(intro)
+               db.session.commit()
 
-           usuario= redirect(url_for('index'))#para crear una cookie y guardar los datos del Usuario
-           session['email']= _email
-           session['password']= _password
-           session['name']= _name + " " + _lastname
-           session['type']= "User"
-           #usuario.set_cookie("User", json.dumps({'email':_email, 'password':_password, 'name':_name + " " + _lastname}))#en el navegador
-           return usuario
+               usuario= redirect(url_for('index'))#para crear una cookie y guardar los datos del Usuario
+               session['email']= _email
+               session['password']= _password
+               session['name']= _name + " " + _lastname
+               session['type']= "User"
+               #usuario.set_cookie("User", json.dumps({'email':_email, 'password':_password, 'name':_name + " " + _lastname}))#en el navegador
+               return usuario
+           else:
+               return "la cuenta ya existe" #redirect(url_for('index')) #esa cuenta ya existe
        else:
-           return "la cuenta ya existe" #redirect(url_for('index')) #esa cuenta ya existe
+           return "la cuenta ya existe"
 
 @app.route('/processSignUpdate', methods=['GET', 'POST']) #proceso de actualizacion de datos del Ususario
 def processSignUpdate():#Probar
@@ -261,26 +267,30 @@ def processSignupRef(): #Probar el funcionamiento de la imagen
 
     row= Refuge_.query.filter_by(email=_email).first()
     if row is None:
-       intro= Refuge_(name= _name, email= _email,
-                      pw_hash= _password, department= _department,
-                      city=_city, neighborhood=_neighborhood,
-                      Googlemaps=_address, description=_description,
-                      phone=_phone, celphone=_celphone,
-                      website=_web, animal=_type,
-                      time_o=_time_o, time_c=_time_c,
-                      rep=_rep, photo=_photo)
-       db.session.add(intro)
-       db.session.commit()
+        row= User_.query.filter_by(email=_email).first()
+        if row is None:
+                   intro= Refuge_(name= _name, email= _email,
+                                  pw_hash= _password, department= _department,
+                                  city=_city, neighborhood=_neighborhood,
+                                  Googlemaps=_address, description=_description,
+                                  phone=_phone, celphone=_celphone,
+                                  website=_web, animal=_type,
+                                  time_o=_time_o, time_c=_time_c,
+                                  rep=_rep, photo=_photo)
+                   db.session.add(intro)
+                   db.session.commit()
 
-       usuario= redirect(url_for('index'))#para crear una cookie y guardar los datos del Usuario
-       session['email']= _email
-       session['password']= _password
-       session['name']= _name
-       session['type']= "Refuge"
-       #usuario.set_cookie("User", json.dumps({'email': _email, 'password': _password, 'name':_name}))#en el navegador
-       return usuario
+                   usuario= redirect(url_for('index'))#para crear una cookie y guardar los datos del Usuario
+                   session['email']= _email
+                   session['password']= _password
+                   session['name']= _name
+                   session['type']= "Refuge"
+                   #usuario.set_cookie("User", json.dumps({'email': _email, 'password': _password, 'name':_name}))#en el navegador
+                   return usuario
+        else:
+           return "la cuenta ya existe" #redirect(url_for('index'))
     else:
-       return "la cuenta ya existe" #redirect(url_for('index'))
+       return "la cuenta ya existe"
 
 @app.route('/processSignupRefUpdate', methods=['GET', 'POST']) #proceso de actualizacion de datos del Refugio
 def processSignupRefUpdate():#terminar Copiar el up data de user
@@ -354,8 +364,8 @@ def processSignupRefUpdate():#terminar Copiar el up data de user
 
 @app.route('/insertPet', methods=['GET', 'POST']) #proceso de registro de animales
 def insert_Pet():#Terminar (enlases al formulario) probar
-    data= json.loads(request.cookies.get('User')) #recordar si el enlace esta para no registrados poner un try
-    ty= data.get('email')
+    #data= json.loads(request.cookies.get('User')) #recordar si el enlace esta para no registrados poner un try
+    ty= session['email']
 
     image = request.files['img']
 
@@ -377,7 +387,7 @@ def insert_Pet():#Terminar (enlases al formulario) probar
 
 
     image_a= os.listdir(IMG_ANIMALS)
-    if image_a == None:
+    if image_a == []:
         _id = 0
     else:
         _id = 1 + int(image_a[-1])
@@ -555,12 +565,13 @@ def search_Pet(): #terminar y testear prinsipalmente la foto #puedo usar el meto
     #    sql_search= "SELECT email, name, eag, breed, gender, health, coments, type, photo FROM Animals_ WHERE type <>{} AND type <>{} AND breed {} AND gender {} AND age {}".format(_type1, _type2, _race, _gender, _age)
 
     engine = create_engine(DB_URL)
-    data = engine.execute(sql_search).fetchall ()
+    row = engine.execute(sql_search).fetchall ()
+    data =  file_animal(row)
 
-    return render_template(busqueda.html, data=map(json.dumps, data))
+    return render_template('busqueda.html', data=map(json.dumps, data))
 
 
-def file_Ref(row):
+def file_Ref(row):#ajustar
     row=row
     cantidad=[0,1,2,3,4,5]
     ficha=""
@@ -591,7 +602,7 @@ def file_Ref(row):
 def file_animal(row):#agregar el codigo HTML que forma la ficha
     row=row
     cantidad=[0,1,2,3,4,5]
-    ficha=""
+    ficha=[]
     try:
         data= json.loads(request.cookies.get('Fichero'))
     except TypeError:
@@ -607,7 +618,7 @@ def file_animal(row):#agregar el codigo HTML que forma la ficha
             break
         else:
             _name= row[cont][1]
-            _eag= row[cont][2]
+            _age= row[cont][2]
             _breed= row[cont][3]
             _gender= row[cont][4]
             _health= row[cont][5]
@@ -615,8 +626,9 @@ def file_animal(row):#agregar el codigo HTML que forma la ficha
             _type= row[cont][7]
             _photo= row[cont][8]
 
-            ficha +="""email = {}, name= {}, eag= {}, breed= {}, gender= {}, health= {}, coments= {}, _type={}, _photo={}
-                    """.format(_email,_name,_eag,_breed,_gender,_health,_coments,_type,_photo)
+            ficha.append({'email':_email, 'name':_name, 'age':_age, 'breed':_breed,
+                          'gender':_gender, 'health':_health, 'coments':_coments,
+                          'type':_type, 'photo':_photo})
             cont +=1
 
     return ficha
