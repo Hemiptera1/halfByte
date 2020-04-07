@@ -34,8 +34,8 @@ from tablas import db
 from sqlalchemy import create_engine, select
 from tablas import User_, Refuge_, Animals_
 
-#db.drop_all() #comentar cuando se terminen las pruebas
-#db.create_all()
+db.drop_all() #comentar cuando se terminen las pruebas
+db.create_all()
 
 
 
@@ -509,55 +509,78 @@ def searchRef():
 @app.route('/searchPet', methods=['GET', 'POST'])    #(((Boton de busqueda general)))
 def search_Pet(): #terminar y testear prinsipalmente la foto #puedo usar el metodo Animals_.query.slice(self, start, stop)
 
-    intro= Animals_(name= 'Sonriente', age='j', email='d@e', breed='Pelo corto', gender='Macho' , health='si', coments='sonrie', type='Gato', photo="X")
-    intro1= Animals_(name= 'Felix', age='j', email='d@e', breed='Persa', gender='Macho' , health='si', coments='sonrie', type='Gato', photo="X")
-    intro2= Animals_(name= 'Blair', age='j', email='d@e', breed='Bombai', gender='Hembra' , health='si', coments='sonrie', type='Gato', photo="X")
-    intro3= Animals_(name= 'Makise', age='j', email='d@e', breed='Bombai', gender='Hembra' , health='si', coments='sonrie', type='Gato', photo="X")
+    intro= Animals_(name= 'Sonriente', age='Joven', email='emiliano.garin333@gmail.com', breed='Pelo corto', gender='Macho' , health='si', coments='sonrie', type='Gato', photo="X")
+    intro1= Animals_(name= 'Felix', age='Joven', email='emiliano.garin333@gmail.com', breed='Persa', gender='Macho' , health='si', coments='sonrie', type='Gato', photo="X")
+    intro2= Animals_(name= 'Blair', age='Joven', email='emiliano.garin333@gmail.com', breed='Bombai', gender='Hembra' , health='si', coments='sonrie', type='Gato', photo="X")
+    intro3= Animals_(name= 'Makise', age='Joven', email='emiliano.garin333@gmail.com', breed='Bombai', gender='Hembra' , health='si', coments='sonrie', type='Gato', photo="X")
+
+    intro4= Animals_(name= 'Rex', age='Adulto', email='emiliano.garin333@gmail.com', breed='Labrador Retriever', gender='Macho' , health='si', coments='sonrie', type='Perro', photo="X")
+    intro5= Animals_(name= 'Roy', age='Joven', email='emiliano.garin333@gmail.com', breed='Golden Retriever', gender='Macho' , health='si', coments='sonrie', type='Perro', photo="X")
+    intro6= Animals_(name= 'Cometa', age='Adulto', email='emiliano.garin333@gmail.com', breed='Bulldog', gender='Hembra' , health='si', coments='sonrie', type='Perro', photo="X")
+    intro7= Animals_(name= 'Lssi', age='Joven', email='emiliano.garin333@gmail.com', breed='Rooweiler', gender='Hembra' , health='si', coments='sonrie', type='Perro', photo="X")
+
+    intro8= Animals_(name= 'Donatelo', age='Adulto', email='emiliano.garin333@gmail.com', breed='Tortuga', gender='Macho' , health='si', coments='sonrie', type='Otro', photo="X")
+    intro9= Animals_(name= 'Fliper', age='Joven', email='emiliano.garin333@gmail.com', breed='pez', gender='Macho' , health='si', coments='sonrie', type='Otro', photo="X")
+    intro10= Animals_(name= 'Sardinilla', age='Adulto', email='emiliano.garin333@gmail.com', breed='Caballo', gender='Hembra' , health='si', coments='sonrie', type='Otro', photo="X")
+    intro11= Animals_(name= 'Akame', age='Joven', email='emiliano.garin333@gmail.com', breed='Pajaro', gender='Hembra' , health='si', coments='sonrie', type='Otro', photo="X")
 
     db.session.add(intro)
     db.session.add(intro1)
     db.session.add(intro2)
     db.session.add(intro3)
+    db.session.add(intro4)
+    db.session.add(intro5)
+    db.session.add(intro6)
+    db.session.add(intro7)
+    db.session.add(intro8)
+    db.session.add(intro9)
+    db.session.add(intro10)
+    db.session.add(intro11)
     db.session.commit()
 
 
-    if request.args.get('edad') != "F":#poner el valor real
-        _age= "= " + "'" + str (request.args.get('edad')) + "'"
+    if request.args.get('Edad') != "F":#poner el valor real
+        _age= "= " + "'" + str (request.args.get('Edad')) + "'"
     else:
-        _age= "<> " + "'" + str (request.args.get('edad')) + "'"
+        _age= "<> " + "'" + str (request.args.get('Edad')) + "'"
 
-    if request.args.get('sexo') == "R":#poner el valor real
-        _gender=  "= " + "'" + str (request.args.get('sexo')) + "'"
+    #return "no Falla {}".format(_age)
+    if request.args.get('Sexo') != "O":#poner el valor real
+        _gender=  "= " + "'" + str (request.args.get('Sexo')) + "'"
     else:
-        _gender= "<> " + "'" + str (request.args.get('sexo')) + "'"
+        _gender= "<> " + "'" + str (request.args.get('Sexo')) + "'"
 
-    if request.args.get('raza') == "O":#poner el valor real
-        _race= "= " + "'" + str (request.args.get('raza')) + "'"
+    #return "no Falla {}".format(_gender)
+    if request.args.get('Raza') != "R":#poner el valor real
+        _race= "= " + "'" + str (request.args.get('Raza')) + "'"
     else:
-        _race= "<> " + "'" + str (request.args.get('raza')) + "'"
+        _race= "<> " + "'" + str (request.args.get('Raza')) + "'"
 
+    #return "no Falla {}".format(_race)
 
     if request.args.get('Animal') == "Gato":
-        _type= "'" + "Gato" + "'"
+        _type= "= " + "'" + "Gato" + "'"
     elif request.args.get('Animal') == "Perro":
-        _type= "'" + "Perro" + "'"
+        _type= "= " + "'" + "Perro" + "'"
     elif request.args.get('Animal') == "Otro":
-        _type= "'" + "Otro" + "'"
+        _type= "= " + "'" + "Otro" + "'"
     else:
-        _type= "'" + " " + "'" #comentar despues
+        _type= "<> " + "'" + "" + "'" #comentar despues
+    #return "no Falla {}".format(_type)
 
-
-    if request.args.get('direccion') != None:
+    if request.args.get('direccion') != "":
         _address= "=" + "'" + str (request.args.get('direccion')) + "'"
     else:
         _address= "<>" + "'" + str (request.args.get('direccion')) + "'"
 
-
+    #return "no Falla {}".format(_address)
     data= {'_type':_type, '_race':_race, '_gender':_gender, '_age':_age, 'add':_address}
 
-    sql_search= """SELECT Animals_.email, Animals_.name, age, breed, gender, health, coments, type
+    #sql_search= "SELECT email, name, age, breed, gender, health, coments, type, photo FROM Animals_ WHERE type {} AND breed {} AND gender {} AND age {}".format(_type, _race, _gender, _age)
+
+    sql_search= """SELECT Animals_.email, Animals_.name, age, breed, gender, health, coments, type, Animals_.photo
                    FROM Animals_ JOIN Refuge_ ON Animals_.email=Refuge_.email
-                   WHERE Animals_.type ={_type} AND Animals_.breed {_race} AND
+                   WHERE Animals_.type {_type} AND Animals_.breed {_race} AND
                    Animals_.gender {_gender} AND Animals_.age {_age} AND
                    (Refuge_.department{add} OR Refuge_.city {add} OR Refuge_.neighborhood {add})""".format(**data)
 
@@ -569,8 +592,8 @@ def search_Pet(): #terminar y testear prinsipalmente la foto #puedo usar el meto
     engine = create_engine(DB_URL)
     row = engine.execute(sql_search).fetchall ()
     data =  file_animal(row)
-
-    return render_template('busqueda.html', data=map(json.dumps, data))
+    return (data)
+    #return render_template('busqueda.html', data=map(json.dumps, data))
 
 
 def file_Ref(row):#ajustar
@@ -631,6 +654,7 @@ def file_animal(row):#agregar el codigo HTML que forma la ficha
             ficha.append({'email':_email, 'name':_name, 'age':_age, 'breed':_breed,
                           'gender':_gender, 'health':_health, 'coments':_coments,
                           'type':_type, 'photo':_photo})
+            #ficha += """Animal {} [[[email = {}, name= {}, eag= {}, breed= {}, gender= {}, health= {}, coments= {}, _type={}, _photo={}]]]                """.format(cont,_email,_name,_age,_breed,_gender,_health,_coments,_type,_photo)
             cont +=1
 
     return ficha

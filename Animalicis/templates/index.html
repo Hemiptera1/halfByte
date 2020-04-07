@@ -148,10 +148,10 @@
                         <form id="panelBusqueda" action="/searchPet">
                             <div>
                                 <div class="selectores">
-                                        <button name="Animal" type="button" id="botonPerros" class="botones" onclick="cambiaActivos('Perros')">Perros</button>
-                                        <button name="Animal" type="button" id="botonGatos" class="botones" onclick="cambiaActivos('Gatos')">Gatos</button>
-                                        <button name="Animal" type="button" id="botonOtros" class="botones" onclick="cambiaActivos('Otros')">Otros</button>
-                                        <button name="Animal" type="button" id="botonRefugios" class="botones" onclick="cambiaActivos('Refugios')">Refugios</button>
+                                        <button name="Animal" value="Perro" type="button" id="botonPerros" class="botones" onclick="cambiaActivos('Perros')">Perros</button>
+                                        <button name="Animal" value="Gato" type="button" id="botonGatos" class="botones" onclick="cambiaActivos('Gatos')">Gatos</button>
+                                        <button name="Animal" value="Otro" type="button" id="botonOtros" class="botones" onclick="cambiaActivos('Otros')">Otros</button>
+                                        <button name="Animal" value="Refugio" type="button" id="botonRefugios" class="botones" onclick="cambiaActivos('Refugios')">Refugios</button>
                                 </div>
                             </div>
                             <div class="barra-search">
@@ -159,14 +159,14 @@
                             </div>
                             <div class="entrada-usuarios">
                                 <select name="Edad" id="Edad">
-                                    <option selected>Franja Etaria</option>
+                                    <option value="F" selected>Franja Etaria</option>
                                     <option value="Cachorro">Cachorro</option>
                                     <option value="Joven">Joven</option>
                                     <option value="Adulto">Adulto</option>
                                     <option value="Mayor">Mayor</option>
                                 </select>
                                 <select name="Raza" id="Raza">
-                                    <option value="" selected>Raza / Credo</option>
+                                    <option value="R" selected>Raza / Credo</option>
                                     <option value="Labrador-Re">Labrador Retriever</option>
                                     <option value="Pastor-Alemán">Pastor Alemán</option>
                                     <option value="Golden-Re">Golden Retriever</option>
@@ -183,7 +183,7 @@
                             </div>
                             <div class="entrada-usuarios">
                                 <select name="Sexo" id="Sexo">
-                                    <option value="" id="sexo" selected>Optá por un género</option>
+                                    <option value="O" id="sexo" selected>Optá por un género</option>
                                     <option value="Macho">Macho</option>
                                     <option value="Hembra">Hembra</option>
                                 </select>
