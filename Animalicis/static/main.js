@@ -59,6 +59,7 @@ const panelRaza = document.getElementById("Raza");
 const panelSalud = document.getElementById("Salud");
 const panelEdad = document.getElementById("Edad");
 const panelSexo = document.getElementById("Sexo");
+const valorAnimal = document.getElementById("valorAnimal");
 
 var opcionesPerros = ["razaCredo|Raza / Credo","cimarron|Cimarron","rottweiler|Rottweiler","ovejeroAleman|Ovejero Aleman","mixto|Mixto"];
 var opcionesGatos = ["largoPelo|Largo del Pelo","largo|Largo","medio|Medio","largo|Corto","sinPelo|Sin pelo"];
@@ -70,12 +71,14 @@ var opcionesAnimales = ["tipoDeMascota|Elije un tipo de mascota","aves|Aves","of
 botonPerros.classList.add("botonesActivos");
 
 
+
 function cambiaActivos(argumento) {
     if(argumento === botonPerros.innerHTML) {
         botonPerros.classList.add("botonesActivos");
         botonGatos.classList.remove("botonesActivos");
         botonOtros.classList.remove("botonesActivos");
         botonRefugios.classList.remove("botonesActivos");
+        valorAnimal.value = "Perro";
         botonImagen.src="/Animalicis/static/image/perroDesktop.png";
         botonImagen.style.width="100%";
         botonImagen.style.bottom="0";
@@ -118,6 +121,7 @@ function cambiaActivos(argumento) {
         botonGatos.classList.add("botonesActivos");
         botonOtros.classList.remove("botonesActivos");
         botonRefugios.classList.remove("botonesActivos");
+        valorAnimal.value = "Gato";
 
         botonImagen.src="/Animalicis/static/image/gatoPanel.png";
         botonImagen.style.width="130%";
@@ -161,6 +165,7 @@ function cambiaActivos(argumento) {
         botonGatos.classList.remove("botonesActivos");
         botonOtros.classList.add("botonesActivos");
         botonRefugios.classList.remove("botonesActivos");
+        valorAnimal.value = "Otro";
 
         panelRaza.style.display = "none";
         panelSalud.style.display = "none";
@@ -194,6 +199,7 @@ function cambiaActivos(argumento) {
         botonGatos.classList.remove("botonesActivos");
         botonOtros.classList.remove("botonesActivos");
         botonRefugios.classList.add("botonesActivos");
+        valorAnimal.value = "Refugio";
 
         panelRaza.style.display = "none";
         panelSalud.style.display = "none";
@@ -226,6 +232,9 @@ function cambiaActivos(argumento) {
 
 
 /* FIN DE BOTONES DE SELECTORES */
+
+
+
 
 /* TESTEO DE JSON */
 

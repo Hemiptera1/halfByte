@@ -154,6 +154,9 @@
                                         <button name="Animal" value="Refugio" type="button" id="botonRefugios" class="botones" onclick="cambiaActivos('Refugios')">Refugios</button>
                                 </div>
                             </div>
+                            <select style="display: none;" name="Animal">
+                                <option style="display: hidden;" id="valorAnimal" value="Perro"></option>
+                            </select>
                             <div class="barra-search">
                                 <input type="search" name="direccion" id="localizacion" placeholder="Busque por ciudad o barrio">
                             </div>
@@ -208,7 +211,7 @@
                         <img src="{{ url_for('static', filename='image/gatoDuda1.png') }}" alt="">
                     </div>
                     <div class="blogIntermedio">
-                        <a href="/Animalicis/static/comoFunciona.html">
+                        <a href="/operation">
                             <h5>¿Como Funciona?</h5>
                             <p>
                                 Si estás pensando en adoptar y querés informarte acerca del funcionamiento de la página este artículo es para vos ¡Hacé click y averígualo!
