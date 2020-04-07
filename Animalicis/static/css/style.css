@@ -834,15 +834,6 @@ div.entrada-usuarios select {
     border-radius: 1rem 1rem 0 0;
     text-align: center;
 }
-.back1 {
-    background-image: url(/image/gatoDuda1.png);
-}
-.back2 {
-    background-image: url(/image/adoptador.jpg);
-}
-.back3 {
-    background-image: url(/Animalicis/static/image/gatoDuda1.png);
-}
 
 .blogSuperior h4 {
     font-family: "Signika";
