@@ -176,3 +176,19 @@ function cambiaActivos(argumento) {
         botonImagen.style.left="20%";
     }
 }
+
+
+let nuevaPromesa = new Promise(function(resolve, reject){
+    let limpiarElCuarto = false;
+    if(limpiarElCuarto) {
+    resolve("clean");
+    } else {
+    reject("unclean!!!");
+    }
+});
+
+nuevaPromesa.then(function(fromResolve) {
+console.log("the room is " + fromResolve);
+}).catch(function(fromRejected) {
+    console.log("the room is " + fromRejected);
+})

@@ -1,0 +1,9 @@
+{
+    "Personas": {
+        "Pablo": 13,
+        "Aglaya": 23,
+        "Nastasia": 25
+    },
+
+    "Lista": ["pan","leche","jamon","toston"] 
+}
