@@ -1327,6 +1327,81 @@ div.entrada-usuarios select {
 
 /* FIN REGISTRO ANIMALES */
 
+/* PERFIL ANIMAL */
+
+@font-face {
+    font-family: "Bernardette";
+    src: url(/static/customFonts/bernadette.ttf);
+    font-style: normal;
+    font-weight: 700;
+}
+
+.perfilDivisiones {
+    display: grid;
+    grid-template-rows: repeat(3, 50rem);
+}
+
+.perfilEncuentro {
+    background-image: url(/static/image/perfilEncuentro2.jpg);
+    background-size: cover;
+    background-position: 0 -25rem;
+}
+.perfilEncuentro h4 {
+    font: 700 10rem Bernardette;
+    text-align: center;
+    margin-top: 16rem;
+    text-shadow: .2rem .2rem #000;
+    color: rgb(250, 115, 124);
+}
+
+.perfilDatos {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    width: 90%;
+    margin: auto;
+    background-color: #fff;
+}
+
+.datosImg img{
+    position: absolute;
+    max-height: 40rem;
+    max-width: 40rem;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin:auto;
+}
+
+
+.datosDatos {
+
+}
+
+.perfilDescripcion {
+    position: relative;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    width: 90%;
+    margin: auto;
+    background-color: rgb(53, 166, 226);
+}
+
+.descripcionDescripcion {
+
+}
+
+.descripcionImg img{
+    position: absolute;
+    max-height: 40rem;
+    max-width: 40rem;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin:auto;
+}
+/* FIN DE PERFIL ANIMAL */
+
 footer {
     font-size: 1.5rem;
     font-family: Arial, Helvetica, sans-serif;
