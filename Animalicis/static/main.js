@@ -226,3 +226,18 @@ function cambiaActivos(argumento) {
 
 
 /* FIN DE BOTONES DE SELECTORES */
+
+/* TESTEO DE JSON */
+
+fetch("./pruebas.json", {
+    Headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    }
+})
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        console.log(data);
+    });
