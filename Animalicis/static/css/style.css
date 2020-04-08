@@ -1330,7 +1330,7 @@ div.entrada-usuarios select {
 
 @font-face {
     font-family: "Bernardette";
-    src: url(/Animalicis/static/customFonts/bernadette.ttf);
+    src: url("/Animalicis/static/customFonts/bernadette.ttf");
     font-style: normal;
     font-weight: 700;
 }
