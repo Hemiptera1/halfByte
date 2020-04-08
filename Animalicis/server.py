@@ -149,6 +149,10 @@ def signupAnimal():
 def operation():
     return render_template('comoFunciona.html')
 
+@app.route('/perfilAnimal', methods=['GET'])   # Ruta => "Perfil de animal"
+def perfilAnimal():
+    return render_template('perfilAnimal.html')
+
 
 @app.route('/processLogin', methods=['GET', 'POST'])  #proceso de login
 def processLogin():

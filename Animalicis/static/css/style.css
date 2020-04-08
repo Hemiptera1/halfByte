@@ -26,6 +26,7 @@ h4 {
 .marginTop {
     margin-top: 0;
 }
+
 /* UTILIDADES */
 
 .centrarTexto {
@@ -457,16 +458,14 @@ h4 {
     display: grid;
     margin-top: .5rem;
     grid-template-rows: .8fr 1fr;
+    color: #000;
 }
 .animalesInferior span {
-    font-family: "Signika";
-    font-size: 2rem;
-    font-weight: 700;
+    font: 700 2rem "Signika";
 }
 .animalesInferior p {
-    font-family: "Roboto";
+    font: 1.6rem "Roboto" #000;
     vertical-align: baseline;
-    font-size: 1.6rem;
     margin: 0;
 }
 
@@ -1331,7 +1330,7 @@ div.entrada-usuarios select {
 
 @font-face {
     font-family: "Bernardette";
-    src: url(/static/customFonts/bernadette.ttf);
+    src: url(/Animalicis/static/customFonts/bernadette.ttf);
     font-style: normal;
     font-weight: 700;
 }
