@@ -1239,12 +1239,6 @@ div.entrada-usuarios select {
 .registroScroll {
     position: relative;
 }
-.raPortada img {
-    position: absolute;
-    width: 5rem;
-    top: 75%;
-    transform: translateX(-2.5rem);
-}
 
 .registrosFormularios {
     display: flex;
@@ -1253,11 +1247,8 @@ div.entrada-usuarios select {
 
 .formulario {
     width: 85%;
-    padding-top: 3rem;
     margin: auto;
     font-family: "Open Sans";
-}
-.formulario h4 {
 }
 
 .registrosCampos {

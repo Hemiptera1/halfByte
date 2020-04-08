@@ -70,12 +70,13 @@
         </div>
     </header> <!-- FIN DEL HEADER -->
     <div class="raPortada">
+        <img style="width: 100%; height: 100%; top: 0; left: 0;" src="{{url_for('static', filename='image/familiaOpción2.jpg')}}" alt="">
         <h1>Encuentrale a tu mascota un cariñoso hogar</h1>
         <img src="{{ url_for('static', filename='image/scrollDownWhite.png' ) }}" alt="">
     </div>
 
     <section class="formulario" id="formularioScroll">
-        <h4 style="text-align: center;">Complete el formulario</h4>
+        <h4 style="font: 700 5rem 'Open Sans'; color: rgb(58, 56, 56); text-align: center;">Complete el formulario</h4>
         <form  class="registrosFormularios" action="/insertPet">
             <div class="registrosCampos">
                 <label for="nombre">¿Cual es el nombre de su mascota?</label>
