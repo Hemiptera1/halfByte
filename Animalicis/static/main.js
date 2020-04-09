@@ -123,7 +123,7 @@ function cambiaActivos(argumento) {
         botonRefugios.classList.remove("botonesActivos");
         valorAnimal.value = "Gato";
 
-        botonImagen.src="/Animalicis/static/image/gatoPanel.png";
+        botonImagen.src="{{ url_for('static', filename='image/gatoPanel1.png') }}";
         botonImagen.style.width="130%";
         botonImagen.style.bottom="-1.3rem";
         botonImagen.style.left="-10rem";
