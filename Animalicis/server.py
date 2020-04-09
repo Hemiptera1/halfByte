@@ -1,8 +1,8 @@
-# 1)Autenticación de formularios (Signup, login) (pendiente de probar)
+# 1)Autenticación de formularios (Signup, login) (Completo)
 # 2)conectar liks de barra de tareas (en proceso)
-# 3)Autenticación filtro de sección de adopcion (en proceso)
-# 4)Visualización de animales disponibles para adopción (en proceso)
-# 5)Conectar formularios a base de datos (en simultaneo)
+# 3)Autenticación filtro de sección de adopcion (Completo)
+# 4)Visualización de animales disponibles para adopción (falta pasar los datos al html)
+# 5)Conectar formularios a base de datos (en proceso y prueba)
 # 6)Mapa de refugios (pospuesto)
 # 7)Listados de eventos (pendiente)
 
@@ -34,8 +34,8 @@ from tablas import db
 from sqlalchemy import create_engine, select
 from tablas import User_, Refuge_, Animals_
 
-db.drop_all() #comentar cuando se terminen las pruebas
-db.create_all()
+#db.drop_all() #comentar cuando se terminen las pruebas
+#db.create_all()
 
 
 
@@ -57,6 +57,8 @@ def account():
 
 @app.route('/profile', methods=['GET'])    #El voton al perfil tiene que apuntar a esta funcion
 def profile():#Probar
+    if session['email'] == "": #por si no se puede solucionar con el JS
+        return redirect(url_for('index'))
 
     _email= session['email']
     _password= session['password']
@@ -67,8 +69,8 @@ def profile():#Probar
         email= "'" + _email + "'"
         sql_search="SELECT id, name, photo FROM Animals_ WHERE email ={}".format(email)
         engine = create_engine(DB_URL)
-        data = engine.execute(sql_search).fetchall ()
-        #animals= myanimal(ram)
+        ram = engine.execute(sql_search).fetchall ()
+        data= myanimal(ram)
         context={"Nombre":row.name, "data":map(json.dumps, data),
                 "Email":row.email, "Departamento":row.department,
                 "Ciudad":row.city, "Barrio":row.neighborhood,
@@ -83,10 +85,10 @@ def profile():#Probar
     else:
         row= User_.query.filter_by(email=_email, pw_hash=_password).first()
         email= "'" + _email + "'"
-        sql_search="SELECT id, name, photo FROM Animals_ WHERE email ={}".format(email)
+        sql_search="SELECT id, name, photo FROM Animals_ WHERE email ={}".format(email)      #hacer la tabla de animales perdidos
         engine = create_engine(DB_URL)
-        data = engine.execute(sql_search).fetchall ()
-        #animals= myanimal(ram)
+        ram = engine.execute(sql_search).fetchall ()
+        data= myanimal(ram)
         context={"Nombre":row.name, "Apellido":row.lastname, "Email":row.email, "data":map(json.dumps, data)}
 
         return render_template('perfilUsuario.html', **context)
@@ -100,8 +102,8 @@ def profileV(_email=""):#Probar
         email= "'" + _email + "'"
         sql_search="SELECT id, name, photo FROM Animals_ WHERE email ={}".format(email)
         engine = create_engine(DB_URL)
-        data = engine.execute(sql_search).fetchall ()
-        #animals= myanimal(ram)
+        ram = engine.execute(sql_search).fetchall ()
+        data= myanimal(ram)
         context={"Nombre":row.name, "Apellido":row.lastname, "Email":row.email, "data":map(json.dumps, data)}
     else:
         return redirect(url_for('index'))
@@ -110,6 +112,8 @@ def profileV(_email=""):#Probar
 
 @app.route('/profileRefV', methods=['GET']) #cuando se elige un animal resive un correo y debuelve los datos para el perfil visible
 def profileRefV(_email=""):#Probar
+
+
     _email= session['email']
 
     row= Refuge_.query.filter_by(email=_email).first()
@@ -117,8 +121,8 @@ def profileRefV(_email=""):#Probar
         email= "'" + _email + "'"
         sql_search="SELECT id, name, photo FROM Animals_ WHERE email ={}".format(email)
         engine = create_engine(DB_URL)
-        data = engine.execute(sql_search).fetchall ()
-        #animals= myanimal(ram)
+        ram = engine.execute(sql_search).fetchall ()
+        data= myanimal(ram)
 
         context={"Nombre":row.name, "data":map(json.dumps, data),
                 "Email":row.email, "Departamento":row.department,
@@ -150,7 +154,7 @@ def operation():
     return render_template('comoFunciona.html')
 
 
-@app.route('/processLogin', methods=['GET', 'POST'])  #proceso de login
+@app.route('/processLogin', methods=['GET', 'POST'])  #proceso de log in
 def processLogin():
         _email= str(request.args.get('email', None))
         _password= str(request.args.get('contraseña', None))
@@ -174,6 +178,15 @@ def processLogin():
             session['name']= row.name
             session['type']= "Refuge"
             return redirect(url_for('profile'))
+
+@app.route('/processLogout', methods=['GET', 'POST'])  #proceso de log out
+def processLogout():
+    session['email']= ""
+    session['password']= ""
+    session['name']= ""
+    session['type']= ""
+    return redirect(url_for('index'))
+
 
 @app.route('/processSignup', methods=['GET', 'POST']) #proceso de registro de Usuario
 def processSignup():
@@ -497,64 +510,70 @@ def searchRef():
     _type= request.args.get('tipo')
 
     sql_search= """SELECT email, name, description, animal, photo
-                   WHERE animal={animal} department{add} OR city {add} OR neighborhood {add}""".format(animal=_type,add=_address)
+                   WHERE animal={animal} AND department{add} OR city {add} OR neighborhood {add}
+                   """.format(animal=_type,add=_address)
 
     engine = create_engine(DB_URL)
-    data = engine.execute(sql_search).fetchall()
-
-
+    row = engine.execute(sql_search).fetchall()
+    data=file_Ref(row)
 
     return render_template(busqueda.html, data=map(json.dumps, data))
 
 @app.route('/searchPet', methods=['GET', 'POST'])    #(((Boton de busqueda general)))
 def search_Pet(): #terminar y testear prinsipalmente la foto #puedo usar el metodo Animals_.query.slice(self, start, stop)
 
-    intro= Animals_(name= 'Sonriente', age='Joven', email='emiliano.garin333@gmail.com', breed='Pelo corto', gender='Macho' , health='si', coments='sonrie', type='Gato', photo="X")
-    intro1= Animals_(name= 'Felix', age='Joven', email='emiliano.garin333@gmail.com', breed='Persa', gender='Macho' , health='si', coments='sonrie', type='Gato', photo="X")
-    intro2= Animals_(name= 'Blair', age='Joven', email='emiliano.garin333@gmail.com', breed='Bombai', gender='Hembra' , health='si', coments='sonrie', type='Gato', photo="X")
-    intro3= Animals_(name= 'Makise', age='Joven', email='emiliano.garin333@gmail.com', breed='Bombai', gender='Hembra' , health='si', coments='sonrie', type='Gato', photo="X")
+    intro= Animals_(name= 'Sonriente', age='joven', email='emiliano.garin333@gmail.com', breed='Pelo corto', gender='macho' , health='si', coments='sonrie', type='Gato', photo="X")
+    intro1= Animals_(name= 'Felix', age='cachorro', email='emiliano@gmail.com', breed='Persa', gender='macho' , health='si', coments='sonrie', type='Gato', photo="X")
+    intro2= Animals_(name= 'Blair', age='joven', email='emiliano.garin333@gmail.com', breed='Bombai', gender='hembra' , health='si', coments='sonrie', type='Gato', photo="X")
+    intro3= Animals_(name= 'Makise', age='cachorro', email='emiliano.garin333@gmail.com', breed='Bombai', gender='hembra' , health='si', coments='sonrie', type='Gato', photo="X")
 
-    intro4= Animals_(name= 'Rex', age='Adulto', email='emiliano.garin333@gmail.com', breed='Labrador Retriever', gender='Macho' , health='si', coments='sonrie', type='Perro', photo="X")
-    intro5= Animals_(name= 'Roy', age='Joven', email='emiliano.garin333@gmail.com', breed='Golden Retriever', gender='Macho' , health='si', coments='sonrie', type='Perro', photo="X")
-    intro6= Animals_(name= 'Cometa', age='Adulto', email='emiliano.garin333@gmail.com', breed='Bulldog', gender='Hembra' , health='si', coments='sonrie', type='Perro', photo="X")
-    intro7= Animals_(name= 'Lssi', age='Joven', email='emiliano.garin333@gmail.com', breed='Rooweiler', gender='Hembra' , health='si', coments='sonrie', type='Perro', photo="X")
+    intro4= Animals_(name= 'Rex', age='adulto', email='emiliano.garin333@gmail.com', breed='Labrador Retriever', gender='macho' , health='si', coments='sonrie', type='Perro', photo="X")
+    intro5= Animals_(name= 'Roy', age='joven', email='emiliano.garin333@gmail.com', breed='Golden Retriever', gender='macho' , health='si', coments='sonrie', type='Perro', photo="X")
+    intro6= Animals_(name= 'Cometa', age='adulto', email='emiliano@gmail.com', breed='Bulldog', gender='hembra' , health='si', coments='sonrie', type='Perro', photo="X")
+    intro7= Animals_(name= 'Lssi', age='joven', email='emiliano.garin333@gmail.com', breed='rottweiler', gender='hembra' , health='si', coments='sonrie', type='Perro', photo="X")
 
-    intro8= Animals_(name= 'Donatelo', age='Adulto', email='emiliano.garin333@gmail.com', breed='Tortuga', gender='Macho' , health='si', coments='sonrie', type='Otro', photo="X")
-    intro9= Animals_(name= 'Fliper', age='Joven', email='emiliano.garin333@gmail.com', breed='pez', gender='Macho' , health='si', coments='sonrie', type='Otro', photo="X")
-    intro10= Animals_(name= 'Sardinilla', age='Adulto', email='emiliano.garin333@gmail.com', breed='Caballo', gender='Hembra' , health='si', coments='sonrie', type='Otro', photo="X")
-    intro11= Animals_(name= 'Akame', age='Joven', email='emiliano.garin333@gmail.com', breed='Pajaro', gender='Hembra' , health='si', coments='sonrie', type='Otro', photo="X")
+    intro8= Animals_(name= 'Donatelo', age='adulto', email='emiliano.garin333@gmail.com', breed='Tortuga', gender='macho' , health='si', coments='sonrie', type='Otro', photo="X")
+    intro9= Animals_(name= 'Fliper', age='joven', email='emiliano@gmail.com', breed='pez', gender='macho' , health='si', coments='sonrie', type='Otro', photo="X")
+    intro10= Animals_(name= 'Sardinilla', age='adulto', email='emiliano.garin333@gmail.com', breed='Caballo', gender='hembra' , health='si', coments='sonrie', type='Otro', photo="X")
+    intro11= Animals_(name= 'Akame', age='joven', email='emiliano.garin333@gmail.com', breed='Pajaro', gender='hembra' , health='si', coments='sonrie', type='Otro', photo="X")
 
+
+    db.session.add(intro10)
+    db.session.add(intro11)
     db.session.add(intro)
     db.session.add(intro1)
-    db.session.add(intro2)
-    db.session.add(intro3)
     db.session.add(intro4)
     db.session.add(intro5)
+    db.session.add(intro2)
+    db.session.add(intro3)
     db.session.add(intro6)
     db.session.add(intro7)
     db.session.add(intro8)
     db.session.add(intro9)
-    db.session.add(intro10)
-    db.session.add(intro11)
+
     db.session.commit()
 
 
-    if request.args.get('Edad') != "F":#poner el valor real
+    if request.args.get('Edad') != "franajaEtaria":#poner el valor real
         _age= "= " + "'" + str (request.args.get('Edad')) + "'"
     else:
         _age= "<> " + "'" + str (request.args.get('Edad')) + "'"
 
     #return "no Falla {}".format(_age)
-    if request.args.get('Sexo') != "O":#poner el valor real
+    if request.args.get('Sexo') != "optar":#poner el valor real
         _gender=  "= " + "'" + str (request.args.get('Sexo')) + "'"
     else:
         _gender= "<> " + "'" + str (request.args.get('Sexo')) + "'"
 
     #return "no Falla {}".format(_gender)
-    if request.args.get('Raza') != "R":#poner el valor real
-        _race= "= " + "'" + str (request.args.get('Raza')) + "'"
+    if request.args.get('Raza') != "razaCredo":#poner el valor real
+        if request.args.get('Raza') != "largoPelo":#poner el valor real
+            _race= "= " + "'" + str (request.args.get('Raza')) + "'"
+        else:
+            _race= "<> " + "'" + str (request.args.get('Raza')) + "'"
     else:
         _race= "<> " + "'" + str (request.args.get('Raza')) + "'"
+
 
     #return "no Falla {}".format(_race)
 
@@ -592,41 +611,13 @@ def search_Pet(): #terminar y testear prinsipalmente la foto #puedo usar el meto
     engine = create_engine(DB_URL)
     row = engine.execute(sql_search).fetchall ()
     data =  file_animal(row)
-    return (data)
-    #return render_template('busqueda.html', data=map(json.dumps, data))
+    #return (data)
+    return render_template('busqueda.html', data=map(json.dumps, data))
 
 
 def file_Ref(row):#ajustar
-    row=row
-    cantidad=[0,1,2,3,4,5]
-    ficha=""
-    try:
-        data= json.loads(request.cookies.get('Fichero'))
-    except TypeError:
-        data= {}
-    else:
-        cantidad= data.get('cant')
-
-
-    for cont  in cantidad:
-        try:
-            _email= row[cont][0]
-        except IndexError:
-            break
-        else:
-            _name= row[cont][1]
-            _coments= row[cont][2]
-            _animal= row[cont][3]
-            _photo= row[cont][4]
-
-            ficha +="""Email={} Nombre={} Comentario={} Animales={} Foto{}""".format(_email,_name, _coments, _animal, _photo)
-            cont +=1
-
-    return ficha
-
-def file_animal(row):#agregar el codigo HTML que forma la ficha
-    row=row
-    cantidad=[0,1,2,3,4,5]
+    ram=row
+    cont=0
     ficha=[]
     try:
         data= json.loads(request.cookies.get('Fichero'))
@@ -636,33 +627,63 @@ def file_animal(row):#agregar el codigo HTML que forma la ficha
         cantidad= data.get('cant')
 
 
-    for cont  in cantidad:
-        try:
-            _email= row[cont][0]
-        except IndexError:
-            break
-        else:
-            _name= row[cont][1]
-            _age= row[cont][2]
-            _breed= row[cont][3]
-            _gender= row[cont][4]
-            _health= row[cont][5]
-            _coments= row[cont][6]
-            _type= row[cont][7]
-            _photo= row[cont][8]
+    for rem  in ram:
+        #try:
+            _email= ram[cont][0]
+        #except IndexError:
+            #break
+        #else:
+            _name= ram[cont][1]
+            _coments= ram[cont][2]
+            _animal= ram[cont][3]
+            _photo= ram[cont][4]
+
+            ficha.append({'email':_email, 'name':_name, 'coments':_coments, 'type':_animal, 'photo':_photo})
+            cont +=1
+
+    return ficha
+
+def file_animal(row):#agregar el codigo HTML que forma la ficha
+    ram=row
+    cont=0
+    ficha=[]
+    try:
+        data= json.loads(request.cookies.get('Fichero'))
+    except TypeError:
+        data= {}
+    else:
+        cantidad= data.get('cant')
+
+
+    for  rem in ram:
+        #try:
+            _email= ram[cont][0]
+        #except IndexError:
+            #break
+        #else:
+            _name= ram[cont][1]
+            _age= ram[cont][2]
+            _breed= ram[cont][3]
+            _gender= ram[cont][4]
+            _health= ram[cont][5]
+            _coments= ram[cont][6]
+            _type= ram[cont][7]
+            _photo= ram[cont][8]
 
             ficha.append({'email':_email, 'name':_name, 'age':_age, 'breed':_breed,
                           'gender':_gender, 'health':_health, 'coments':_coments,
                           'type':_type, 'photo':_photo})
-            #ficha += """Animal {} [[[email = {}, name= {}, eag= {}, breed= {}, gender= {}, health= {}, coments= {}, _type={}, _photo={}]]]                """.format(cont,_email,_name,_age,_breed,_gender,_health,_coments,_type,_photo)
+            #ficha += """Animal {} [[[email = {}, name= {}, age= {}, breed= {}, gender= {}, health= {}, coments= {}, type={}, _photo={}]]]
+
+                    # """.format(cont,_email,_name,_age,_breed,_gender,_health,_coments,_type,_photo)
             cont +=1
 
     return ficha
 
 def myanimal(row):#agregar el codigo HTML que forma la ficha
-    row=row
-    cantidad=[0,1,2,3,4,5]
-    ficha=""
+    ram=row
+    cont=0
+    ficha=[]
     try:
         data= json.loads(request.cookies.get('MyAnilal'))
     except TypeError:
@@ -671,17 +692,16 @@ def myanimal(row):#agregar el codigo HTML que forma la ficha
         cantidad= data.get('cant')
 
 
-    for cont  in cantidad:
-        try:
-            _id= row[cont][0]
-        except IndexError:
-            break
-        else:
-            _name=row[cont][1]
-            _photo=row[cont][2]
+    for rem  in ram:
+        #try:
+            _id= ram[cont][0]
+        #except IndexError:
+        #    break
+        #else:
+            _name=ram[cont][1]
+            _photo=ram[cont][2]
 
-            ficha="""id= {}, Nombre={}, Foto={}""".format(_id, _name, _photo)
-
+            ficha.append({'id':_id, 'name':_name, 'photo':_photo})
             cont += 1
     return ficha
 
