@@ -14,6 +14,9 @@ function poblar(s1, s2) {
         textoRaza.innerHTML = "¿Que tan largo es el pelaje de su gato?";
     } else if(s1Value == "Elija") {
         textoRaza.innerHTML = "Escoja una especie primero";
+    } else if(s1Value == "Otros") {
+        var opcionesEspecie = ["aves|Aves","ofidios|Ofidios","roedores|Roedores"];
+        textoRaza.innerHTML = "Elija una categoría";
     }
     for(var opcion in opcionesEspecie) {
         var par = opcionesEspecie[opcion].split("|");
