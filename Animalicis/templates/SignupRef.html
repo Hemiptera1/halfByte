@@ -92,14 +92,14 @@
                 <label>
                   Nombre del refugio
                 </label>
-                <input type="text" placeholder="Nombre del refugio" name="nameRef" autofocus required/>
+                <input type="text" placeholder="Nombre del refugio" name="nameRef" id="nameRef"autofocus required/>
               </div>
 
               <div>
                 <label>
                   Departamento
                 </label>
-                <input type="text" placeholder="Departamento" name="departamento" required/>
+                <input type="text" placeholder="Departamento" name="departamento" id="departamentoRef" required/>
               </div>
 
               <div>
@@ -113,42 +113,42 @@
                 <label>
                   Barrio
                 </label>
-                <input type="text" placeholder="Barrio" name="barrio" required/>
+                <input type="text" placeholder="Barrio" name="barrio" id="barrioRef" required/>
               </div>
 
               <div>
                 <label>
                   Dirección
                 </label>
-                <input type="text" placeholder="Dirección" name="direccion" required/>
+                <input type="text" placeholder="Dirección" name="direccion" id="direccionRef" required/>
               </div>
 
               <div>
                 <label>
                   Telefono fijo de contacto
                 </label>
-                <input type="tel" placeholder="..." name="telcontactoFijo"/>
+                <input type="tel" placeholder="..." name="telcontactoFijo" id="telcontactoFijo"/>
               </div>
 
               <div>
                 <label>
                   Telefono celular de contacto
                 </label>
-                <input type="tel" placeholder="..." name="telcontacto" required/>
+                <input type="tel" placeholder="..." name="telcontacto" id="telcontacto" required/>
               </div>
 
               <div>
                 <label>
                   Nombre del repsonsable a contactar
                 </label>
-                <input type="text" placeholder="..." name="responsableContacto" required/>
+                <input type="text" placeholder="..." name="responsableContacto" id="responsableContacto" required/>
               </div>
 
               <div>
                 <label>
                   Horiarios de atención
                 </label>
-                <p> Desde <input type="time" name="horaInicio" required/> hasta <input type="time" name="horaFinal" required/> </p>
+                <p> Desde <input type="time" name="horaInicio" id="horaInicio" required/> hasta <input type="time" name="horaFinal" id="horaFinal" required/> </p>
               </div>
 
             <div>
@@ -177,7 +177,7 @@
                 <label>
                   Realiza una pequeña descripción del refugio
                 </label>
-                <textarea name="descripcion" rows="3" cols="30" maxlength="3000" placeholder="Contanos que te llevó a crear el refugio y como funciona" required></textarea>
+                <textarea name="descripcion" id="descripcionRef" rows="3" cols="30" maxlength="3000" placeholder="Contanos que te llevó a crear el refugio y como funciona" required></textarea>
             </div>
 
             <div>
@@ -189,7 +189,7 @@
                 <label>
                   Sitio Web
                 </label>
-                <input type="url" name="url" placeholder="Comparti tu sitio web" size="40"/>
+                <input type="url" name="url" id="urlRef" placeholder="Comparti tu sitio web" size="40"/>
               </div>
 
             <div>
