@@ -49,11 +49,11 @@ def index():
         _name=""
         _type=""
     context={'Nombre': _name, 'Tipo':_type}
-    return render_template('index.html', **context)
+    return render_template('index.html', **context, nombre=context["Nombre"])
 
 @app.route('/account', methods=['GET'])    #ruta a la seleccion de signup
 def account():
-    return render_template('cuentas.html')
+    return render_template('cuentas.html', nombre=context["Nombre"])
 
 @app.route('/profile', methods=['GET'])    #El voton al perfil tiene que apuntar a esta funcion
 def profile():#Probar
@@ -80,7 +80,7 @@ def profile():#Probar
                 "Animales":row.animal, "Abierto":row.time_o,
                 "Cerrado":row.time_c, "Foto":row.photo}
 
-        return render_template('perfilRef.html', **context)
+        return render_template('perfilRef.html', **context, nombre=context["Nombre"])
 
     else:
         row= User_.query.filter_by(email=_email, pw_hash=_password).first()
@@ -91,7 +91,7 @@ def profile():#Probar
         data= myanimal(ram)
         context={"Nombre":row.name, "Apellido":row.lastname, "Email":row.email, "data":map(json.dumps, data)}
 
-        return render_template('perfilUsuario.html', **context)
+        return render_template('perfilUsuario.html', **context, nombre=context["Nombre"])
 
 @app.route('/profileV', methods=['GET'])
 def profileV(_email=""):#Probar
@@ -108,7 +108,7 @@ def profileV(_email=""):#Probar
     else:
         return redirect(url_for('index'))
 
-    return render_template('perfilUsuarioV.html', **context)
+    return render_template('perfilUsuarioV.html', **context, nombre=context["Nombre"])
 
 @app.route('/profileRefV', methods=['GET']) #cuando se elige un animal resive un correo y debuelve los datos para el perfil visible
 def profileRefV(_email=""):#Probar
@@ -135,27 +135,62 @@ def profileRefV(_email=""):#Probar
     else:
         return redirect(url_for('profileV'))
 
-    return render_template('perfilRef.html', **context)
+    return render_template('perfilRef.html', **context, nombre=context["Nombre"])
 
 @app.route('/signup', methods=['GET'])      #ruta al signup
 def signup():
-    return render_template('signup.html')
+    if "name" in session:
+        _name=session['name']
+        _type=session['type']
+    else:
+        _name=""
+        _type=""
+    context={'Nombre': _name, 'Tipo':_type}
+    return render_template('signup.html', nombre=context["Nombre"])
 
 @app.route('/signupRef', methods=['GET'])   #ruta al signupRef
 def signupRef():
-    return render_template('SignupRef.html')
+    if "name" in session:
+        _name=session['name']
+        _type=session['type']
+    else:
+        _name=""
+        _type=""
+    context={'Nombre': _name, 'Tipo':_type}
+    return render_template('SignupRef.html', nombre=context["Nombre"])
 
 @app.route('/signupAnimal', methods=['GET']) #ruta al registro de animales
 def signupAnimal():
-    return render_template('registroAnimales.html')
+    if "name" in session:
+        _name=session['name']
+        _type=session['type']
+    else:
+        _name=""
+        _type=""
+    context={'Nombre': _name, 'Tipo':_type}
+    return render_template('registroAnimales.html', nombre=context["Nombre"])
 
 @app.route('/operation', methods=['GET'])   #ruta a "cono funciona la pagina"
 def operation():
-    return render_template('comoFunciona.html')
+    if "name" in session:
+        _name=session['name']
+        _type=session['type']
+    else:
+        _name=""
+        _type=""
+    context={'Nombre': _name, 'Tipo':_type}
+    return render_template('comoFunciona.html', nombre=context["Nombre"])
 
 @app.route('/perfilAnimal', methods=['GET'])   # Ruta => "Perfil de animal"
 def perfilAnimal():
-    return render_template('perfilAnimal.html')
+    if "name" in session:
+        _name=session['name']
+        _type=session['type']
+    else:
+        _name=""
+        _type=""
+    context={'Nombre': _name, 'Tipo':_type}
+    return render_template('perfilAnimal.html', nombre=context["Nombre"])
 
 
 @app.route('/processLogin', methods=['GET', 'POST'])  #proceso de log in

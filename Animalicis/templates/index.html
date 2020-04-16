@@ -64,8 +64,12 @@
                 </li>
             </ul>
             <div class="loginHeaderDesktop">
-                <p onclick="visibleLogin()">Login/Singup</p>
+                {% if nombre == "" %}
+                <p onclick="visibleLogin()">Login/Singup {{ nombre }}</p>
                 <i onclick="visibleLogin()" class="fas fa-user"></i>
+                {% else %}
+                <p>{{ nombre }}</p>
+                {% endif %}
             </div>
         </div>
 
