@@ -62,8 +62,14 @@
                 </li>
             </ul>
             <div class="loginHeaderDesktop">
-                <p onclick="visibleLogin()">Login/Singup</p>
+                {% if nombre == "" %}
+                <p onclick="visibleLogin()">Login/Singup {{ nombre }}</p>
                 <i onclick="visibleLogin()" class="fas fa-user"></i>
+                {% else %}
+                <a style="color: rgb(255, 255, 255); text-decoration: none;" href="/profile">
+                <p>{{ nombre }}</p>
+                </a>
+                {% endif %}
             </div>
         </div>       
     </header> <!-- FIN DEL HEADER -->
