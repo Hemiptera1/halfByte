@@ -1160,11 +1160,10 @@ div.entrada-usuarios select {
 }
 
 .articuloInfo {
+    position: relative;
     text-align: center;
     height: 18rem;
-    background: url(/Animalicis/static/image/articuloInfo.jpg);
-    background-size: cover;
-    background-position: 0rem -20rem;
+    width: 100%;
 }
 .articuloInfo h4 {
     font: 5rem "Permanent Marker";
@@ -1330,16 +1329,11 @@ div.entrada-usuarios select {
 
 .perfilDivisiones {
     display: grid;
-    grid-template-rows: repeat(3, 50rem);
+    grid-template-rows: repeat(3, 55rem);
 }
 
-.perfilEncuentro {
-    background-image: url(/static/image/perfilEncuentro2.jpg);
-    background-size: cover;
-    background-position: 0 -25rem;
-}
 .perfilEncuentro h4 {
-    font: 700 10rem Bernardette;
+    font: 10rem "Pacifico";
     text-align: center;
     margin-top: 16rem;
     text-shadow: .2rem .2rem #000;
@@ -1357,12 +1351,14 @@ div.entrada-usuarios select {
 
 .datosImg img{
     position: absolute;
-    max-height: 40rem;
-    max-width: 40rem;
+    width: 45rem;
+    height: 45rem;
     top: 0;
     left: 0;
     bottom: 0;
     margin:auto;
+    border-radius: 50%;
+    border: 0.5rem solid #e7e5e5;
 }
 
 
@@ -1376,7 +1372,6 @@ div.entrada-usuarios select {
     grid-template-columns: 2fr 1fr;
     width: 90%;
     margin: auto;
-    background-color: rgb(53, 166, 226);
 }
 
 .descripcionDescripcion {
@@ -1385,12 +1380,14 @@ div.entrada-usuarios select {
 
 .descripcionImg img{
     position: absolute;
-    max-height: 40rem;
-    max-width: 40rem;
+    height: 45rem;
+    width: 45rem;
     top: 0;
     right: 0;
     bottom: 0;
     margin:auto;
+    border-radius: 50%;
+    border: 0.5rem double #ffffff;
 }
 /* FIN DE PERFIL ANIMAL */
 
