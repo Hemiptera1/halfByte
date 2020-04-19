@@ -71,12 +71,12 @@
             </li>
         </ul>
         <div class="loginHeaderDesktop">
-          {% if nombre == "" %}
-          <p onclick="visibleLogin()">Login/Singup {{ nombre }}</p>
+          {% if Nombre == "" %}
+          <p onclick="visibleLogin()">Login/Singup {{ Nombre }}</p>
           <i onclick="visibleLogin()" class="fas fa-user"></i>
           {% else %}
           <a style="color: rgb(255, 255, 255); text-decoration: none;" href="/profile">
-          <p>{{ nombre }}</p>
+          <p>{{ Nombre }}</p>
           </a>
           {% endif %}
         </div>

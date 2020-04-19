@@ -65,16 +65,16 @@
                 </li>
             </ul>
             <div class="loginHeaderDesktop">
-                {% if nombre == "" %}
-                <p onclick="visibleLogin()">Login/Singup {{ nombre }}</p>
+                {% if Nombre == "" %}
+                <p onclick="visibleLogin()">Login/Singup {{ Nombre }}</p>
                 <i onclick="visibleLogin()" class="fas fa-user"></i>
                 {% else %}
                 <a style="color: rgb(255, 255, 255); text-decoration: none;" href="/profile">
-                <p>{{ nombre }}</p>
+                <p>{{ Nombre }}</p>
                 </a>
                 {% endif %}
             </div>
-        </div>       
+        </div>
     </header> <!-- FIN DEL HEADER -->
     <main>
         <div style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0,0,0,0) 33.3%,rgba(0,0,0,0) 66.6%, #5AC2FA 66.6%);" class="perfilDivisiones">

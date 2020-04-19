@@ -49,11 +49,18 @@ def index():
         _name=""
         _type=""
     context={'Nombre': _name, 'Tipo':_type}
-    return render_template('index.html', **context, nombre=context["Nombre"])
+    return render_template('index.html', **context)
 
 @app.route('/account', methods=['GET'])    #ruta a la seleccion de signup
 def account():
-    return render_template('cuentas.html', nombre=context["Nombre"])
+    if "name" in session:
+        _name=session['name']
+        _type=session['type']
+    else:
+        _name=""
+        _type=""
+    context={'Nombre': _name, 'Tipo':_type}
+    return render_template('cuentas.html', **context)
 
 @app.route('/profile', methods=['GET'])    #El voton al perfil tiene que apuntar a esta funcion
 def profile():#Probar
@@ -80,7 +87,7 @@ def profile():#Probar
                 "Animales":row.animal, "Abierto":row.time_o,
                 "Cerrado":row.time_c, "Foto":row.photo}
 
-        return render_template('perfilRef.html', **context, nombre=context["Nombre"])
+        return render_template('perfilRef.html', **context)
 
     else:
         row= User_.query.filter_by(email=_email, pw_hash=_password).first()
@@ -91,7 +98,7 @@ def profile():#Probar
         data= myanimal(ram)
         context={"Nombre":row.name, "Apellido":row.lastname, "Email":row.email, "data":map(json.dumps, data)}
 
-        return render_template('perfilUsuario.html', **context, nombre=context["Nombre"])
+        return render_template('perfilUsuario.html', **context)
 
 @app.route('/profileV', methods=['GET'])
 def profileV(_email=""):#Probar
@@ -108,7 +115,7 @@ def profileV(_email=""):#Probar
     else:
         return redirect(url_for('index'))
 
-    return render_template('perfilUsuarioV.html', **context, nombre=context["Nombre"])
+    return render_template('perfilUsuarioV.html', **context)
 
 @app.route('/profileRefV', methods=['GET']) #cuando se elige un animal resive un correo y debuelve los datos para el perfil visible
 def profileRefV(_email=""):#Probar
@@ -135,7 +142,7 @@ def profileRefV(_email=""):#Probar
     else:
         return redirect(url_for('profileV'))
 
-    return render_template('perfilRef.html', **context, nombre=context["Nombre"])
+    return render_template('perfilRef.html', **context)
 
 @app.route('/signup', methods=['GET'])      #ruta al signup
 def signup():
@@ -146,7 +153,7 @@ def signup():
         _name=""
         _type=""
     context={'Nombre': _name, 'Tipo':_type}
-    return render_template('signup.html', nombre=context["Nombre"])
+    return render_template('signup.html', **context)
 
 @app.route('/signupRef', methods=['GET'])   #ruta al signupRef
 def signupRef():
@@ -157,7 +164,7 @@ def signupRef():
         _name=""
         _type=""
     context={'Nombre': _name, 'Tipo':_type}
-    return render_template('SignupRef.html', nombre=context["Nombre"])
+    return render_template('SignupRef.html', **context)
 
 @app.route('/signupAnimal', methods=['GET']) #ruta al registro de animales
 def signupAnimal():
@@ -168,7 +175,7 @@ def signupAnimal():
         _name=""
         _type=""
     context={'Nombre': _name, 'Tipo':_type}
-    return render_template('registroAnimales.html', nombre=context["Nombre"])
+    return render_template('registroAnimales.html', **context)
 
 @app.route('/operation', methods=['GET'])   #ruta a "cono funciona la pagina"
 def operation():
@@ -179,7 +186,7 @@ def operation():
         _name=""
         _type=""
     context={'Nombre': _name, 'Tipo':_type}
-    return render_template('comoFunciona.html', nombre=context["Nombre"])
+    return render_template('comoFunciona.html',**context)
 
 @app.route('/perfilAnimal', methods=['GET'])   # Ruta => "Perfil de animal"
 def perfilAnimal():
@@ -190,7 +197,7 @@ def perfilAnimal():
         _name=""
         _type=""
     context={'Nombre': _name, 'Tipo':_type}
-    return render_template('perfilAnimal.html', nombre=context["Nombre"])
+    return render_template('perfilAnimal.html',**context)
 
 
 @app.route('/processLogin', methods=['GET', 'POST'])  #proceso de log in
@@ -416,6 +423,8 @@ def processSignupRefUpdate():#terminar Copiar el up data de user
     session['name']= request.form['name'] + " " + request.form['surname']
     session['type']= "Refuge"
 
+    return usuario
+
 @app.route('/insertPet', methods=['GET', 'POST']) #proceso de registro de animales
 def insert_Pet():#Terminar (enlases al formulario) probar
     #data= json.loads(request.cookies.get('User')) #recordar si el enlace esta para no registrados poner un try
@@ -424,9 +433,9 @@ def insert_Pet():#Terminar (enlases al formulario) probar
     image = request.files['img']
 
     _name= request.form['name']
-    _age= request.form['edad']
-    _race= request.form['raza']
-    _gender= request.form['genero']
+    _age= request.form['edad'].lower()
+    _race= request.form['raza'].lower()
+    _gender= request.form['genero'].lower()
     _coment= request.form['comentarios']
     _type= request.form['especie']
 
@@ -444,7 +453,8 @@ def insert_Pet():#Terminar (enlases al formulario) probar
     if image_a == []:
         _id = 0
     else:
-        _id = 1 + int(image_a[-1])
+        image_b= image_a[-1].split(".")
+        _id = 1 + int(image_b[0])
 
     _photo= IMG_ANIMALS + "/" + str(_id) + ".jpg"
 
@@ -478,6 +488,15 @@ def insertPet_Update():
     session['name']= request.form['name'] + " " + request.form['surname']
     session['type']= "User"
 
+
+@app.route('/deletedPet', methods=['GET', 'POST'])  #FALTA proceso de actualizacion de datos del Refugio
+def deletedPet():
+    _id= request.form['id']
+    row= Animals_.query.filter_by(id=_id).first()
+    os.remove(row.photo)
+    db.session.delete(row)
+    db.session.commit()
+    return redirect(url_for('profile'))
 
 @app.route('/searchCat', methods=['GET', 'POST'])              #eliminar
 def search_Cat():#Terminar pasar dato a el index ()
@@ -561,38 +580,6 @@ def searchRef():
 @app.route('/searchPet', methods=['GET', 'POST'])    #(((Boton de busqueda general)))
 def search_Pet(): #terminar y testear prinsipalmente la foto #puedo usar el metodo Animals_.query.slice(self, start, stop)
 
-    intro= Animals_(name= 'Sonriente', age='joven', email='emiliano.garin333@gmail.com', breed='Pelo corto', gender='macho' , health='si', coments='sonrie', type='Gato', photo="X")
-    intro1= Animals_(name= 'Felix', age='cachorro', email='emiliano@gmail.com', breed='Persa', gender='macho' , health='si', coments='sonrie', type='Gato', photo="X")
-    intro2= Animals_(name= 'Blair', age='joven', email='emiliano.garin333@gmail.com', breed='Bombai', gender='hembra' , health='si', coments='sonrie', type='Gato', photo="X")
-    intro3= Animals_(name= 'Makise', age='cachorro', email='emiliano.garin333@gmail.com', breed='Bombai', gender='hembra' , health='si', coments='sonrie', type='Gato', photo="X")
-
-    intro4= Animals_(name= 'Rex', age='adulto', email='emiliano.garin333@gmail.com', breed='Labrador Retriever', gender='macho' , health='si', coments='sonrie', type='Perro', photo="X")
-    intro5= Animals_(name= 'Roy', age='joven', email='emiliano.garin333@gmail.com', breed='Golden Retriever', gender='macho' , health='si', coments='sonrie', type='Perro', photo="X")
-    intro6= Animals_(name= 'Cometa', age='adulto', email='emiliano@gmail.com', breed='Bulldog', gender='hembra' , health='si', coments='sonrie', type='Perro', photo="X")
-    intro7= Animals_(name= 'Lssi', age='joven', email='emiliano.garin333@gmail.com', breed='rottweiler', gender='hembra' , health='si', coments='sonrie', type='Perro', photo="X")
-
-    intro8= Animals_(name= 'Donatelo', age='adulto', email='emiliano.garin333@gmail.com', breed='Tortuga', gender='macho' , health='si', coments='sonrie', type='Otro', photo="X")
-    intro9= Animals_(name= 'Fliper', age='joven', email='emiliano@gmail.com', breed='pez', gender='macho' , health='si', coments='sonrie', type='Otro', photo="X")
-    intro10= Animals_(name= 'Sardinilla', age='adulto', email='emiliano.garin333@gmail.com', breed='Caballo', gender='hembra' , health='si', coments='sonrie', type='Otro', photo="X")
-    intro11= Animals_(name= 'Akame', age='joven', email='emiliano.garin333@gmail.com', breed='Pajaro', gender='hembra' , health='si', coments='sonrie', type='Otro', photo="X")
-
-
-    db.session.add(intro10)
-    db.session.add(intro11)
-    db.session.add(intro)
-    db.session.add(intro1)
-    db.session.add(intro4)
-    db.session.add(intro5)
-    db.session.add(intro2)
-    db.session.add(intro3)
-    db.session.add(intro6)
-    db.session.add(intro7)
-    db.session.add(intro8)
-    db.session.add(intro9)
-
-    db.session.commit()
-
-
     if request.args.get('Edad') != "franajaEtaria":#poner el valor real
         _age= "= " + "'" + str (request.args.get('Edad')) + "'"
     else:
@@ -650,8 +637,8 @@ def search_Pet(): #terminar y testear prinsipalmente la foto #puedo usar el meto
     engine = create_engine(DB_URL)
     row = engine.execute(sql_search).fetchall ()
     data =  file_animal(row)
-    #return (data)
-    return render_template('busqueda.html', data=map(json.dumps, data))
+    return (data)
+    #return render_template('busqueda.html', data=map(json.dumps, data))
 
 
 def file_Ref(row):#ajustar
@@ -685,7 +672,7 @@ def file_Ref(row):#ajustar
 def file_animal(row):#agregar el codigo HTML que forma la ficha
     ram=row
     cont=0
-    ficha=[]
+    ficha=""
     try:
         data= json.loads(request.cookies.get('Fichero'))
     except TypeError:
@@ -709,12 +696,12 @@ def file_animal(row):#agregar el codigo HTML que forma la ficha
             _type= ram[cont][7]
             _photo= ram[cont][8]
 
-            ficha.append({'email':_email, 'name':_name, 'age':_age, 'breed':_breed,
-                          'gender':_gender, 'health':_health, 'coments':_coments,
-                          'type':_type, 'photo':_photo})
-            #ficha += """Animal {} [[[email = {}, name= {}, age= {}, breed= {}, gender= {}, health= {}, coments= {}, type={}, _photo={}]]]
+            #ficha.append({'email':_email, 'name':_name, 'age':_age, 'breed':_breed,
+            #              'gender':_gender, 'health':_health, 'coments':_coments,
+            #              'type':_type, 'photo':_photo})
+            ficha += """Animal {} [[[email = {}, name= {}, age= {}, breed= {}, gender= {}, health= {}, coments= {}, type={}, _photo={}]]]
 
-                    # """.format(cont,_email,_name,_age,_breed,_gender,_health,_coments,_type,_photo)
+                     """.format(cont,_email,_name,_age,_breed,_gender,_health,_coments,_type,_photo)
             cont +=1
 
     return ficha
