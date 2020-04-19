@@ -79,7 +79,7 @@ h4 {
         height: 5rem;
     }
     .logo {
-        flex-basis: 18%;
+        flex-basis: 15%;
     }
     .logo h2 {
         font-size: 3rem;
@@ -99,6 +99,7 @@ h4 {
     .botonesHeader {
         display: flex;
         width: 100rem;
+        height: 5rem;
         background-color: rgb(36, 34, 34);
     }
     .navMenu {
@@ -121,7 +122,10 @@ h4 {
         color: rgb(255, 255, 255);
         text-decoration: none;
     }
-    .navMenu li a:hover {
+    .navMenu li:hover .anchorSuperior {
+        color: #000;
+    }
+    .subMenu li:hover a {
         color: #000;
     }
     .navMenu li:hover {
@@ -129,16 +133,15 @@ h4 {
     }
     .loginHeaderDesktop {
         display: flex;
+        width: 20rem;
+        flex-basis: 15%;
         font-size: 1.8rem;
-        margin: 1.4rem 0 0 5rem;
+        padding: 1rem 0 1rem 3rem;
         color: #fff;
         cursor: pointer;
     }
     .loginHeaderDesktop p {
         margin: 0 1rem;
-    }
-    .loginHeaderDesktop a {
-
     }
 
     .subMenu {
@@ -149,6 +152,7 @@ h4 {
     }
     .subMenu li {
         background-color: rgb(36, 34, 34);
+        color: #000;
         position: relative;
         top: 1.2rem;
         left: -1.5rem;
@@ -1351,8 +1355,8 @@ div.entrada-usuarios select {
 
 .datosImg img{
     position: absolute;
-    width: 45rem;
-    height: 45rem;
+    width: 40rem;
+    height: 40rem;
     top: 0;
     left: 0;
     bottom: 0;
@@ -1380,8 +1384,8 @@ div.entrada-usuarios select {
 
 .descripcionImg img{
     position: absolute;
-    height: 45rem;
-    width: 45rem;
+    height: 40rem;
+    width: 40rem;
     top: 0;
     right: 0;
     bottom: 0;
