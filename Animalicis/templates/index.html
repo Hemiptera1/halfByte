@@ -65,16 +65,18 @@
             </ul>
         </div>
         <div class="loginHeaderDesktop">
-            {% if nombre == "" %}
+            {% if Nombre == "" %}
             <p onclick="visibleLogin()">Login/Singup</p>
             <i onclick="visibleLogin()" class="fas fa-user"></i>
             {% else %}
-            <ul>
-                <p>{{ nombre }}</p>
-                <ul>
-                    <li><a href="/Profile">Perfil</a></li>
-                    <li><a href="/processLogout">Lougout</a></li>
+            <ul style="padding-left: 0;" class="navMenu">
+                <li>
+                <p style="font: 2rem Signika;" >{{ Nombre }}</p>
+                <ul class="subMenu">
+                    <li><a href="/profile">Perfil</a></li>
+                    <li><a href="/processLogout">Logout</a></li>
                 </ul>
+            </li>
             </ul>
             {% endif %}
         </div>
