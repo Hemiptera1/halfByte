@@ -63,10 +63,10 @@ const valorAnimal = document.getElementById("valorAnimal");
 
 var opcionesPerros = ["razaCredo|Raza / Credo","cimarron|Cimarron","rottweiler|Rottweiler","ovejeroAleman|Ovejero Aleman","mixto|Mixto"];
 var opcionesGatos = ["largoPelo|Largo del Pelo","largo|Largo","medio|Medio","largo|Corto","sinPelo|Sin pelo"];
-var opcionesEdad = ["franajaEtaria|Franja Etaria","cachorro|Cachorro","joven|Joven","adulto|Adulto","mayor|Mayor"];
-var opcionesSexo = ["optar|Opta por un Género","macho|Macho","hembra|Hembra"];
+var opcionesEdad = ["franajaEtaria|Franja Etaria","Cachorro|Cachorro","Joven|Joven","Adulto|Adulto","Mayor|Mayor"];
+var opcionesSexo = ["optar|Opta por un Género","Macho|Macho","Hembra|Hembra"];
 var opcionesRefugiosDistancia = ["distancia|Distancia del Refugio","10kilometros|10 Kilometros o menos","25kilometros|25 Kilometros o menos","50kilometros|50 kilometros o menos","sinLimite|Sin límite"]
-var opcionesRefugiosAnimales = ["mascotaQueBusco|Mascota que Busco","perros|Perros","gatos|Gatos","otros|Otros"]
+var opcionesRefugiosAnimales = ["mascotaQueBusco|Mascota que Busco","Perros|Perros","Gatos|Gatos","Otros|Otros"]
 var opcionesAnimales = ["tipoDeMascota|Elije un tipo de mascota","aves|Aves","ofidios|Ofidios","roedores|Roedores","otros|Otros"];
 botonPerros.classList.add("botonesActivos");
 

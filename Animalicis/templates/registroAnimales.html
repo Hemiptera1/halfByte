@@ -64,12 +64,12 @@
                 </li>
             </ul>
             <div class="loginHeaderDesktop">
-                {% if nombre == "" %}
-                <p onclick="visibleLogin()">Login/Singup {{ nombre }}</p>
+                {% if Nombre == "" %}
+                <p onclick="visibleLogin()">Login/Singup {{ Nombre }}</p>
                 <i onclick="visibleLogin()" class="fas fa-user"></i>
                 {% else %}
                 <a style="color: rgb(255, 255, 255); text-decoration: none;" href="/profile">
-                <p>{{ nombre }}</p>
+                <p>{{ Nombre }}</p>
                 </a>
                 {% endif %}
             </div>
@@ -83,7 +83,7 @@
 
     <section class="formulario" id="formularioScroll">
         <h4 style="font: 700 5rem 'Open Sans'; color: rgb(58, 56, 56); text-align: center;">Complete el formulario</h4>
-        <form  class="registrosFormularios" action="/insertPet">
+        <form  class="registrosFormularios" action="/insertPet" method="post"  enctype="multipart/form-data">
             <div class="registrosCampos">
                 <label for="nombre">¿Cual es el nombre de su mascota?</label>
                 <input class="registroInput" name="name" type="text" placeholder="Nombre de tu mascota">
