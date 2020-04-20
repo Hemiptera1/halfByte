@@ -1336,7 +1336,7 @@ div.entrada-usuarios select {
 
 .perfilDivisiones {
     display: grid;
-    grid-template-rows: repeat(3, 55rem);
+    grid-template-rows: 55rem 40rem 40rem;
 }
 
 .perfilEncuentro h4 {
@@ -1348,54 +1348,72 @@ div.entrada-usuarios select {
 }
 
 .perfilDatos {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    width: 90%;
-    margin: auto;
-    background-color: #fff;
+    display: flex;
+    width: 85%;
+    height: 85%;
+    margin: 5rem auto;
 }
 
-.datosImg img{
-    position: absolute;
-    width: 40rem;
-    height: 40rem;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    margin:auto;
-    border-radius: 50%;
-    border: 0.5rem solid #e7e5e5;
+.datosImg {
+    width: 50%;
+    height: 100%;
+    background-color: #000;
+    box-sizing: border-box;
 }
 
 
 .datosDatos {
-
+    position: relative;
+    width: calc(50% + 5rem);
+    height: 100%;
+    background-color: transparent;
+    box-sizing: border-box;
+    border-left: 10rem solid #000;
+    border-bottom: 34rem solid transparent;
+}
+.datosDatos img {
+    position: absolute;
+    top: 0;
+    left: -10rem;
+    width: calc(100% + 10rem);
+    height: 34rem;
+    z-index: -1;
 }
 
 .perfilDescripcion {
-    position: relative;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    width: 90%;
-    margin: auto;
+    display: flex;
+    width: 85%;
+    height: 85%;
+    margin: 5rem auto;
 }
 
 .descripcionDescripcion {
-
+    width: 50%;
+    height: 100%;
+    background-color: #fa7376;
+    box-sizing: border-box;
 }
 
-.descripcionImg img{
+.descripcionImg {
+    position: relative;
+    width: calc(50% + 5rem);
+    height: 100%;
+    background-color: transparent;
+    box-sizing: border-box;
+    border-left: 10rem solid #fa7376;
+    border-top: 34rem solid transparent;
+}
+
+.descripcionImg img {
     position: absolute;
-    height: 40rem;
-    width: 40rem;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    margin:auto;
-    border-radius: 50%;
-    border: 0.5rem double #ffffff;
+    top: -34rem;
+    left: -10rem;
+    width: calc(100% + 10rem);
+    height: 34rem;
+    z-index: -1;
 }
+
+
 /* FIN DE PERFIL ANIMAL */
 
 footer {
