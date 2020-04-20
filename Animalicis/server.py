@@ -48,8 +48,27 @@ def index():
     else:
         _name=""
         _type=""
+<<<<<<< Updated upstream
     context={'Nombre': _name, 'Tipo':_type}
     return render_template('index.html', **context, nombre=context["Nombre"])
+=======
+
+    anima= [['Rex','macho','adulto','Montevideo','./static/Photo/Animals/1.jpg'],
+            ['Rex','macho','adulto','Montevideo','./static/Photo/Animals/1.jpg'],
+            ['Rex','macho','adulto','Montevideo','./static/Photo/Animals/1.jpg'],
+            ['Rex','macho','adulto','Montevideo','./static/Photo/Animals/1.jpg'],
+            ['Rex','macho','adulto','Montevideo','./static/Photo/Animals/1.jpg'],
+            ['Rex','macho','adulto','Montevideo','./static/Photo/Animals/1.jpg'],
+            ['Rex','macho','adulto','Montevideo','./static/Photo/Animals/1.jpg'],
+            ['Rex','macho','adulto','Montevideo','./static/Photo/Animals/1.jpg'],
+            ['Rex','macho','adulto','Montevideo','./static/Photo/Animals/1.jpg']]
+
+    _anima=Random_Anima(anima)
+    #return str(_anima)
+
+    context={'Nombre': _name, 'Tipo':_type, 'Animales':_anima}
+    return render_template('index.html', **context)
+>>>>>>> Stashed changes
 
 @app.route('/account', methods=['GET'])    #ruta a la seleccion de signup
 def account():
@@ -74,7 +93,7 @@ def profile():#Probar
         context={"Nombre":row.name, "data":map(json.dumps, data),
                 "Email":row.email, "Departamento":row.department,
                 "Ciudad":row.city, "Barrio":row.neighborhood,
-                "Diereccion":row.Googlemaps, "Descripcion":row.description,
+                "Direccion":row.Googlemaps, "Descripcion":row.description,
                 "Representante":row.rep, "Telefono":row.phone,
                 "Celular":row.celphone, "Web":row.website,
                 "Animales":row.animal, "Abierto":row.time_o,
@@ -127,7 +146,7 @@ def profileRefV(_email=""):#Probar
         context={"Nombre":row.name, "data":map(json.dumps, data),
                 "Email":row.email, "Departamento":row.department,
                 "Ciudad":row.city, "Barrio":row.neighborhood,
-                "Diereccion":row.Googlemaps, "Descripcion":row.description,
+                "Direccion":row.Googlemaps, "Descripcion":row.description,
                 "Representante":row.rep, "Telefono":row.phone,
                 "Celular":row.celphone, "Web":row.web,
                 "Animales":row.animal, "Abierto":row.time_o,
@@ -479,6 +498,7 @@ def insertPet_Update():
     session['type']= "User"
 
 
+<<<<<<< Updated upstream
 @app.route('/searchCat', methods=['GET', 'POST'])              #eliminar
 def search_Cat():#Terminar pasar dato a el index ()
     animal= "'" + "Gato" + "'"
@@ -537,6 +557,16 @@ def search_Other():#Terminar pasar dato a el index()
     usuario.set_cookie("Animal", json.dumps(row))
     usuario.set_cookie("type", json.dumps({'type': 'Other'}))
     return usuario
+=======
+@app.route('/deletedPet', methods=['GET', 'POST'])  #FALTA proceso de actualizacion de datos del Refugio
+def deletedPet():
+    _id= request.form['id']
+    row= Animals_.query.filter_by(id=_id).first()
+    os.remove(row.photo)
+    db.session.delete(row)
+    db.session.commit()
+    return redirect(url_for('profile'))
+>>>>>>> Stashed changes
 
 @app.route('/searchRef', methods=['GET', 'POST'])  #buscador de refugios por barrio o ciudad
 def searchRef():
@@ -743,6 +773,37 @@ def myanimal(row):#agregar el codigo HTML que forma la ficha
             ficha.append({'id':_id, 'name':_name, 'photo':_photo})
             cont += 1
     return ficha
+
+
+def Random_Anima(anima):
+    ram=anima
+    cont=0
+    ficha={}
+    try:
+        data= json.loads(request.cookies.get('MyAnilal'))
+    except TypeError:
+        data= {}
+    else:
+        cantidad= data.get('cant')
+
+
+    for rem  in ram:
+            nombre="Animal" + " " + str(cont)
+        #try:
+            _name= ram[cont][0]
+        #except IndexError:
+        #    break
+        #else:
+            _sexo=ram[cont][1]
+            _edad=ram[cont][2]
+            _direccion=ram[cont][3]
+            _photo=ram[cont][4]
+
+            anima={'Nombre':_name, 'Direccion':_direccion, 'Sexo':_sexo, 'Edad':_edad, 'photo':_photo}
+            ficha[nombre]= anima
+            cont += 1
+    return ficha
+
 
 
 if __name__ == '__main__':
