@@ -10,7 +10,7 @@ function poblar(s1, s2) {
         var opcionesEspecie = ["elijaUno|Elija uno","cimarron|Cimarron","rottweiler|Rottweiler","ovejeroAleman|Ovejero Aleman","mixto|Mixto"];
         textoRaza.innerHTML = "¿De que raza es su perro?";
     } else if(s1Value == "Gatos") {
-        var opcionesEspecie = ["elijaUno|Elija uno","largo|Largo","medio|Medio","largo|Corto","sinPelo|Sin pelo"];
+        var opcionesEspecie = ["elijaUno|Elija uno","largo|Largo","medio|Medio","corto|Corto","sinPelo|Sin pelo"];
         textoRaza.innerHTML = "¿Que tan largo es el pelaje de su gato?";
     } else if(s1Value == "Elija") {
         textoRaza.innerHTML = "Escoja una especie primero";
